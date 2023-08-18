@@ -6,10 +6,10 @@ import Footer from "./pages/Footer/Footer";
 
 const Main = () => {
   return (
-    <html>
+    <div>
       <Header />
       <Slider />
-    </html>
+    </div>
   );
 };
 

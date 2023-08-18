@@ -1,8 +1,17 @@
 .Header {
-  height: 42px;
-  background-color: #595b64;
-  flex-direction: row;
+  position: fixed;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 43px;
+  width: 100%;
+  background: rgba(37,44,62,.6);
+  z-index: 120;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
 }
 
 .CoolPass {
@@ -13,6 +22,7 @@
   justify-content: flex-end;
   width: 20%;
   font-weight: bold;
+  cursor: pointer;
 }
 .HeadMid {
   width: 70%;
@@ -23,10 +33,11 @@
 }
 .HeadMidText {
   font-size: 16px;
-  color: white;
+  color: white;  cursor: pointer;
+
 }
 .HeadButtons {
-  width: 30%;
+  width:28%;
   justify-content: flex-start;
   display: flex;
 }
@@ -41,7 +52,8 @@
   color: white;
   border-radius: 5px;
   height: 30px;
-  align-self: center;
+  align-self: center;  cursor: pointer;
+
 }
 .asd {
   background-color: #595b64;
@@ -53,7 +65,8 @@
   color: white;
   text-align: center;
   height: 30px;
-  align-self: center;
+  align-self: center;  cursor: pointer;
+
 }
 
 .ButtonMenu {

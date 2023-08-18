@@ -1,3 +1,42 @@
-.Slider{
-    height: 510px;
+.Slider {
+  position: relative;
+  width: 100%;
+  min-height: 550px;
+  z-index: 1;
+  box-sizing: content-box;
+  display: block;
+  border-width: 0;
+}
+.header-content {
+  position: absolute;
+  top: 217px;
+  margin-left: 150px;
+}
+.header-content-title {
+  margin-top: 53px;
+  width: 1026px;
+  height: 135px;
+  padding: 9px 0 35px 22px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+.header-content-title-one {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 30%;
+  color: #fff;
+  text-transform: uppercase;
+}
+.header-content-title-two {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30%;
+  color: #fff;
+  text-transform: none;
+  margin-top: 8px;
+  margin-left: 3px;
 }
