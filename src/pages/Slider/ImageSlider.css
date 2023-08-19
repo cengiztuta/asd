@@ -1,6 +1,16 @@
+.image-slider-container {
+  height: auto;
+  position: relative;
+  width: 1440px;
+  overflow: hidden;
+  display: fixed;
+}
 .image {
   height: 550px;
+  width: 1440px;
+  border: none;
 }
+
 .loading {
   height: 8px;
   animation: loading 5s ease-in;
@@ -17,7 +27,7 @@
   background-color: #e5e7e9;
   border-radius: 100%;
   position: relative;
-  bottom: 25px;
+  bottom: 35px;
   justify-content: center;
   align-items: center;
 }
@@ -35,3 +45,4 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+

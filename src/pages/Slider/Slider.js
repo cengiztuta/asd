@@ -22,6 +22,13 @@ const Slider = () => {
           </div>
         </div>
       </section>
+      <section className="underbar">
+        <p className="underbar-text">
+          Now you have a choice! Download the new DIGITAL PRAGUE COOLPASS
+          straight to your mobile or collect the PHYSICAL PRAGUE CARD upon
+          arrival
+        </p>
+      </section>
     </div>
   );
 };

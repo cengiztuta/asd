@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ImageSlider.css";
-import Header from "../Header/Header";
 
 const ImageSlider = () => {
   const settings = {
@@ -22,9 +21,9 @@ const ImageSlider = () => {
   };
 
   const images = [
-    require("../images/image1.jpg"),
-    require("../images/image2.jpg"),
-    require("../images/image3.jpg"),
+    require("../images/image1.jpeg"),
+    require("../images/image2.jpeg"),
+    require("../images/image3.jpeg"),
 
     // Diğer resimler
   ];
@@ -33,12 +32,12 @@ const ImageSlider = () => {
     <div className="image-slider-container">
       <Slider {...settings}>
         {images.map((image, index) => (
-          <div className="image" key={index}>
-      
-            <img style={{ height: "100%", width: "100%" }} src={image} />
+          <div key={index}>
+            <img className="image" src={image} />
           </div>
         ))}
       </Slider>
+    
     </div>
   );
 };
