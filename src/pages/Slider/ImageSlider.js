@@ -27,7 +27,8 @@ const ImageSlider = () => {
 
     // Diğer resimler
   ];
-
+  console.log(1+"2")
+ 
   return (
     <div className="image-slider-container">
       <Slider {...settings}>
@@ -37,7 +38,6 @@ const ImageSlider = () => {
           </div>
         ))}
       </Slider>
-    
     </div>
   );
 };

@@ -9,6 +9,7 @@ const Main = () => {
     <div>
       <Header />
       <Slider />
+      <Body />
     </div>
   );
 };

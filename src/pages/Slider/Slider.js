@@ -1,34 +1,78 @@
 import React from "react";
 import "./Slider.css";
-import Header from "../Header/Header";
 import ImageSlider from "./ImageSlider";
+import { Input, InputGroup, InputRightElement, Button } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
+
 const Slider = () => {
   return (
-    <div className="Slider">
-      <ImageSlider />
-      <section
-        style={{
-          justifyContent: "center",
-        }}
-      >
-        <div className="header-content">
-          <div className="header-content-title">
-            <h1 className="header-content-title-one">
-              PRAGUE CARD IS NOW "COOLPASS"
-            </h1>
-            <h3 className="header-content-title-two">
-              Visit the best city attractions included in Prague CoolPass
-            </h3>
+    <div id="app">
+      <div className="Slider">
+        <ImageSlider />
+        <section
+          style={{
+            justifyContent: "center",
+            display: "flex",
+          }}
+        >
+          <div className="header-content">
+            <div className="header-content-title">
+              <h1 className="header-content-title-one">
+                PRAGUE CARD IS NOW "COOLPASS"
+              </h1>
+              <h3 className="header-content-title-two">
+                Visit the best city attractions included in Prague CoolPass
+              </h3>
+            </div>
+
+            {/* <div className="input-container">
+            <label>
+              <input
+                className="asdfg"
+                type="text"
+                autoComplete="off"
+                placeholder="Search Attractions"
+              />
+              <input type="hidden" />
+            </label>
+            <div className="search"> </div>
+          </div> */}
+            {/* <div className="input-container">
+            <InputGroup className="bam">
+              <Input
+                placeholder="Search Attractions"
+                type="text"
+                className="bum"
+              />
+              <InputRightElement
+                pointerEvents="none"
+                children={<SearchIcon color="gray" className="icon" />}
+              />
+            </InputGroup>
+          </div> */}
+            <div className="search-container">
+              <div className="inputone">
+                <input
+                  className="dsadsa"
+                  type="text"
+                  placeholder="Search Attractions"
+                />
+                <SearchIcon color={"gray"} className="icon" />
+              </div>
+              <Button _hover={{ bg: "#FF9848" }} className="button">
+                BUY ONLINE
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
-      <section className="underbar">
-        <p className="underbar-text">
-          Now you have a choice! Download the new DIGITAL PRAGUE COOLPASS
-          straight to your mobile or collect the PHYSICAL PRAGUE CARD upon
-          arrival
-        </p>
-      </section>
+        </section>
+        <section className="underbar">
+          <p className="underbar-text">
+            Now you have a choice! Download the new DIGITAL PRAGUE COOLPASS
+            straight to your mobile or collect the PHYSICAL PRAGUE CARD upon
+            arrival
+          </p>
+        </section>
+      </div>
     </div>
   );
 };
