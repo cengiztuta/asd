@@ -16,9 +16,36 @@
   -ms-flex-align: center;
   align-items: center;
   display: flex;
-  justify-content: center;
+
   background-color: yellow;
   height: 204px;
-  margin-top: 59px;
-width: 1219px;
+  margin-top: 40px;
+  width: 1219px;
+}
+.card-slide-left-icon {
+  height: 24px;
+  width: 24px;
+  justify-content: flex-start;
+  display: block;
+  background-image: url(../images/left-icon.png);
+  cursor: pointer;
+  margin-right: 20px;
+}
+.card-slide {
+  height: 204px;
+  width: 270px;
+  background-color: blue;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.card-slide-right-icon {
+  height: 24px;
+  width: 24px;
+  align-self: center;
+  justify-content: flex-end;
+  display: block;
+  background-image: url(../images/left-icon.png);
+  cursor: pointer;
+  margin-right: 20px;
+  background-color: red;
 }
