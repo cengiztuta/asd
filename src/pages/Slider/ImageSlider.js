@@ -13,6 +13,7 @@ const ImageSlider = () => {
     adaptiveHeight: true,
     autoplay: true,
     autoplaySpeed: 6000,
+   
     customPaging: (i) => (
       <div className="ft-slick__dots--custom">
         <div className="loading" />
@@ -30,7 +31,7 @@ const ImageSlider = () => {
 
   return (
     <div className="image-slider-container">
-      <Slider {...settings}>
+      <Slider {...settings} >
         {images.map((image, index) => (
           <div key={index}>
             <img className="image" src={image} />

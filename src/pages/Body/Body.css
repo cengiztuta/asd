@@ -1,8 +1,9 @@
 .top-prague-att {
   width: 1219px;
   height: 1234px;
-  background-color: green;
   margin-top: 40px;
+  overflow: hidden;
+ 
 }
 .top-title {
   font-size: 22px;
@@ -17,17 +18,18 @@
   align-items: center;
   display: flex;
   flex-direction: row;
-  background-color: yellow;
   height: 204px;
   margin-top: 40px;
-  width: 1219px;
+  width: 1440px;
+  background-color: yellow;
+  
 }
 .swiper-container {
-  width: 1169px;
-  height: 204px;
+  width: 1219px;
+  height: auto;
   display: flex;
-  background-color: red;
 }
+
 .card-slide-left-icon {
   height: 20px;
   width: 20px;
@@ -42,14 +44,6 @@
   width: 270px;
   background-color: blue;
   border-radius: 10px;
-  margin-right: 20px;
+ 
 }
-.card-slide-right-icon {
-  height: 20px;
-  width: 20px;
-  align-self: center;
-  justify-content: flex-end;
-  display: block;
-  background-image: url(../images/left-icon.png);
-  cursor: pointer;
-}
+

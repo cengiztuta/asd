@@ -4,4 +4,40 @@
   border: none;
   outline: none;
   border-width: 0;
+  border-radius: 10px;
+  background-color: red;
+}
+
+.card-slider-container {
+  height: auto;
+  position: relative;
+  width: 1219px;
+  overflow: hidden;
+  display: fixed;
+  outline: none;
+  border-width: 0;
+  border: none;
+}
+.custom-next-arrow {
+  height: 250px;
+  width: 50px;
+  background-image: url(../images/left-icon.png);
+  cursor: pointer;
+}
+.custom-prew-arrow {
+  height: 20px;
+  width: 20px;
+  background-image: url(../images/left-icon.png);
+  cursor: pointer;
+}
+
+.card-slide-right-icon {
+  height: 20px;
+  width: 20px;
+  align-self: center;
+  justify-content: flex-end;
+  display: block;
+  background-image: url(../images/left-icon.png);
+  cursor: pointer;
+  background-color: red;
 }
