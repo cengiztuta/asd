@@ -1,0 +1,13 @@
+/* Özel stillemeleri burada tanımlayın */
+.swiper-button-prev {
+    background-color: #ff9900; /* Arkaplan rengi */
+    color: white; /* Metin rengi */
+  }
+  
+  .swiper-button-next {
+    background-color: #ff9900; /* Arkaplan rengi */
+    color: white; /* Metin rengi */
+  }
+  
+  /* Daha fazla stil özelleştirmesi burada eklenebilir */
+  

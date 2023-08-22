@@ -16,20 +16,26 @@
   -ms-flex-align: center;
   align-items: center;
   display: flex;
-
+  flex-direction: row;
   background-color: yellow;
   height: 204px;
   margin-top: 40px;
   width: 1219px;
 }
+.swiper-container {
+  width: 1169px;
+  height: 204px;
+  display: flex;
+  background-color: red;
+}
 .card-slide-left-icon {
-  height: 24px;
-  width: 24px;
-  justify-content: flex-start;
-  display: block;
+  height: 20px;
+  width: 20px;
+  align-self: center;
+  display: flex;
   background-image: url(../images/left-icon.png);
   cursor: pointer;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 .card-slide {
   height: 204px;
@@ -39,13 +45,11 @@
   margin-right: 20px;
 }
 .card-slide-right-icon {
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   align-self: center;
   justify-content: flex-end;
   display: block;
   background-image: url(../images/left-icon.png);
   cursor: pointer;
-  margin-right: 20px;
-  background-color: red;
 }
