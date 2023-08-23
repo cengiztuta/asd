@@ -1,6 +1,6 @@
 import React from "react";
 import "./Body.css";
-import { ChevronLeftIcon } from "@chakra-ui/icons";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/navigation";
 // Import Swiper styles
@@ -10,22 +10,23 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./CardSlider.css";
 import CardSlider from "./CardSlider";
+import { Card } from "@chakra-ui/react";
+import Benefits from "../../Benefits/Benefits";
 
 const Body = () => {
   return (
-    <section
-      id="top-attractions"
-      style={{ justifyContent: "center", display: "flex" }}
-      className="asdfghj"
-    >
-      <div className="top-prague-att">
-        <a className="top-title">TOP PRAGUE ATTRACTIONS INCLUDED IN COOLPASS</a>
-
-        <div className="swiper-container">
-          <CardSlider />
-        </div>
-      </div>
-    </section>
+    <div>
+      <section
+        id="top-attractions"
+        style={{ justifyContent: "center", display: "flex" }}
+        className="asdfghj"
+      >
+        <CardSlider />
+      </section>
+      <section style={{ display: "flex", justifyContent: "center" }}>
+        <Benefits />
+      </section>
+    </div>
   );
 };
 

@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./CardSlider.css";
 import { position } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const CardSlider = () => {
   const settings = {
@@ -12,46 +13,9 @@ const CardSlider = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <ChevronRightIcon boxSize={"24px"} marginRight={"24px"} />,
+    prevArrow: <ChevronLeftIcon boxSize={"24px"} marginLeft={"24px"} />,
   };
-
-  function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "block",
-          marginRight: "25px",
-          background: "green",
-          zIndex: 1,
-        }}
-        onClick={onClick}
-      />
-    );
-  }
-
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "block",
-          background: "green",
-          marginLeft: "25px",
-          justifyContent: "center",
-          zIndex: 1,
-          alignSelf: "center",
-          position: "absolute",
-        }}
-        onClick={onClick}
-      />
-    );
-  }
 
   const images = [
     require("../images/image1.jpeg"),
@@ -65,16 +29,24 @@ const CardSlider = () => {
   ];
 
   return (
-    <div className="card-slider-container">
-      <Slider {...settings}>
-        {images.map((image, index) => (
-          <div key={index}>
-            <img className="card" src={image} />
-          </div>
-        ))}
-      </Slider>
+    
+    <div className="top-prague-att">
+<a className="top-title">TOP PRAGUE ATTRACTIONS INCLUDED IN COOLPASS</a>
+    <div className="bumbum">
+      <div className="card-slider-container">
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <div key={index}>
+              <img className="card" src={image} />
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
     </div>
   );
 };
 
 export default CardSlider;
+
+

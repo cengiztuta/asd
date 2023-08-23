@@ -1,0 +1,130 @@
+.Benefits {
+  width: 1163px;
+  height: 547px;
+  display: flex;
+  flex-direction: row;
+}
+.Benefits-title {
+  margin-left: 8px;
+}
+.Benefits-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 30px;
+  display: flex;
+}
+.new-tabs-container {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.content {
+  height: auto;
+}
+.spoiler {
+  margin-top: 2px;
+}
+
+.spoiler:first-child {
+  margin-top: 0;
+}
+
+.spoiler-title-box {
+  cursor: pointer;
+  width: 656px;
+  height: 90px;
+  background-color: #252c3e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.spoiler-title-box:hover {
+  background-color: #2f384f;
+}
+.spoiler-title-text {
+  margin-left: 20px;
+  font-family: Open Sans Semibold, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.spoiler-content {
+  height: 0;
+  visibility: visible;
+  -webkit-transition: height 0.25s ease-out;
+  transition: height 0.25s ease-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  justify-content: left;
+  padding-left: 20px;
+}
+.active {
+  height: auto;
+  visibility: visible;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+.spoiler-text {
+  width: 616px;
+  margin: 15px 0;
+  font-family: Open Sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  color: #252527;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 20px;
+  list-style: initial;
+}
+.spoiler-text em {
+  font-style: italic;
+}
+
+.spoiler-text a {
+  color: rgba(37, 44, 62, 0.6);
+  text-decoration: none;
+}
+
+.spoiler-text a:hover {
+  color: #da4b07;
+}
+
+.spoiler-text ul {
+  margin-left: 20px;
+  list-style: initial;
+}
+
+.spoiler-text strong {
+  font-family: Open Sans Bold, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.spoiler-text .ql-align-center {
+  text-align: center;
+}
+.buse {
+  display: flex;
+  flex-direction: row;
+  height: 482px;  
+  width: 1163px;
+  background-color: green;
+}
