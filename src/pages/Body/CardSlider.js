@@ -24,29 +24,24 @@ const CardSlider = () => {
     require("../images/image3.jpeg"),
     require("../images/image3.jpeg"),
     require("../images/image3.jpeg"),
-
-    // Diğer resimler
   ];
 
   return (
-    
     <div className="top-prague-att">
-<a className="top-title">TOP PRAGUE ATTRACTIONS INCLUDED IN COOLPASS</a>
-    <div className="bumbum">
-      <div className="card-slider-container">
-        <Slider {...settings}>
-          {images.map((image, index) => (
-            <div key={index}>
-              <img className="card" src={image} />
-            </div>
-          ))}
-        </Slider>
+      <a className="top-title">TOP PRAGUE ATTRACTIONS INCLUDED IN COOLPASS</a>
+      <div className="bumbum">
+        <div className="card-slider-container">
+          <Slider {...settings}>
+            {images.map((image, index) => (
+              <div key={index}>
+                <img className="card" src={image} />
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
 
 export default CardSlider;
-
-

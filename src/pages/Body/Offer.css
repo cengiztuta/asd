@@ -1,0 +1,105 @@
+.offer {
+  display: flex;
+  height: auto;
+  width: auto;
+  justify-content: center;
+}
+.offer-content {
+  width: 1163px;
+  height: 620px;
+}
+.h3 {
+  font-family: Open Sans Bold, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 130%;
+  text-transform: uppercase;
+  color: #252c3e;
+}
+.pop-up-content-top {
+  height: 300px;
+  width: 1140px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.pop-up-content-bottom {
+  height: 300px;
+  width: 1140px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.pop-up {
+  display: flex;
+  height: 100%;
+  width: 560px;
+  background-color: red;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  cursor: pointer;
+  /* background-image: url(https://static2.praguecoolpass.com/small_816c7b24-528c-49b7-a2b8-d78373951cac.jpg); */
+}
+.pop-up-title {
+  width: 476px;
+  height: 71px;
+  background: rgba(218, 75, 7, 0.6);
+  margin-left: 42.22px;
+  margin-bottom: 21px;
+  align-self: flex-end;
+  border-radius: 10px;
+}
+.pop-up-title-h3 {
+  text-align: center;
+  font-family: Open Sans Bold, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 30px;
+}
+.hovered {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(59, 67, 84, 0.8);
+}
+.pop-up-text-title {
+  font-family: Open Sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 23px;
+  color: #fff;
+  margin-top: 35px;
+  margin-left: 25px;
+}
+.pop-up-text {
+  font-family: Open Sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  color: #fff;
+  margin-top: 15px;
+  margin-left: 25px;
+}.pop-up-button-content{
+    display: flex;
+    justify-content: center;
+}
+.pop-up-button {
+  display: flex;
+  height: 50px;
+  width: 250px;
+  border-width: 0;
+  background-color: #fb5a03;
+  font-size: 15px;
+  color: white;
+  border-radius: 10px;
+  height: 50px;
+  align-self: center;
+  cursor: pointer;
+  margin-top: 20px;
+}

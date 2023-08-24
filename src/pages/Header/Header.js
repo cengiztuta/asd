@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { Button, Text } from "@chakra-ui/react";
 import {
@@ -13,9 +13,26 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 const Header = () => {
+  const [scrolling, setScrolling] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setScrolling(true);
+    } else {
+      setScrolling(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <div className="Header">
+      <div className={`Header ${scrolling ? "hide" : ""}`}>
         <Text className="CoolPass">CoolPass </Text>
         <div className="HeadMid">
           <Text className="HeadMidText">CoolPass/Card </Text>
@@ -26,21 +43,31 @@ const Header = () => {
           <Text className="HeadMidText">FAQ </Text>
         </div>
         <div className="HeadButtons">
-          <Button _hover={{bg:'#FF9848'}} className="ButtonOne">BUY ONLINE</Button>
+          <Button _hover={{ bg: "#FF9848" }} className="ButtonOne">
+            BUY ONLINE
+          </Button>
           <Menu className="ButtonMenu">
             <MenuButton
-              _hover={{ bg: '#545454' }}
+              _hover={{ bg: "#545454" }}
               className="asd"
               as={Button}
               rightIcon={<ChevronDownIcon />}
             >
-             ENGLISH
-            </MenuButton  >
-            <MenuList  _hover={{ bg: '#545454' }} className="ButtonMenu">
-              <MenuItem  _hover={{ bg: '#545454' }} className="MenuButton">ENGLISH</MenuItem>
-              <MenuItem   _hover={{ bg: '#545454' }} className="MenuButton">TÜRKÇE</MenuItem>
-              <MenuItem   _hover={{ bg: '#545454' }} className="MenuButton">DEUTCH</MenuItem>
-              <MenuItem   _hover={{ bg: '#545454' }} className="MenuButton">Delete</MenuItem>
+              ENGLISH
+            </MenuButton>
+            <MenuList _hover={{ bg: "#545454" }} className="ButtonMenu">
+              <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
+                ENGLISH
+              </MenuItem>
+              <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
+                TÜRKÇE
+              </MenuItem>
+              <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
+                DEUTCH
+              </MenuItem>
+              <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
+                Delete
+              </MenuItem>
             </MenuList>
           </Menu>
         </div>

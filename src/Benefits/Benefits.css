@@ -3,6 +3,7 @@
   height: 547px;
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 .Benefits-title {
   margin-left: 8px;
@@ -17,6 +18,13 @@
   flex-direction: row;
   margin-top: 30px;
   display: flex;
+}
+.Collapse {
+  height: 122px;
+  width: 656px;
+}
+.Collapse-text {
+  margin-left: 20px;
 }
 .new-tabs-container {
   box-sizing: border-box;
@@ -44,6 +52,9 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  outline: none;
+  border: none;
+  margin-top: 2px;
 }
 .spoiler-title-box:hover {
   background-color: #2f384f;
@@ -121,10 +132,31 @@
 .spoiler-text .ql-align-center {
   text-align: center;
 }
-.buse {
-  display: flex;
+.phone-content {
+  margin-left: 67px;
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
   flex-direction: row;
-  height: 482px;  
-  width: 1163px;
-  background-color: green;
+  display: flex;
+}
+.Benefits-phone {
+  height: 390px;
+  width: 195px;
+  justify-content: center;
+  align-self: center;
+  background-color: blue;
+  background-image: url("../pages//images/phone.jpeg");
+  background-size: cover;
+  z-index: 2;
+  background-repeat: no-repeat;
+}
+.Benefits-prague-card {
+  width: 283px;
+  height: 180px;
+  background-image: url("../pages/images/prague-card.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 188px;
+  margin-left: 150.73px;
+  position: absolute;
 }

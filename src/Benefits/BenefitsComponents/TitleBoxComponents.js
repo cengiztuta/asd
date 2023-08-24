@@ -43,7 +43,7 @@ const TitleBoxComponents = () => {
     setIsExpandedOne(false);
   };
   return (
-    <div>
+    <div style={{ height: "482px", width: "656px", }}>
       <Button
         _hover={{ bg: "#545454" }}
         className="spoiler-title-box"
@@ -53,26 +53,17 @@ const TitleBoxComponents = () => {
           Convenient Digital QR Code or Classic Smart Card
         </h4>
       </Button>
-      <Collapse
-        in={isExpandedOne}
-        animateOpacity
-        style={{
-          height: "122px",
-          width: "636px",
-          backgroundColor: "red",
-          marginLeft: "20px",
-        }}
-      >
+      <Collapse in={isExpandedOne} animateOpacity className="Collapse">
         <VStack align="start" spacing="4">
           <Text className="spoiler-text">
             <div>
-              <Text>
+              <Text className="Collapse-text">
                 Prague Card, the popular multi-attraction pass enjoyed by more
                 than 1 million visitors since 1992, is now coming up with its
                 new mobile generation product - Prague CoolPass.
               </Text>
 
-              <Text>
+              <Text className="Collapse-text">
                 To access the best Prague attractions in a convenient way, you
                 can choose between a digital QR Code in your mobile or a classic
                 physical smart card.
@@ -89,10 +80,10 @@ const TitleBoxComponents = () => {
       >
         <h4 className="spoiler-title-text">Free Access to 60+ Attractions</h4>
       </Button>
-      <Collapse in={isExpandedTwo} animateOpacity>
+      <Collapse in={isExpandedTwo} animateOpacity className="Collapse">
         <VStack align="start" spacing="4">
           <Text className="spoiler-text">
-            <Text>
+            <Text className="Collapse-text">
               Visit Prague Castle with its splendid St. Vitus Cathedral, see
               world-famous Jewish Museum and its synagogues, top attractions
               like National Museum or the popular Prague ZOO, take a sightseeing
@@ -113,10 +104,10 @@ const TitleBoxComponents = () => {
           EXCLUSIVE OFFERS & DISCOUNTS UP TO 50% OFF
         </h4>
       </Button>
-      <Collapse in={isExpandedThree} animateOpacity>
+      <Collapse in={isExpandedThree} animateOpacity className="Collapse">
         <VStack align="start" spacing="4">
           <Text className="spoiler-text">
-            <Text>
+            <Text className="Collapse-text">
               To add even more value to your trip, CoolPass includes cost-saving
               discounts on accessing other 60+ attractions, tours, cruises,
               entertainment shows, shopping and dining options. Pick your
@@ -133,10 +124,10 @@ const TitleBoxComponents = () => {
       >
         <h4 className="spoiler-title-text">FREE MOBILE APP</h4>
       </Button>
-      <Collapse in={isExpandedFour} animateOpacity>
+      <Collapse in={isExpandedFour} animateOpacity className="Collapse">
         <VStack align="start" spacing="4">
           <Text className="spoiler-text">
-            <Text>
+            <Text className="Collapse-text">
               Download free our Prague CoolPass App where you can browse the
               attractions, filter them by their types, tourist areas or your
               interests. You can find the opening hours, nearest public
@@ -146,7 +137,7 @@ const TitleBoxComponents = () => {
               and as an information and navigation source the App is free for
               everybody.
             </Text>
-            <Text>
+            <Text className="Collapse-text">
               In the App, you can also buy and download your CoolPass and use it
               on your smartphone to enter the included attractions.
             </Text>

@@ -1,4 +1,3 @@
-
 .carousel-container {
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
@@ -18,11 +17,13 @@
   display: flex;
 }
 
-
 .card-slide {
   height: 204px;
   width: 270px;
   border-radius: 10px;
 }
 
-
+.Offer {
+  display: flex;
+  background-color: red;
+}

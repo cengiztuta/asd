@@ -10,60 +10,82 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./CardSlider.css";
 import CardSlider from "./CardSlider";
+import NewCardSlider from "./NewCardSlider";
 import { Card } from "@chakra-ui/react";
 import Benefits from "../../Benefits/Benefits";
+import { Box } from "@chakra-ui/react";
+import Offer from "./Offer";
 
 const Body = () => {
+  const CardData = [
+    {
+      id: 1,
+      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
+      title: "Prague Castle",
+      description:
+        " The Prague Castle is the biggest Castle complex in the World.",
+      banner: "INCLUDED With CoolPass",
+    },
+    {
+      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
+      title: "Prague Castle",
+      description:
+        " The Prague Castle is the biggest Castle complex in the World.",
+      banner: "INCLUDED With CoolPass",
+    },
+    {
+      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
+      title: "Prague Castle",
+      description:
+        " The Prague Castle is the biggest Castle complex in the World.",
+      banner: "INCLUDED With CoolPass",
+    },
+    {
+      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
+      title: "Prague Castle",
+      description:
+        " The Prague Castle is the biggest Castle complex in the World.",
+      banner: "INCLUDED With CoolPass",
+    },
+    {
+      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
+      title: "Prague Castle",
+      description:
+        " The Prague Castle is the biggest Castle complex in the World.",
+      banner: "INCLUDED With CoolPass",
+    },
+    {
+      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
+      title: "Prague Castle",
+      description:
+        " The Prague Castle is the biggest Castle complex in the World.",
+      banner: "INCLUDED With CoolPass",
+    },
+  ];
   return (
     <div>
       <section
         id="top-attractions"
         style={{ justifyContent: "center", display: "flex" }}
-        className="asdfghj"
       >
-        <CardSlider />
+        <Box
+          style={{
+            height: "263px",
+            width: "100%",
+            justifyContent: "center",
+            display: "flex",
+          }}
+        >
+          <NewCardSlider CardData={CardData} />
+        </Box>
       </section>
       <section style={{ display: "flex", justifyContent: "center" }}>
         <Benefits />
       </section>
+
+      <Offer />
     </div>
   );
 };
 
 export default Body;
-
-{
-  /* <div className="carousel-container">
-<div className="card-slide-left-icon"> </div>
-
-<div className="card-slide"> </div>
-<div className="card-slide"> </div>
-<div className="card-slide"> </div>
-<div className="card-slide"> </div>
-<div className="card-slide"> </div>
-<div className="card-slide"> </div>
-<div className="card-slide"> </div>
-<div className="card-slide"> </div>
-
-<div className="card-slide-right-icon"> </div>
-</div> */
-}
-
-{
-  /* <Swiper
-spaceBetween={50}
-slidesPerView={4}
-onSlideChange={() => console.log("slide change")}
-onSwiper={(swiper) => console.log(swiper)}
->
-<SwiperSlide>
-  <div className="card-slide"> </div>
-</SwiperSlide>
-<SwiperSlide>
-  <div className="card-slide"> </div>
-</SwiperSlide>
-<SwiperSlide>
-  <div className="card-slide"> </div>
-</SwiperSlide>
-</Swiper> */
-}

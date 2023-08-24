@@ -25,31 +25,6 @@ const Slider = () => {
               </h3>
             </div>
 
-            {/* <div className="input-container">
-            <label>
-              <input
-                className="asdfg"
-                type="text"
-                autoComplete="off"
-                placeholder="Search Attractions"
-              />
-              <input type="hidden" />
-            </label>
-            <div className="search"> </div>
-          </div> */}
-            {/* <div className="input-container">
-            <InputGroup className="bam">
-              <Input
-                placeholder="Search Attractions"
-                type="text"
-                className="bum"
-              />
-              <InputRightElement
-                pointerEvents="none"
-                children={<SearchIcon color="gray" className="icon" />}
-              />
-            </InputGroup>
-          </div> */}
             <div className="search-container">
               <div className="inputone">
                 <input
@@ -60,7 +35,7 @@ const Slider = () => {
                 <SearchIcon color={"gray"} className="icon" />
               </div>
               <Button _hover={{ bg: "#FF9848" }} className="button">
-                BUY ONLINE
+               LET'S GO
               </Button>
             </div>
           </div>
