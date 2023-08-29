@@ -23,7 +23,7 @@ import Customers from "./Customers";
 const Body = () => {
   const CardData = [
     {
-      id: 1,
+     
       img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
       title: "Prague Castle",
       description:

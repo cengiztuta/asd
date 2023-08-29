@@ -1,6 +1,7 @@
 .customer {
   display: flex;
   justify-content: center;
+  background-color: gren;
 }
 .customer-container {
   height: 383px;
@@ -37,13 +38,21 @@
   display: flex;
   flex-direction: column;
   background: #f9f9fb;
+  overflow: hidden; 
+  transition: max-height 0.3s ease-in-out;
+}
+.customer-card.expanded {
+  white-space: normal;
+  max-height: none;
 }
 .customer-wrapper {
   width: 100%;
+  min-height: 278px;
+  height: auto;
 }
 .customer-wrapper-content {
-  height: 367px;
   width: 1188px;
+  height: auto;
   display: flex;
   align-items: center;
 }
@@ -88,7 +97,7 @@
 .customer-body {
   flex-grow: 1;
   width: 318px;
-  min-height: 80px;
+  height: auto;
   margin-left: 32px;
   margin-top: 11px;
 }
@@ -133,12 +142,13 @@
   line-height: 16px;
   color: #252c3e;
 }
-.pagination-container{
+.pagination-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-top: 18px;
 }
-.pagination-button-all{
+.pagination-button-all {
   min-width: 190px;
   padding: 0 20px;
   height: 48px;
@@ -146,7 +156,7 @@
   border: 1px solid #252c3e;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Open Sans Bold,sans-serif;
+  font-family: Open Sans Bold, sans-serif;
   font-weight: 700;
   font-size: 15px;
   line-height: 19px;
@@ -154,8 +164,9 @@
   text-transform: uppercase;
   color: #252c3e;
   margin-right: 20px;
+  cursor: pointer;
 }
-.pagination-button-write{
+.pagination-button-write {
   min-width: 190px;
   padding: 0 20px;
   height: 48px;
@@ -163,11 +174,12 @@
   border: 1px solid #252c3e;
   box-sizing: border-box;
   border-radius: 5px;
-  font-family: Open Sans Bold,sans-serif;
+  font-family: Open Sans Bold, sans-serif;
   font-weight: 700;
   font-size: 15px;
   line-height: 19px;
   text-align: center;
   text-transform: uppercase;
   color: #252c3e;
+  cursor: pointer;
 }
