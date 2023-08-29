@@ -10,6 +10,7 @@ const Main = () => {
       <Header />
       <Slider />
       <Body />
+      <Footer/>
     </div>
   );
 };

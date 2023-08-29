@@ -1,13 +1,11 @@
 .Benefits {
-  width: 1163px;
+  width: 1140px;
   height: 547px;
   display: flex;
   flex-direction: row;
   position: relative;
 }
-.Benefits-title {
-  margin-left: 8px;
-}
+
 .Benefits-content-container {
   display: -webkit-box;
   display: -ms-flexbox;

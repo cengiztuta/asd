@@ -35,7 +35,7 @@ const Slider = () => {
                 <SearchIcon color={"gray"} className="icon" />
               </div>
               <Button _hover={{ bg: "#FF9848" }} className="button">
-               LET'S GO
+                LET'S GO
               </Button>
             </div>
           </div>

@@ -15,6 +15,10 @@ import { Card } from "@chakra-ui/react";
 import Benefits from "../../Benefits/Benefits";
 import { Box } from "@chakra-ui/react";
 import Offer from "./Offer";
+import Howuse from "./Howuse";
+import News from "./News";
+import Calculator from "./Calculator";
+import Customers from "./Customers";
 
 const Body = () => {
   const CardData = [
@@ -82,8 +86,21 @@ const Body = () => {
       <section style={{ display: "flex", justifyContent: "center" }}>
         <Benefits />
       </section>
-
-      <Offer />
+      <section>
+        <Offer />
+      </section>
+      <section>
+        <Howuse />{" "}
+      </section>
+      <section>
+        <News />
+      </section>
+      <section>
+        <Calculator />
+      </section>
+      <section>
+        <Customers/>
+      </section>
     </div>
   );
 };

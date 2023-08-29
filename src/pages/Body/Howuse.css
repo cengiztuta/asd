@@ -1,0 +1,70 @@
+.Howuse {
+  display: flex;
+  justify-content: center;
+}
+.Howuse-container {
+  height: 500;
+  width: 1140px;
+}
+.Howuse-title {
+  font-family: Open Sans Bold, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 130%;
+  text-transform: uppercase;
+  color: #252c3e;
+}
+.Howuse-wrapper {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+.Howuse-steps {
+  display: grid;
+  margin-top: 30px;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.steps {
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.step-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 269px;
+  height: 250px;
+}
+.step-number {
+  margin-top: 14px;
+  font-family: Open Sans Bold, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 29px;
+  text-align: center;
+  color: #252c3e;
+}
+.step-text {
+  margin-top: 7px;
+  font-family: Open Sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  text-align: center;
+  color: #252c3e;
+}

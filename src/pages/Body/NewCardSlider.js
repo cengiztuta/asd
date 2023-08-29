@@ -10,7 +10,7 @@ const NewCardSlider = ({ CardData }) => {
   const swiperRef = useRef(null);
   return (
     <Box
-      w={"1219px"}
+      w={"1188px"}
       h={"263px"}
       position={"relative"}
       flexDirection={"row"}
@@ -18,7 +18,11 @@ const NewCardSlider = ({ CardData }) => {
       alignItems={"center"}
       display={"flex"}
     >
-      <Box h={"24px"} cursor={"pointer"}  onClick={() => swiperRef.current.swiper.slidePrev()}>
+      <Box
+        h={"24px"}
+        cursor={"pointer"}
+        onClick={() => swiperRef.current.swiper.slidePrev()}
+      >
         <ChevronLeftIcon w={"24px"} h={"100%"} />
       </Box>
 
@@ -57,7 +61,11 @@ const NewCardSlider = ({ CardData }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Box h={"24px"} cursor={"pointer"}  onClick={() => swiperRef.current.swiper.slideNext()}>
+      <Box
+        h={"24px"}
+        cursor={"pointer"}
+        onClick={() => swiperRef.current.swiper.slideNext()}
+      >
         <ChevronRightIcon w={"24px"} h={"100%"} />
       </Box>
     </Box>

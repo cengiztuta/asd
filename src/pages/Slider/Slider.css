@@ -58,8 +58,6 @@
   min-height: 38px;
   height: auto;
   padding-top: 7px;
-  
-
 }
 
 .underbar-text {
@@ -109,7 +107,6 @@
 .search {
   width: 20px;
   height: 20px;
-  background-image: (../images/search.png);
   cursor: pointer;
   right: 9px;
   position: relative;

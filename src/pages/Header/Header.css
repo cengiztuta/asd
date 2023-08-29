@@ -12,6 +12,7 @@
   transform: translateZ(0);
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  align-items: center;
 }
 .Header.hide {
   transform: translateY(-100%);
@@ -55,9 +56,11 @@
   color: white;
   border-radius: 5px;
   height: 30px;
-  align-self: center;
+  align-self: flex-start;
+  justify-content: flex-start;
   cursor: pointer;
 }
+
 .asd {
   background-color: #595b64;
   border-width: 0;

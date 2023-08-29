@@ -11,36 +11,92 @@ const Offer = () => {
   return (
     <section className="offer">
       <div className="offer-content">
-        <h3 className="h3">ALL-INCLUSIVE OFFER FOR YOUR PRAGUE SIGHTSEEING</h3>
+        <a className="h3">ALL-INCLUSIVE OFFER FOR YOUR PRAGUE SIGHTSEEING</a>
         <div className="pop-up-content-top">
           <div
-            className="pop-up"
+            onMouseEnter={() => setShow("popup1")}
+            onMouseLeave={() => setShow(null)}
+            className={`pop-up ${show === "popup1" ? "active" : ""}`}
             style={{
               backgroundImage: `url(${offer1})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="pop-up-title">
-              {" "}
-              <h3 className="pop-up-title-h3"> MUSEUMS AND OTHER SIGHTS</h3>
-            </div>
+            {" "}
+            {show === "popup1" ? (
+              <div className="hovered">
+                <div>
+                  <h3 className="pop-up-text-title">
+                    MUSEUMS AND OTHER SIGHTS
+                  </h3>
+                  <div className="pop-up-text">
+                    <p>
+                      From the historical Prague Castle and Jewish Quarter with
+                      its synagogues to the world-famous Prague ZOO, CoolPass
+                      will give you access to almost every must-see sight in
+                      Prague. Entry to most attractions is free with CoolPass,
+                      others can be visited with a substantial discount.
+                    </p>
+                  </div>
+                  <div className="pop-up-button-content">
+                    <Button
+                      _hover={{ bg: "#FF9848" }}
+                      className="pop-up-button"
+                    >
+                      BUY ONLINE
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="pop-up-title">
+                {" "}
+                <h3 className="pop-up-title-h3"> MUSEUMS AND OTHER SIGHTS</h3>
+              </div>
+            )}
           </div>
 
           <div
-            className="pop-up"
+            onMouseEnter={() => setShow("popup2")}
+            onMouseLeave={() => setShow(null)}
+            className={`pop-up ${show === "popup2" ? "active" : ""}`}
             style={{
               backgroundImage: `url(${offer2})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="pop-up-title">
-              {" "}
-              <h3 className="pop-up-title-h3">
-                "PRAGUE HISTORICAL CITY" - FREE BUS TOUR{" "}
-              </h3>
-            </div>
+            {show === "popup2" ? (
+              <div className="hovered">
+                <h3 className="pop-up-text-title">
+                  "PRAGUE HISTORICAL CITY" - FREE BUS TOUR
+                </h3>
+                <div className="pop-up-text">
+                  <p>
+                    This fantastic tour will show you all the Prague top
+                    landmarks. As you sit back and relax in a comfortable bus
+                    seat, best views of the Golden City will be passing in front
+                    of your eyes – Old Town, Lesser Town, Jewish Quarter and
+                    many more. Plus it is a convenient way to reach the Prague
+                    Castle area, where you can use the bus in Hop-On Hop-Off
+                    way. The tour is free with CoolPass.
+                  </p>
+                </div>
+                <div className="pop-up-button-content">
+                  <Button _hover={{ bg: "#FF9848" }} className="pop-up-button">
+                    BUY ONLINE
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="pop-up-title">
+                {" "}
+                <h3 className="pop-up-title-h3">
+                  "PRAGUE HISTORICAL CITY" - FREE BUS TOUR{" "}
+                </h3>
+              </div>
+            )}
           </div>
         </div>
 
@@ -59,16 +115,18 @@ const Offer = () => {
               <div className="hovered">
                 <div>
                   <h3 className="pop-up-text-title">
-                    CONCERTS, SHOWS, ENTERTAINMENT
+                    FREE CRUISES ON THE VLTAVA RIVER
                   </h3>
                   <div className="pop-up-text">
                     <p>
-                      Prague has fantastic opportunities for leisure time. Taste
-                      local cuisine and watch folk performances, enjoy exquisite
-                      classical music concerts in authentic surroundings or
-                      visit a unique Black light theatre. You will find all of
-                      these and more in cost-saving deals for Prague CoolPass
-                      holders.{" "}
+                      What can be better than admiring the elegant postcard
+                      views of Prague from water. Should it be your first
+                      acquaintance with the city, or a way to chill after a busy
+                      sightseeing walk, the pleasure is equal. You can choose
+                      one of the 4 cruises by Prague Boats to enjoy for free
+                      with CoolPass, as well as a romantic Prague Venice cruise.
+                      Other cruises with 25% discount include great dining
+                      options.
                     </p>
                   </div>
                   <div className="pop-up-button-content">
@@ -120,13 +178,10 @@ const Offer = () => {
                   </div>
                 </div>
                 <div className="pop-up-button-content">
-                    <Button
-                      _hover={{ bg: "#FF9848" }}
-                      className="pop-up-button"
-                    >
-                      BUY ONLINE
-                    </Button>
-                  </div>
+                  <Button _hover={{ bg: "#FF9848" }} className="pop-up-button">
+                    BUY ONLINE
+                  </Button>
+                </div>
               </div>
             ) : (
               <div className="pop-up-title">
