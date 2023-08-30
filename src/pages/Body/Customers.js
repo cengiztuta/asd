@@ -28,7 +28,7 @@ const Customers = () => {
     const data = await getReview();
     setReview(data);
   };
-  console.log(review);
+
   useEffect(() => {
     fetchTranslate();
   }, []);

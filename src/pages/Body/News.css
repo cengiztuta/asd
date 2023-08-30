@@ -23,6 +23,17 @@
   display: flex;
   flex-direction: row;
 }
+.content-image{
+  height: 350px;
+  width: 560px;
+  background: red;
+  background-size: cover;
+  background-position: center;
+}
+.content-text{
+  height: 225px;
+  width: 560px;
+}
 .vemem {
   height: 350px;
   width: 560px;
