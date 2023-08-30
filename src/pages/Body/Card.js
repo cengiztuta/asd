@@ -5,9 +5,11 @@ import { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 
-const Card = ({ card }) => {
+const Card = ({ card, img }) => {
   const [isFilled, setIsFilled] = useState(false);
   const [filled, setFilled] = useState(false);
+
+  const api = "https://static2.praguecoolpass.com/";
 
   const toggleHeart = () => {
     setIsFilled(!isFilled);
@@ -19,22 +21,23 @@ const Card = ({ card }) => {
   const handleMouseLeave = () => {
     setFilled(false);
   };
-  const { title, description, img, banner } = card;
+  const { title, banner, subtitle } = card;
   const [show, setShow] = useState(false);
+
   return (
     <Box
       w={"270px"}
       h={"204px"}
-      style={{
-        backgroundImage: `${card.img}`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundColor: "green",
-      }}
       position={"relative"}
       borderRadius={"10px"}
       _hover={{
         cursor: "pointer",
+      }}
+      style={{
+        backgroundImage: `url(${api}${img})`,
+        height: "100%",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -91,7 +94,7 @@ const Card = ({ card }) => {
             color={"white"}
             w={"100%"}
           >
-            {banner}
+            INCLUDED with CoolPass
           </Text>
         </Box>
       )}
@@ -144,7 +147,7 @@ const Card = ({ card }) => {
             paddingTop={"20px"}
           >
             <Text fontSize={"11px"} fontWeight={"bold"}>
-              {description.slice(0, 100) + "..."}
+              {subtitle.slice(0, 100) + "..."}
             </Text>
           </Box>
         )}

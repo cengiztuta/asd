@@ -1,13 +1,37 @@
-import React, { useRef } from "react";
+import React, { useRef,useState,useEffect } from "react";
 import { Navigation } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
 import Card from "./Card";
 import { Box } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "swiper/css/navigation";
+import axios from "axios"
 
-const NewCardSlider = ({ CardData }) => {
+const NewCardSlider = ({ data }) => {
   const swiperRef = useRef(null);
+  const [attractions, setAttractions] = useState([]);
+  const getAttractions = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/object/attraction/top-attractions"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  const fetchTranslate = async () => {
+    const data = await getAttractions();
+    setAttractions(data);
+  };
+
+  useEffect(() => {
+    fetchTranslate();
+  }, []);
+
+ 
+
   return (
     <Box
       w={"1188px"}
@@ -49,7 +73,7 @@ const NewCardSlider = ({ CardData }) => {
           },
         }}
       >
-        {CardData.map((card, index) => (
+        {attractions.map((card, index) => (
           <SwiperSlide
             key={index}
             style={{
@@ -57,7 +81,7 @@ const NewCardSlider = ({ CardData }) => {
               height: "204px",
             }}
           >
-            <Card card={card} />
+            <Card card={card.content.en} img={card.images[0]} />
           </SwiperSlide>
         ))}
       </Swiper>

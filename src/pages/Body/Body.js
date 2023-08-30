@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Body.css";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,53 +19,9 @@ import Howuse from "./Howuse";
 import News from "./News";
 import Calculator from "./Calculator";
 import Customers from "./Customers";
-
+import axios from "axios";
 const Body = () => {
-  const CardData = [
-    {
-     
-      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
-      title: "Prague Castle",
-      description:
-        " The Prague Castle is the biggest Castle complex in the World.",
-      banner: "INCLUDED With CoolPass",
-    },
-    {
-      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
-      title: "Prague Castle",
-      description:
-        " The Prague Castle is the biggest Castle complex in the World.",
-      banner: "INCLUDED With CoolPass",
-    },
-    {
-      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
-      title: "Prague Castle",
-      description:
-        " The Prague Castle is the biggest Castle complex in the World.",
-      banner: "INCLUDED With CoolPass",
-    },
-    {
-      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
-      title: "Prague Castle",
-      description:
-        " The Prague Castle is the biggest Castle complex in the World.",
-      banner: "INCLUDED With CoolPass",
-    },
-    {
-      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
-      title: "Prague Castle",
-      description:
-        " The Prague Castle is the biggest Castle complex in the World.",
-      banner: "INCLUDED With CoolPass",
-    },
-    {
-      img: 'url("https://static2.praguecoolpass.com/767a2036-cc95-4ac6-a9d5-d3f5a74511a4.jpg")',
-      title: "Prague Castle",
-      description:
-        " The Prague Castle is the biggest Castle complex in the World.",
-      banner: "INCLUDED With CoolPass",
-    },
-  ];
+
   return (
     <div>
       <section
@@ -80,7 +36,7 @@ const Body = () => {
             display: "flex",
           }}
         >
-          <NewCardSlider CardData={CardData} />
+          <NewCardSlider/>
         </Box>
       </section>
       <section style={{ display: "flex", justifyContent: "center" }}>
@@ -99,7 +55,7 @@ const Body = () => {
         <Calculator />
       </section>
       <section>
-        <Customers/>
+        <Customers />
       </section>
     </div>
   );

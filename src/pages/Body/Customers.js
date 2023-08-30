@@ -10,25 +10,6 @@ import "swiper/css/navigation";
 import axios from "axios";
 import CustomerCardSlider from "./CustomerCard/CustomerCardSlider";
 
-// function ExpandableText({ initialText, expandedText }) {
-//   const [expanded, setExpanded] = useState(false);
-
-//   const toggleExpand = () => {
-//     setExpanded(!expanded);
-//   };
-
-//   return (
-//     <div className="customer-text-container">
-//       <div className="customer-text">
-//         {expanded ? expandedText : initialText}
-//         <a onClick={toggleExpand} className="more-less-button">
-//           {expanded ? "less " : "more"}
-//         </a>
-//       </div>
-//     </div>
-//   );
-// }
-
 const Customers = () => {
   const swiperRef = useRef(null);
   const [review, setReview] = useState([]);
@@ -114,16 +95,15 @@ const Customers = () => {
 
         <div className="customer-wrapper">
           <CustomerCardSlider data={review} />{" "}
-    
         </div>
-              <div className="pagination-container">
-            <button className="pagination-button-all">
-              <a>SEE ALL REVIEWS</a>
-            </button>
-            <button className="pagination-button-write">
-              <a>WRITE YOUR REWIEV</a>
-            </button>
-          </div>
+        <div className="pagination-container">
+          <button className="pagination-button-all">
+            <a>SEE ALL REVIEWS</a>
+          </button>
+          <button className="pagination-button-write">
+            <a>WRITE YOUR REVIEW</a>
+          </button>
+        </div>
       </div>
     </div>
   );
