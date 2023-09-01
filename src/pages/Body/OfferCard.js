@@ -8,7 +8,7 @@ const OfferCard = ({ card, image }) => {
   const api = "https://static2.praguecoolpass.com/";
   const { title, features_list, button_text } = card;
   const [show, setShow] = useState(null);
-
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [attractions, setAttraction] = useState([]);
   const getMenu = async () => {
     try {
@@ -29,46 +29,61 @@ const OfferCard = ({ card, image }) => {
   useEffect(() => {
     fetchTranslate();
   }, []);
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
 
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
   const Grid = () => {
-    const boxes = [
-      { id: 1 },
-      { id: 2, backgroundImage: `url(${api}${attractions})` },
-      { id: 3, backgroundImage: `url(${api}${attractions})` },
-      { id: 4, backgroundImage: `url(${api}${attractions})` },
-    ];
-
     return (
       <div className="grid">
         {attractions.map((item, index) => (
           <div
-            onMouseEnter={() => setShow("popup1")}
-            onMouseLeave={() => setShow(null)}
-            className={`pop-up ${show === "popup1" ? "active" : ""}`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            className={`pop-up ${hoveredIndex === index ? "active" : ""}`}
             key={index}
             style={{
               backgroundImage: `url(${api}${item})`,
             }}
           >
-            {show === "popup1" ? (
+            {hoveredIndex === index ? (
               <div className="hovered">
-                <h3 className="pop-up-text-title">{title}</h3>
-                <div className="pop-up-text">
-                  <p>{features_list}</p>
+                <div className="text-container">
+                  <p
+                    className="pop-up-text-title"
+                    dangerouslySetInnerHTML={{
+                      __html: card[index].title,
+                    }}
+                  ></p>
+                  <div className="pop-up-text">
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: card[index].features_list,
+                      }}
+                    ></p>
 
-                  <div className="pop-up-button-content">
-                    <Button
-                      _hover={{ bg: "#FF9848" }}
-                      className="pop-up-button"
-                    >
-                      {button_text}
-                    </Button>
-                  </div>
+                    <div className="pop-up-button-content">
+                      <a className="see-all-button">
+                        <button className="pop-up-button">
+                          {" "}
+                          {card[index].button_text}{" "}
+                        </button>
+                      </a>
+                    </div>
+                  </div>{" "}
                 </div>
               </div>
             ) : (
               <div className="pop-up-title">
-                <h3 className="pop-up-title-h3">{title}</h3>
+                <p
+                  className="pop-up-title-h3"
+                  dangerouslySetInnerHTML={{
+                    __html: card[index].title,
+                  }}
+                ></p>
               </div>
             )}
           </div>
@@ -76,6 +91,13 @@ const OfferCard = ({ card, image }) => {
       </div>
     );
   };
+
+  //   <Button
+  //   _hover={{ bg: "#FF9848" }}
+  //   className="pop-up-button"
+  // >
+  //   {card[index].button_text}
+  // </Button>
 
   return (
     <div>

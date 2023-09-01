@@ -34,7 +34,7 @@ const Offer = () => {
     });
     setTempData(data);
   };
-  console.log(tempData[1]);
+  console.log(tempData);
   useEffect(() => {
     fetchTempData();
   }, []);

@@ -54,36 +54,46 @@
 .pop-up-title {
   width: 476px;
   height: 71px;
-  background: rgba(218, 75, 7, 0.6);
-  margin-left: 42.22px;
-  margin-bottom: 21px;
-  align-self: flex-end;
+  text-align: center;
+  padding: 0 15px;
+  margin-top: 208px;
+  display: grid;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  justify-items: center;
+  background: rgba(218, 75, 7, 0.7);
   border-radius: 10px;
 }
 .pop-up-title-h3 {
   text-align: center;
   font-family: Open Sans Bold, sans-serif;
   font-weight: 700;
-  font-size: 1 px;
+  font-size: 18px;
   text-transform: uppercase;
   color: #fff;
   line-height: 30px;
 }
+
 .hovered {
   height: 300px;
   width: 560px;
   background-color: rgba(59, 67, 84, 0.8);
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: red;
+}
+.text-container {
+  padding: 0 47px;
 }
 .pop-up-text-title {
   font-family: Open Sans, sans-serif;
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 23px;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
   color: #fff;
-  margin-top: 35px;
-  margin-left: 25px;
+  margin-top: 30px;
 }
 .pop-up-text {
   font-family: Open Sans, sans-serif;
@@ -93,22 +103,45 @@
   line-height: 23px;
   color: #fff;
   margin-top: 15px;
-  margin-left: 25px;
 }
 .pop-up-button-content {
-  display: flex;
+  align-self: flex-end;
+  height: 100%;
+  margin-bottom: 40px;
   justify-content: center;
+  -webkit-box-align: end;
+  display: flex;
+  -webkit-box-pack: center;
+  width: 100%;
+}
+.see-all-button {
+  min-width: 80px;
+  width: auto;
+  height: 40px;
+  text-decoration: none;
+  margin-left: 50px;
 }
 .pop-up-button {
-  display: flex;
-  height: 50px;
-  width: 250px;
-  border-width: 0;
-  background-color: #fb5a03;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 20px;
+  border: 1px solid #da4b07;
+  line-height: 35px;
+  font-weight: 700;
   font-size: 15px;
-  color: white;
-  border-radius: 10px;
-  height: 50px;
-  align-self: center;
+  background: #da4b07;
   cursor: pointer;
+  color: #fff;
+  justify-content: center;
+  font-family: Open Sans Semibold, sans-serif;
+  align-items: center;
+  -webkit-box-pack: center;
+  display: flex;
+  -webkit-box-align: center;
+  min-width: 126px;
+  width: auto;
+  height: 40px;
+  margin-top: 14px;
 }
