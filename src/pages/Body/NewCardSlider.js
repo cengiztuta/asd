@@ -1,11 +1,11 @@
-import React, { useRef,useState,useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Navigation } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
 import Card from "./Card";
 import { Box } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "swiper/css/navigation";
-import axios from "axios"
+import axios from "axios";
 
 const NewCardSlider = ({ data }) => {
   const swiperRef = useRef(null);
@@ -29,8 +29,6 @@ const NewCardSlider = ({ data }) => {
   useEffect(() => {
     fetchTranslate();
   }, []);
-
- 
 
   return (
     <Box
