@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Benefits.css";
-
-import TitleBoxComponents from "./BenefitsComponents/TitleBoxComponents";
-import { position } from "@chakra-ui/react";
-
+import axios from "axios";
+import BenefitsCard from "./BenefitsCard.js";
+import "./Benefits.css";
 const Benefits = () => {
   return (
     <section>
-      <h3 className="Benefits-title">
-        EXPERIENCE PRAGUE WITH COOLPASS BENEFITS
-      </h3>
+  
+        <h3 className="Benefits-title">
+          EXPERIENCE PRAGUE WITH COOLPASS BENEFITS
+        </h3>
+
       <div className="Benefits">
-        <TitleBoxComponents />
+        <BenefitsCard />
         <div className="phone-content">
           <div className="Benefits-phone"></div>
           <div className="Benefits-prague-card"> </div>

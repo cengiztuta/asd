@@ -1,9 +1,23 @@
 .Benefits {
   width: 1140px;
-  height: 547px;
+  min-width: 1140px;
+  height: 600px;
   display: flex;
   flex-direction: row;
   position: relative;
+}
+.Benefits-title{
+  font-family: Open Sans Bold,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 130%;
+  text-transform: uppercase;
+  color: #252c3e;
+}
+.Benefits-top-container {
+  width: 1140px;
+  min-width: 1140px;
 }
 
 .Benefits-content-container {
@@ -44,11 +58,8 @@
   width: 656px;
   height: 90px;
   background-color: #252c3e;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   outline: none;
   border: none;
@@ -67,7 +78,7 @@
   color: #fff;
 }
 .spoiler-content {
-  height: 0;
+  height: auto;
   visibility: visible;
   -webkit-transition: height 0.25s ease-out;
   transition: height 0.25s ease-out;
@@ -83,22 +94,25 @@
   height: auto;
   visibility: visible;
 }
-.hidden {
+
+.benefits-spoiler {
+  margin-top: 0;
+}
+.benefits-spoiler .hidden {
   display: none !important;
   visibility: hidden;
 }
 .spoiler-text {
   width: 616px;
+
   margin: 15px 0;
   font-family: Open Sans, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 23px;
+  line-height: 20px;
   color: #252527;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+
   user-select: none;
   margin-left: 20px;
   list-style: initial;
@@ -106,7 +120,9 @@
 .spoiler-text em {
   font-style: italic;
 }
-
+.spoiler-text p {
+  margin-bottom: 0;
+}
 .spoiler-text a {
   color: rgba(37, 44, 62, 0.6);
   text-decoration: none;
@@ -127,34 +143,31 @@
   font-weight: 700;
 }
 
-.spoiler-text .ql-align-center {
-  text-align: center;
-}
 .phone-content {
   margin-left: 67px;
   -webkit-box-orient: horizontal;
-  -ms-flex-direction: row;
   flex-direction: row;
   display: flex;
+  position: relative;
 }
 .Benefits-phone {
+  margin-top: 52px;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 390px;
   width: 195px;
-  justify-content: center;
-  align-self: center;
-  background-color: blue;
-  background-image: url("../pages//images/phone.jpeg");
-  background-size: cover;
+
   z-index: 2;
-  background-repeat: no-repeat;
+  background-image: url("../pages//images/phone.jpeg");
 }
 .Benefits-prague-card {
-  width: 283px;
-  height: 180px;
   background-image: url("../pages/images/prague-card.jpeg");
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
   margin-top: 188px;
-  margin-left: 150.73px;
+  margin-left: 130.73px;
+  width: 293px;
+  height: 180px;
   position: absolute;
+  margin-left: 150.73px;
 }

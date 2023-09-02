@@ -48,16 +48,14 @@
   cursor: pointer;
   justify-content: center;
   display: flex;
-
-  /* background-image: url(https://static2.praguecoolpass.com/small_816c7b24-528c-49b7-a2b8-d78373951cac.jpg); */
 }
 .pop-up-title {
   width: 476px;
   height: 71px;
   text-align: center;
   padding: 0 15px;
-  margin-top: 208px;
-  display: grid;
+  align-self: flex-end;
+  margin-bottom: 21px;
   -ms-flex-line-pack: center;
   align-content: center;
   justify-items: center;
@@ -80,11 +78,10 @@
   background-color: rgba(59, 67, 84, 0.8);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  background: red;
 }
 .text-container {
   padding: 0 47px;
+  display: flex;
 }
 .pop-up-text-title {
   font-family: Open Sans, sans-serif;
@@ -120,6 +117,7 @@
   height: 40px;
   text-decoration: none;
   margin-left: 50px;
+  align-self: flex-end;
 }
 .pop-up-button {
   box-sizing: border-box;

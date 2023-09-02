@@ -18,7 +18,7 @@ const Calculator = () => {
   return (
     <div className="calculator">
       <div className="calculator-container">
-        <h3> BUY PRAGUE COOL PASS / CARD</h3>
+        <h3 className="Benefits-title"> BUY PRAGUE COOL PASS / CARD</h3>
         <div className="wrapper">
           <div className="wrapper-content">
             <Box
@@ -73,7 +73,6 @@ const Calculator = () => {
               </Box>
             </Box>
           </div>
-       
         </div>
         <div class="tips">
           <div class="first-tip-block">
@@ -102,7 +101,6 @@ const Calculator = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

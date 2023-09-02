@@ -4,7 +4,8 @@
 }
 .Howuse-container {
   height: 500;
-  width: 1140px;
+  width: 1140px;  
+  margin-top: 60px;
 }
 .Howuse-title {
   font-family: Open Sans Bold, sans-serif;
@@ -14,6 +15,7 @@
   line-height: 130%;
   text-transform: uppercase;
   color: #252c3e;
+  margin-top: 40px;
 }
 .Howuse-wrapper {
   margin: 0;
@@ -23,6 +25,58 @@
   font: inherit;
   vertical-align: baseline;
 }
+
+.how-use-wrapper {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  font: inherit;
+  vertical-align: baseline;
+}
+.how-use-steps {
+  display: grid;
+  margin-top: 30px;
+  column-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.how-use-step-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.how-use-step-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 269px;
+  height: 250px;
+  background-color: red;
+}
+.how-use-step-number {
+  margin-top: 14px;
+  font-family: Open Sans Bold, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 29px;
+  text-align: center;
+  color: #252c3e;
+}
+.how-use-step-text {
+  margin-top: 7px;
+  font-family: Open Sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  text-align: center;
+  color: #252c3e;
+}
+
 .Howuse-steps {
   display: grid;
   margin-top: 30px;

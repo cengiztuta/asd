@@ -21,23 +21,13 @@ import Calculator from "./Calculator";
 import Customers from "./Customers";
 import axios from "axios";
 const Body = () => {
-
   return (
     <div>
       <section
         id="top-attractions"
         style={{ justifyContent: "center", display: "flex" }}
       >
-        <Box
-          style={{
-            height: "263px",
-            width: "100%",
-            justifyContent: "center",
-            display: "flex",
-          }}
-        >
-          <NewCardSlider/>
-        </Box>
+        <NewCardSlider />
       </section>
       <section style={{ display: "flex", justifyContent: "center" }}>
         <Benefits />

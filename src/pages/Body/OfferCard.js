@@ -55,7 +55,7 @@ const OfferCard = ({ card, image }) => {
                   <p
                     className="pop-up-text-title"
                     dangerouslySetInnerHTML={{
-                      __html: card[index].title,
+                      __html: card.title,
                     }}
                   ></p>
                   <div className="pop-up-text">
@@ -64,16 +64,14 @@ const OfferCard = ({ card, image }) => {
                         __html: card[index].features_list,
                       }}
                     ></p>
-
-                    <div className="pop-up-button-content">
-                      <a className="see-all-button">
-                        <button className="pop-up-button">
-                          {" "}
-                          {card[index].button_text}{" "}
-                        </button>
-                      </a>
-                    </div>
-                  </div>{" "}
+                  </div>
+                </div>
+                <div className="pop-up-button-content">
+                  <a className="see-all-button">
+                    <button className="pop-up-button">
+                      {card[index].button_text}
+                    </button>
+                  </a>
                 </div>
               </div>
             ) : (
@@ -81,7 +79,7 @@ const OfferCard = ({ card, image }) => {
                 <p
                   className="pop-up-title-h3"
                   dangerouslySetInnerHTML={{
-                    __html: card[index].title,
+                    __html: card.title,
                   }}
                 ></p>
               </div>

@@ -34,7 +34,7 @@ const Offer = () => {
     });
     setTempData(data);
   };
-  console.log(tempData);
+ 
   useEffect(() => {
     fetchTempData();
   }, []);
@@ -42,7 +42,7 @@ const Offer = () => {
   return (
     <section className="offer">
       <div className="offer-content">
-        <a className="h3">ALL-INCLUSIVE OFFER FOR YOUR PRAGUE SIGHTSEEING</a>
+        <h3 className="h3">ALL-INCLUSIVE OFFER FOR YOUR PRAGUE SIGHTSEEING</h3>
 
         <div className="pop-up-content">
           <div>

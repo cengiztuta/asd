@@ -6,8 +6,9 @@ import { Box } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "swiper/css/navigation";
 import axios from "axios";
+import "./Card.css";
 
-const NewCardSlider = ({ data }) => {
+const NewCardSlider = () => {
   const swiperRef = useRef(null);
   const [attractions, setAttractions] = useState([]);
   const getAttractions = async () => {
@@ -32,63 +33,77 @@ const NewCardSlider = ({ data }) => {
 
   return (
     <Box
-      w={"1188px"}
-      h={"263px"}
-      position={"relative"}
-      flexDirection={"row"}
-      justifyContent={"space-between"}
-      alignItems={"center"}
-      display={"flex"}
+      style={{
+        height: "263px",
+        width: "1188px",
+        justifyContent: "center",
+        display: "flex",
+        marginTop: "40px",
+        flexDirection: "column",
+      }}
     >
+      <h3 className="top-attractions-title">
+        TOP PRAGUE ATTRACTIONS INCLUDED IN COOLPASS
+      </h3>
       <Box
-        h={"24px"}
-        cursor={"pointer"}
-        onClick={() => swiperRef.current.swiper.slidePrev()}
+        w={"1188px"}
+        h={"250px"}
+        position={"relative"}
+        flexDirection={"row"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        display={"flex"}
       >
-        <ChevronLeftIcon w={"24px"} h={"100%"} />
-      </Box>
+        <Box
+          h={"24px"}
+          cursor={"pointer"}
+          onClick={() => swiperRef.current.swiper.slidePrev()}
+        >
+          <ChevronLeftIcon w={"24px"} h={"100%"} />
+        </Box>
 
-      <Swiper
-        slidesPerView={4}
-        ref={swiperRef}
-        modules={Navigation}
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-        }}
-      >
-        {attractions.map((card, index) => (
-          <SwiperSlide
-            key={index}
-            style={{
-              width: "270px",
-              height: "204px",
-            }}
-          >
-            <Card card={card.content.en} img={card.images[0]} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <Box
-        h={"24px"}
-        cursor={"pointer"}
-        onClick={() => swiperRef.current.swiper.slideNext()}
-      >
-        <ChevronRightIcon w={"24px"} h={"100%"} />
+        <Swiper
+          slidesPerView={4}
+          ref={swiperRef}
+          modules={Navigation}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+          }}
+        >
+          {attractions.map((card, index) => (
+            <SwiperSlide
+              key={index}
+              style={{
+                width: "270px",
+                height: "204px",
+              }}
+            >
+              <Card card={card.content.en} img={card.images[0]} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <Box
+          h={"24px"}
+          cursor={"pointer"}
+          onClick={() => swiperRef.current.swiper.slideNext()}
+        >
+          <ChevronRightIcon w={"24px"} h={"100%"} />
+        </Box>
       </Box>
     </Box>
   );

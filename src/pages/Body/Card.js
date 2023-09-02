@@ -4,7 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
-
+import "./Card.css";
 const Card = ({ card, img }) => {
   const [isFilled, setIsFilled] = useState(false);
   const [filled, setFilled] = useState(false);
@@ -72,59 +72,37 @@ const Card = ({ card, img }) => {
         )}
       </Box>
       {banner && (
-        <Box
-          h={"23px"}
-          w={{ base: "150px" }}
-          bg={"#FFC513"}
-          position={"absolute"}
-          top={"10px"}
-          right={"0px"}
-          borderLeftRadius={"5px"}
-          display={"flex"}
-          justifyContent={"center"}
-          alignItems={"center"}
-          flexDirection={"row"}
-        >
-          <Text
-            fontSize={{
-              base: "2xs",
-            }}
-            fontWeight={"bold"}
-            textAlign={"center"}
-            color={"white"}
-            w={"100%"}
-          >
-            INCLUDED with CoolPass
-          </Text>
-        </Box>
+        <div className="card-benefit">
+          <p className="benefit-text">INCLUDED with CoolPass</p>
+        </div>
       )}
       <Box
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
         h={show ? "50%" : "30%"}
         w={"100%"}
-        bg={"rgba(0,0,0,0.5)"}
         color={"white"}
         position={"absolute"}
         bottom={"0px"}
         flexDirection={"column"}
         borderBottomRadius={"10px"}
+        bg={"rgba(37,44,62,.6);"}
       >
         <Box
           display={"flex"}
           justifyContent={"space-between"}
           alignItems={"center"}
-          flexDirection={"row"}
           w={"80%"}
         >
-          <Text
-            fontSize={"xl"}
-            fontWeight={"bold"}
-            paddingLeft={"10px"}
-            marginBottom={"120px"}
+          <p
+            className="att-title"
+            // fontSize={"xl"}
+            // fontWeight={"bold"}
+            // paddingLeft={"10px"}
+            // marginBottom={"120px"}
           >
             {title}
-          </Text>
+          </p>
         </Box>
         <Box
           style={{
@@ -138,15 +116,15 @@ const Card = ({ card, img }) => {
           <Box
             w={"80%"}
             color={"white"}
-            padding={"10px"}
+            padding={"20px"}
             position={"absolute"}
             bottom={"0px"}
             display={"flex"}
             alignItems={"center"}
             borderRadius={"10px"}
-            paddingTop={"20px"}
+            height={"auto"}
           >
-            <Text fontSize={"11px"} fontWeight={"bold"}>
+            <Text fontSize={"12px"} fontWeight={"200"}>
               {subtitle.slice(0, 100) + "..."}
             </Text>
           </Box>
