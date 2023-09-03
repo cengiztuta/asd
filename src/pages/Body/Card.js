@@ -79,7 +79,7 @@ const Card = ({ card, img }) => {
       <Box
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
-        h={show ? "50%" : "30%"}
+        h={show ? "100px" : "60px"}
         w={"100%"}
         color={"white"}
         position={"absolute"}
@@ -88,12 +88,7 @@ const Card = ({ card, img }) => {
         borderBottomRadius={"10px"}
         bg={"rgba(37,44,62,.6);"}
       >
-        <Box
-          display={"flex"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-          w={"80%"}
-        >
+        <Box display={"flex"} alignItems={"center"} w={"80%"} height={"60px"}>
           <p
             className="att-title"
             // fontSize={"xl"}
@@ -116,13 +111,13 @@ const Card = ({ card, img }) => {
           <Box
             w={"80%"}
             color={"white"}
-            padding={"20px"}
+            paddingLeft={"20px"}
             position={"absolute"}
             bottom={"0px"}
             display={"flex"}
             alignItems={"center"}
             borderRadius={"10px"}
-            height={"auto"}
+            height={"50px"}
           >
             <Text fontSize={"12px"} fontWeight={"200"}>
               {subtitle.slice(0, 100) + "..."}
