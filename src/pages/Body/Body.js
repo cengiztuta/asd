@@ -3,7 +3,7 @@ import "./Body.css";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/navigation";
-// Import Swiper styles
+
 import "swiper/css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

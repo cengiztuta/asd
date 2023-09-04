@@ -54,15 +54,13 @@ const BenefitsCard = () => {
 
   const handleAccordionClick = (index) => {
     if (openIndex === index) {
-      // Aynı öğe tekrar tıklandığında, kapat
       setOpenIndex(null);
     } else {
-      // Farklı bir öğeye tıklandığında, önceki açık olanı kapat ve yeni öğeyi aç
       setOpenIndex(index);
     }
   };
   useEffect(() => {
-    // Sayfa yüklendiğinde ilk öğeyi (1. öğe) açık tutmak için
+
     setOpenIndex(0);
   }, []);
 
@@ -86,10 +84,10 @@ const BenefitsCard = () => {
               </AccordionButton>
 
               <AccordionPanel className="spoiler-content" isOpen={openIndex === index}>
-                <p
+                <a
                   className="spoiler-text"
                   dangerouslySetInnerHTML={{ __html: item.text }}
-                ></p>
+                ></a>
               </AccordionPanel>
             </AccordionItem>
           ))}

@@ -45,12 +45,12 @@ export const Newss = () => {
               <a className="newss-link">
                 <a className="newss-title"> {item.content.en.title} </a>
               </a>
-              <p
+              <a
                 className="newss-text"
                 dangerouslySetInnerHTML={{
                   __html: item.content.en.text.slice(0, 700) + "...",
                 }}
-              ></p>
+              ></a>
               <a className="newss-link">
                 <p className="newss-read-more">See More</p>
               </a>
