@@ -55,7 +55,7 @@ const OfferCard = ({ card, image }) => {
                   <p
                     className="pop-up-text-title"
                     dangerouslySetInnerHTML={{
-                      __html: card.title,
+                      __html: card[index].title,
                     }}
                   ></p>
                   <div className="pop-up-text">

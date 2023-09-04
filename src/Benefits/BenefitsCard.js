@@ -68,7 +68,7 @@ const BenefitsCard = () => {
 
   return (
  
-      <div style={{height:'auto', position:'relative', display:'block'}}>
+      <div  className="acordion">
         <Accordion defaultIndex={[0]}>
           {tempData.map((item, index) => (
             <AccordionItem key={index} className="benefits-spoiler">
@@ -80,16 +80,16 @@ const BenefitsCard = () => {
                 <Box
                   className="spoiler-title-text"
                   as="span"
-                  textAlign="left"
+           
                   dangerouslySetInnerHTML={{ __html: item.title }}
                 />
               </AccordionButton>
 
-              <AccordionPanel isOpen={openIndex === index}>
-                <div
+              <AccordionPanel className="spoiler-content" isOpen={openIndex === index}>
+                <p
                   className="spoiler-text"
                   dangerouslySetInnerHTML={{ __html: item.text }}
-                ></div>
+                ></p>
               </AccordionPanel>
             </AccordionItem>
           ))}

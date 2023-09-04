@@ -32,80 +32,116 @@ const NewCardSlider = () => {
   }, []);
 
   return (
-    <Box
+    <div
       style={{
-        height: "263px",
-        width: "1188px",
         justifyContent: "center",
         display: "flex",
-        marginTop: "40px",
-        flexDirection: "column",
       }}
     >
-      <h3 className="top-attractions-title">
-        TOP PRAGUE ATTRACTIONS INCLUDED IN COOLPASS
-      </h3>
       <Box
-        w={"1188px"}
-        h={"250px"}
-        position={"relative"}
-        flexDirection={"row"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        display={"flex"}
+        style={{
+          height: "263px",
+          width: "100%",
+          maxWidth: "1208px", // Genişliği ekran boyutuna uygun olarak ayarlayın
+          justifyContent: "center",
+          display: "flex",
+          flexDirection: "column",
+          marginTop: "40px",
+        }}
       >
-        <Box
-          h={"24px"}
-          cursor={"pointer"}
-          onClick={() => swiperRef.current.swiper.slidePrev()}
-        >
-          <ChevronLeftIcon w={"24px"} h={"100%"} />
-        </Box>
-
-        <Swiper
-          slidesPerView={4}
-          ref={swiperRef}
-          modules={Navigation}
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 20,
-            },
+        <section
+          style={{
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          {attractions.map((card, index) => (
-            <SwiperSlide
-              key={index}
+          <div style={{ minWidth: "1140px", width: "1140px" }}>
+            <h3 className="top-attractions-title">
+              TOP PRAGUE ATTRACTIONS INCLUDED IN COOLPASS
+            </h3>
+          </div>
+        </section>
+        <div
+          style={{
+            display: "flex",
+            height: "auto",
+            width: "auto",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            h={"34px"}
+            cursor={"pointer"}
+            onClick={() => swiperRef.current.swiper.slidePrev()}
+            display={{ base: "none", md: "block" }}
+          >
+            <ChevronLeftIcon w={"34px"} h={"100%"} />
+          </Box>
+          <Box
+            w={"100%"}
+            h={"auto"}
+            position={"relative"}
+            flexDirection={"row"}
+            justifyContent={"space-evenly"}
+            alignItems={"center"}
+            display={"flex"}
+            flexWrap={"wrap"}
+            mt={"20px"}
+          >
+            <Swiper
+              direction="horizontal"
+              slidesPerView={4}
+              ref={swiperRef}
+              modules={Navigation}
+              breakpoints={{
+                320: {
+                  slidesPerView: 4,
+                  spaceBetween: 10,
+                },
+                640: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+              }}
               style={{
-                width: "270px",
-                height: "204px",
+                maxWidth: "1140px",
+                width: "100%",
+                height: "100%",
               }}
             >
-              <Card card={card.content.en} img={card.images[0]} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Box
-          h={"24px"}
-          cursor={"pointer"}
-          onClick={() => swiperRef.current.swiper.slideNext()}
-        >
-          <ChevronRightIcon w={"24px"} h={"100%"} />
-        </Box>
-      </Box>
-    </Box>
+              {attractions.map((card, index) => (
+                <SwiperSlide
+                  key={index}
+                  style={{
+                    maxWidth: "270px",
+                    width: "100%",
+                    height: "204px",
+                  }}
+                >
+                  <Card card={card.content.en} img={card.images[0]} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </Box>
+          <Box
+            h={"34px"}
+            cursor={"pointer"}
+            onClick={() => swiperRef.current.swiper.slideNext()}
+          >
+            <ChevronRightIcon w={"34px"} h={"100%"} />
+          </Box>
+        </div>
+      </Box>{" "}
+    </div>
   );
 };
 

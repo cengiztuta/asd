@@ -5,7 +5,7 @@ import BenefitsCard from "./BenefitsCard.js";
 import "./Benefits.css";
 const Benefits = () => {
   return (
-    <section>
+    <section style={{marginTop:'40px'}}>
   
         <h3 className="Benefits-title">
           EXPERIENCE PRAGUE WITH COOLPASS BENEFITS

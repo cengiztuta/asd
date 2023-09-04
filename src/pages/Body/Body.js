@@ -22,11 +22,11 @@ import Customers from "./Customers";
 import axios from "axios";
 const Body = () => {
   return (
-    <div>
+    <div className="body">
       <section
-        id="top-attractions"
-        style={{ justifyContent: "center", display: "flex" }}
+        id="top-attractions"    
       >
+       
         <NewCardSlider />
       </section>
       <section style={{ display: "flex", justifyContent: "center" }}>

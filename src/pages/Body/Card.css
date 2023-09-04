@@ -43,7 +43,7 @@
 }
 .att-title {
   font-family: Open Sans Semibold, sans-serif;
-  font-weight:600;
+  font-weight: 600;
   font-style: normal;
   font-size: 13px;
   line-height: 130%;
@@ -69,5 +69,5 @@
   line-height: 130%;
   text-transform: uppercase;
   color: #252c3e;
-  margin-left: 20px;
+
 }

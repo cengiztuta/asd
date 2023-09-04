@@ -1,5 +1,18 @@
-
-
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  .image-slider-container {
+    min-height: 244px;
+    height: 244px;
+  }
+  .image {
+    height: 244px;
+    width: 100%;
+  }
+  .image-slider {
+    height: 244px;
+    width: 100%;
+  }
+  
+}
 
 .image-slider-container {
   height: auto;

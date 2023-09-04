@@ -34,7 +34,7 @@ const Offer = () => {
     });
     setTempData(data);
   };
- 
+
   useEffect(() => {
     fetchTempData();
   }, []);
@@ -42,12 +42,10 @@ const Offer = () => {
   return (
     <section className="offer">
       <div className="offer-content">
-        <h3 className="h3">ALL-INCLUSIVE OFFER FOR YOUR PRAGUE SIGHTSEEING</h3>
+        <h3 className="offer-h3">ALL-INCLUSIVE OFFER FOR YOUR PRAGUE SIGHTSEEING</h3>
 
-        <div className="pop-up-content">
-          <div>
-            <OfferCard card={tempData} />
-          </div>
+        <div>
+          <OfferCard card={tempData} />
         </div>
       </div>
     </section>

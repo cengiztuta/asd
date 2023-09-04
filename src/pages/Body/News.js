@@ -8,7 +8,7 @@ const News = () => {
   return (
     <div className="News">
       <div className="News-container">
-        <h3 className="h3"> Latest News</h3>
+        <h3 className="newss-h3"> Latest News</h3>
         <Newss />
      
       </div>

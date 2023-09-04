@@ -5,6 +5,7 @@
 .calculator-container {
   height: 570px;
   width: 1140px;
+  margin-top: 40px;
 }
 .wrapper {
   width: 100%;
