@@ -26,46 +26,21 @@ const Card = ({ card, img }) => {
 
   return (
     <Box
-      w={"270px"}
-      h={"204px"}
-      position={"relative"}
-      borderRadius={"10px"}
-      _hover={{
-        cursor: "pointer",
-      }}
+      className="att-Card"
       style={{
         backgroundImage: `url(${api}${img})`,
-        height: "100%",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
       }}
     >
       <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         {filled || isFilled ? (
           <img
-            style={{
-              cursor: "pointer",
-              height: "24px",
-              width: "24px",
-              zIndex: 10,
-              position: "absolute",
-              marginLeft: "235px",
-              marginTop: "155px",
-            }}
+            className="att-heart-image"
             src={"https://praguecoolpass.com/img/heart-active.72445abc.svg"}
             onClick={toggleHeart}
           />
         ) : (
           <img
-            style={{
-              cursor: "pointer",
-              height: "24px",
-              width: "24px",
-              zIndex: 10,
-              position: "absolute",
-              marginLeft: "235px",
-              marginTop: "155px",
-            }}
+            className="att-heart-image"
             onClick={toggleHeart}
             src={"https://praguecoolpass.com/img/heart-disable.e975f7bf.svg"}
           />
@@ -79,49 +54,20 @@ const Card = ({ card, img }) => {
       <Box
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
-        h={show ? "100px" : "60px"}
-        w={"100%"}
-        color={"white"}
-        position={"absolute"}
-        bottom={"0px"}
-        flexDirection={"column"}
-        borderBottomRadius={"10px"}
-        bg={"rgba(37,44,62,.6);"}
+        className="att-card-footer"
       >
-        <Box display={"flex"} alignItems={"center"} w={"80%"} height={"60px"}>
-          <p
-            className="att-title"
-            // fontSize={"xl"}
-            // fontWeight={"bold"}
-            // paddingLeft={"10px"}
-            // marginBottom={"120px"}
-          >
-            {title}
-          </p>
+        <Box className="att-card-footer-content">
+          <p className="att-title">{title}</p>
         </Box>
-        <Box
-          style={{
-            cursor: "pointer",
-            height: "24px",
-            width: "20%",
-          }}
-        ></Box>
         ;
         {show && (
-          <Box
-            w={"80%"}
-            color={"white"}
-            paddingLeft={"20px"}
-            position={"absolute"}
-            bottom={"0px"}
-            display={"flex"}
-            alignItems={"center"}
-            borderRadius={"10px"}
-            height={"50px"}
-          >
-            <Text fontSize={"12px"} fontWeight={"200"}>
-              {subtitle.slice(0, 100) + "..."}
-            </Text>
+          <Box className="att-card-footer-text-content">
+            <Text
+              className="att-card-footer-text"
+              dangerouslySetInnerHTML={{
+                __html: subtitle.slice(0, 200) + "...",
+              }}
+            ></Text>
           </Box>
         )}
       </Box>

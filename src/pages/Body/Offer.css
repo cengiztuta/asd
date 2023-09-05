@@ -153,7 +153,7 @@
   }
   .offer-content {
     display: flex;
-    width: 100%;   
+    width: 100%;
     -webkit-box-pack: center;
     flex-direction: column;
     justify-content: center;
@@ -171,7 +171,6 @@
     line-height: 23px;
     text-transform: uppercase;
     color: #252c3e;
- 
   }
   /* .pop-up-content {
     display: grid;

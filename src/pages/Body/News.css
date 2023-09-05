@@ -188,8 +188,7 @@
     min-height: 350px;
     height: auto;
     width: 560px;
-    display: flex;
-    align-items: flex-start;
+
   }
   .newss-link {
     text-decoration: none;
