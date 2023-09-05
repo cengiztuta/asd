@@ -28,7 +28,7 @@ const Card = ({ card, img }) => {
     <Box
       className="att-Card"
       style={{
-        backgroundImage: `url(${api}${img})`,
+        // backgroundImage: `url(${api}${img})`,
       }}
     >
       <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

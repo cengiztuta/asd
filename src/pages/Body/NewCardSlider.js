@@ -46,7 +46,7 @@ const NewCardSlider = () => {
           }}
         >
           <div
-            style={{ minWidth: "1140px", width: "1140px" }}
+           
             className="att-title-container"
           >
             <h3 className="top-attractions-title">
@@ -55,14 +55,16 @@ const NewCardSlider = () => {
           </div>
         </section>
         <div className="att-wrapper">
-          <ChevronLeftIcon
-            onClick={() => swiperRef.current.swiper.slidePrev()}
-            class="att-slide-icon"
-          />
+          <Box class="slide-iconn">
+            <ChevronLeftIcon
+              onClick={() => swiperRef.current.swiper.slidePrev()}
+              class="att-slide-icon"
+            />
+          </Box>
 
           <Swiper
             direction="horizontal"
-            slidesPerView={4}
+            slidesPerView={1}
             ref={swiperRef}
             modules={Navigation}
             breakpoints={{
@@ -73,7 +75,7 @@ const NewCardSlider = () => {
 
               720: {
                 slidesPerView: 1,
-                spaceBetween: 20,
+                spaceBetween: 10,
               },
               1024: {
                 slidesPerView: 3,
@@ -88,12 +90,13 @@ const NewCardSlider = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-
-          <ChevronRightIcon
-            onClick={() => swiperRef.current.swiper.slideNext()}
-            class="att-slide-icon"
-            color={"green"}
-          />
+          <Box class="slide-iconn">
+            <ChevronRightIcon
+              onClick={() => swiperRef.current.swiper.slideNext()}
+              class="att-slide-icon"
+              color={"green"}
+            />
+          </Box>
         </div>
       </Box>{" "}
     </div>

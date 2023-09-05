@@ -23,10 +23,7 @@ import axios from "axios";
 const Body = () => {
   return (
     <div className="body">
-      <section
-        id="top-attractions"    
-      >
-       
+      <section>
         <NewCardSlider />
       </section>
       <section style={{ display: "flex", justifyContent: "center" }}>
