@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Howuse.css";
 import axios from "axios";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 const HowUseCard = ({ card }) => {
   const { descriptions } = card;
   const api = "https://static2.praguecoolpass.com/";
@@ -26,42 +31,72 @@ const HowUseCard = ({ card }) => {
     fetchTranslate();
   }, []);
 
+  const swiperParams = {
+    direction: "horizontal",
+    slidesPerView: 4,
+    loop: false, // Loop devre dışı
+    autoplay: false, // Otomatik oynatmayı devre dışı
+    allowSlideNext: true, // Sonraki slayta geçişi engelle
+    allowSlidePrev: true, // Önceki slayta geçişi engelle
+
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          // 768 piksel veya daha küçük ekranlarda noktaları etkinleştirin
+          clickable: true,
+        },
+      },
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+    },
+  };
   return (
     <div className="how-use-wrapper">
       <div className="how-use-steps">
-        {howUse.map((item, index) => (
-          <div className="how-use-step-new" key={index}>
-            <div
-              className="how-use-step-image"
-              style={{ backgroundImage: `url(${api}${item})` }}
-            >
-              <a
-                style={{
-                  cursor: "pointer",
-                  height: "50px",
-                  width: "180px",
-                  alignSelf: "center",
-                  margin: " 13px",
-                }}
-              ></a>
-              <div style={{ display: "block" }}> </div>
-              <a
-                style={{
-                  cursor: "pointer",
-                  height: "50px",
-                  width: "180px",
-                  alignSelf: "center",
-                  margin: " 13px",
-                }}
-              ></a>
-            </div>
-            <div className="how-use-step-number">1 </div>
-            <div className="how-use-step-text">
+        <Swiper
+          modules={[Pagination]}
+          pagination={{
+            type: "custom",
+            clickable: true,
+          }}
+          {...swiperParams}
+          className="how-use-swiper"
+        >
+          {howUse.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="how-use-step-new">
+                <div
+                  className="how-use-step-image"
+                  style={{ backgroundImage: `url(${api}${item})` }}
+                >
+                  <a
+                  className="how-use-m-link"
+                
+                  ></a>
+                  <div style={{ display: "block" }}> </div>
+                  <a
+                  className="how-use-m-link"
               
-              {/* {card[index].descriptions} */}
-            </div>
-          </div>
-        ))}
+                  ></a>
+                </div>
+                <div className="how-use-step-number">{index + 1} </div>
+                <div className="how-use-step-text">{card[index]}</div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

@@ -107,6 +107,7 @@
     font-size: 15px;
     line-height: 19px;
     color: #fff;
+    cursor: pointer;
   }
   .date {
     align-items: center;
@@ -453,5 +454,6 @@
     color: #fff;
     margin-left: 10px;
     margin-right: 10px;
+    cursor: pointer;
   }
 }

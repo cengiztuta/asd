@@ -5,19 +5,17 @@
 .calculator-container {
   height: 570px;
   width: 1140px;
-  margin-top: 40px;
 }
 .wrapper {
   width: 100%;
-  
-
 }
 .wrapper-content {
   height: 355px;
   width: 1188px;
   display: flex;
   align-items: center;
- 
+  flex-direction: row;
+  row-gap: 20px;
 }
 .Card {
   width: 367px;
@@ -34,23 +32,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  vertical-align: baseline;
 }
 .Card-type {
+  font-family: Open Sans Bold, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 34px;
+  text-transform: uppercase;
   color: #fff;
-  display: block;
-
-  font-weight: bold;
-  font-size: 22px;
 }
+
 .Card-subtitle {
+  font-family: Open Sans Semibold, sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 14px;
   line-height: 18px;
   color: #fff;
-  margin-top: 4px;
-  text-align: center;
 }
 .Card-Body {
   display: flex;
@@ -284,4 +282,71 @@ li::before {
   width: 360px;
   height: 64px;
   font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .calculator-container {
+    height: auto;
+    width: 100%;
+    margin-top: 40px;
+  }
+  .wrapper {
+    width: 100%;
+    z-index: auto;
+  }
+  .wrapper-content {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    row-gap: 20px;
+  }
+  .calc-slide {
+    max-width: 662px;
+    width: 100%;
+    margin-right: 8px;
+  }
+  .Card {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+  .calc-slide-icon {
+    display: none;
+  }
+  .adult-calculator {
+    display: flex;
+    flex-direction: row;
+    height: 52px;
+    width: 327px;
+    margin-left: 25px;
+    margin-top: 18px;
+    position: relative;
+    align-items: center;
+  }
+  .tips {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .first-tip-block {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    margin-left: 12px;
+  }
+  .second-tip-block {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    margin-left: 12px;
+  }
+  .third-tip-block {
+    padding-left: 22px;
+    padding-right: 13px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
 }

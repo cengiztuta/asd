@@ -33,7 +33,7 @@ const Card4 = () => {
     <Box className="Card">
       <div className="Card-header">
         <div className="Card-header-content">
-          <h2 className="Card-type">3 DAY PASS</h2>
+          <h2 className="Card-type">4 DAY PASS</h2>
           <a className="Card-subtitle">Buying Prague Cool Pass / Card</a>
         </div>
       </div>

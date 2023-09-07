@@ -7,33 +7,33 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "swiper/css/navigation";
 
 const Card1 = () => {
-    const [adultCounterValue, setAdultCounterValue] = useState(0);
-    const [childCounterValue, setChildCounterValue] = useState(0);
-    // const [totalPrice, setTotalPrice] = useState(0)
-  
-    const adultIncreaseCounter = () => {
-      setAdultCounterValue(adultCounterValue + 1);
-    };
-    const adultDecreaseCounter = () => {
-      if (adultCounterValue > 0) {
-        setAdultCounterValue(adultCounterValue - 1);
-      }
-    };
-    const childIncreaseCounter = () => {
-      setChildCounterValue(childCounterValue + 1);
-    };
-    const childDecreaseCounter = () => {
-      if (childCounterValue > 0) {
-        setChildCounterValue(childCounterValue - 1);
-      }
-    };
-  
-    const totalPrice = childCounterValue * 38 + adultCounterValue * 55;
+  const [adultCounterValue, setAdultCounterValue] = useState(0);
+  const [childCounterValue, setChildCounterValue] = useState(0);
+  // const [totalPrice, setTotalPrice] = useState(0)
+
+  const adultIncreaseCounter = () => {
+    setAdultCounterValue(adultCounterValue + 1);
+  };
+  const adultDecreaseCounter = () => {
+    if (adultCounterValue > 0) {
+      setAdultCounterValue(adultCounterValue - 1);
+    }
+  };
+  const childIncreaseCounter = () => {
+    setChildCounterValue(childCounterValue + 1);
+  };
+  const childDecreaseCounter = () => {
+    if (childCounterValue > 0) {
+      setChildCounterValue(childCounterValue - 1);
+    }
+  };
+
+  const totalPrice = childCounterValue * 38 + adultCounterValue * 55;
   return (
     <Box className="Card">
       <div className="Card-header">
         <div className="Card-header-content">
-          <h2 className="Card-type">1 DAY PASS</h2>
+          <h2 className="Card-type">2 DAY PAYSS</h2>
           <a className="Card-subtitle">Buying Prague Cool Pass / Card</a>
         </div>
       </div>
@@ -42,8 +42,10 @@ const Card1 = () => {
           <p className="adult-calculator-label">Adult</p>
 
           <div className="price-section">
-            <a className="price-label">Price</a>
-            <a className="adult-price">55 EUR</a>
+        
+              <a className="price-label">Price</a>
+              <a className="adult-price">55 EUR</a>
+    
           </div>
           <div className="price-calculator">
             <div class="decrement-button" onClick={adultDecreaseCounter}>

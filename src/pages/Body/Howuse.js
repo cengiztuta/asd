@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./Howuse.css";
 import axios from "axios";
 import HowUseCard from "./HowUseCard";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Howuse = () => {
   const [tempData, setTempData] = useState([]);
@@ -20,23 +22,22 @@ const Howuse = () => {
 
   const fetchTempData = async () => {
     const tempData = await getOffersTemp();
-    const data = tempData.en.how_to_use.descriptions.map((item,index) => {
-      return {
-        descriptions: item,
-      };
-    });
+    const data = tempData.en.how_to_use.descriptions;
+
     setTempData(data);
   };
- 
+
   useEffect(() => {
     fetchTempData();
   }, []);
+
   return (
     <div className="Howuse">
       <div className="Howuse-container">
         <h3 className="Howuse-title">
           HOW TO USE PRAGUE COOLPASS — FEW EASY STEPS
         </h3>
+
         <HowUseCard card={tempData} />
       </div>
     </div>

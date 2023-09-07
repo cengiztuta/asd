@@ -45,14 +45,13 @@ const NewCardSlider = () => {
             justifyContent: "center",
           }}
         >
-          <div
+       
            
-            className="att-title-container"
-          >
+       
             <h3 className="top-attractions-title">
               TOP PRAGUE ATTRACTIONS INCLUDED IN COOLPASS
             </h3>
-          </div>
+       
         </section>
         <div className="att-wrapper">
           <Box class="slide-iconn">

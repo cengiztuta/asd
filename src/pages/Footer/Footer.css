@@ -4,8 +4,7 @@
   height: auto;
   justify-content: center;
   background: #252c3e;
-  margin-top: 156px;
-
+  margin-top: 56px;
 }
 .footer-content {
   display: flex;
@@ -30,7 +29,6 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-
 }
 li::before {
   font-family: Open Sans, sans-serif;
@@ -55,8 +53,10 @@ li::before {
   background-size: cover;
   margin-bottom: 10.67px;
   width: 157.13px;
-  height: 44px;
+  height: 45px;
+  padding-right: 2px;
   cursor: pointer;
+  background-position: center;
 }
 .play-store {
   background: url(../images/play-store.png) 50% no-repeat;
@@ -64,7 +64,9 @@ li::before {
   margin-bottom: 10.67px;
   width: 157.13px;
   height: 45px;
+  padding-right: 2px;
   cursor: pointer;
+  background-position: center;
 }
 
 .footer-input {

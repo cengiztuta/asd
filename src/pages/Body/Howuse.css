@@ -3,9 +3,9 @@
   justify-content: center;
 }
 .Howuse-container {
-  height: 500;
-  width: 1140px;  
-  margin-top: 60px;
+  height: auto;
+  max-width: 1140px;
+  width: 100%;
 }
 .Howuse-title {
   font-family: Open Sans Bold, sans-serif;
@@ -24,13 +24,14 @@
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  height: auto;
 }
 
 .how-use-wrapper {
   margin: 0;
   padding: 0;
   border: 0;
-
+  height: auto;
   font: inherit;
   vertical-align: baseline;
 }
@@ -46,15 +47,12 @@
   align-items: center;
 }
 .how-use-step-image {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   width: 269px;
   height: 250px;
-
 }
 .how-use-step-number {
   margin-top: 14px;
@@ -100,7 +98,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   width: 269px;
-  height: 250px;
+  height: auto;
 }
 .step-number {
   margin-top: 14px;
@@ -121,4 +119,75 @@
   line-height: 23px;
   text-align: center;
   color: #252c3e;
+}
+.how-use-m-link {
+  height: 50px;
+  cursor: pointer;
+  width: 180px;
+  align-self: center;
+  margin: " 13px";
+}
+.how-use-swiper {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .how-card {
+    display: none;
+  }
+  .how-use-swiper {
+    display: flex;
+    max-width: 662px;
+    width: 100%;
+    height: 100%;
+  }
+  .how-use-slide {
+    max-width: 662px;
+    width: 100%;
+    position: relative;
+    padding-right: 20px;
+  }
+  .Howuse-container {
+    width: 100%;
+    padding-right: 8px;
+    padding-left: 8px;
+    box-sizing: border-box;
+  }
+  .Howuse-title {
+    font-family: Open Sans Bold, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #252c3e;
+  }
+  .how-use-steps {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+  }
+  .how-use-step-new {
+    display: flex;
+    max-width: 662px;
+    width: 100%;
+    height: auto;
+  }
+  .how-use-m-link {
+    height: 93px;
+    width: 435px;
+  }
+  .how-use-step-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 662px;
+  }
+  .how-use-step-text {
+    width: 288px;
+    line-height: 130%;
+  }
 }

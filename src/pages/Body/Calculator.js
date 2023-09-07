@@ -13,7 +13,39 @@ import Card5 from "./CalculateCards/Card5";
 import Card6 from "./CalculateCards/Card6";
 import Card7 from "./CalculateCards/Card7";
 import Card10 from "./CalculateCards/Card10";
+const swiperParams = {
+  direction: "horizontal",
+  slidesPerView: 3,
+  loop: false, // Loop devre dışı
+  autoplay: false, // Otomatik oynatmayı devre dışı
+  allowSlideNext: true, // Sonraki slayta geçişi engelle
+  allowSlidePrev: true, // Önceki slayta geçişi engelle
+
+  breakpoints: {
+    320: {
+      slidesPerView: "auto",
+      spaceBetween: '20px',
+      pagination: {
+        // 768 piksel veya daha küçük ekranlarda noktaları etkinleştirin
+        clickable: true,
+      },
+    },
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+  },
+};
 const Calculator = () => {
+  const CardArray = [Card1, Card2, Card3, Card4, Card5, Card6, Card7, Card10];
   const swiperRef = useRef(null);
   return (
     <div className="calculator">
@@ -22,55 +54,28 @@ const Calculator = () => {
         <div className="wrapper">
           <div className="wrapper-content">
             <Box
-              w={"1188px"}
-              h={"263px"}
-              position={"relative"}
-              flexDirection={"row"}
-              justifyContent={"space-between"}
-              alignItems={"center"}
-              display={"flex"}
+              h={"24px"}
+              cursor={"pointer"}
+              onClick={() => swiperRef.current.swiper.slidePrev()}
+              className="calc-slide-icon"
             >
-              <Box
-                h={"24px"}
-                cursor={"pointer"}
-                onClick={() => swiperRef.current.swiper.slidePrev()}
-              >
-                <ChevronLeftIcon w={"24px"} h={"100%"} />
-              </Box>
+              <ChevronLeftIcon w={"24px"} h={"100%"} />
+            </Box>
 
-              <Swiper slidesPerView={3} modules={Navigation} ref={swiperRef}>
-                <SwiperSlide>
-                  <Card1 />
+            <Swiper {...swiperParams} ref={swiperRef}>
+              {CardArray.map((CardComponent, index) => (
+                <SwiperSlide key={index} {...swiperParams}>
+                  <CardComponent />
                 </SwiperSlide>
-                <SwiperSlide>
-                  <Card2 />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Card3 />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Card4 />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Card5 />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Card6 />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Card7 />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Card10 />
-                </SwiperSlide>
-              </Swiper>
-              <Box
-                h={"24px"}
-                cursor={"pointer"}
-                onClick={() => swiperRef.current.swiper.slideNext()}
-              >
-                <ChevronRightIcon w={"24px"} h={"100%"} />
-              </Box>
+              ))}
+            </Swiper>
+            <Box
+              h={"24px"}
+              cursor={"pointer"}
+              onClick={() => swiperRef.current.swiper.slideNext()}
+              className="calc-slide-icon"
+            >
+              <ChevronRightIcon w={"24px"} h={"100%"} />
             </Box>
           </div>
         </div>
@@ -96,7 +101,7 @@ const Calculator = () => {
           </div>
           <div className="third-tip-block">
             {" "}
-            <h>ADULT 16+ years</h> <p> STUDENT 16 - 26 years </p>{" "}
+            <h>ADULT 16+ years</h> <p className="third-m"> STUDENT 16 - 26 years </p>{" "}
             <p> CHILD 6-16 years </p>{" "}
           </div>
         </div>

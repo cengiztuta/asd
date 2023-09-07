@@ -13,6 +13,7 @@ import CustomerCardSlider from "./CustomerCard/CustomerCardSlider";
 const Customers = () => {
   const swiperRef = useRef(null);
   const [review, setReview] = useState([]);
+
   const getReview = async () => {
     try {
       const response = await axios.get(
@@ -33,17 +34,12 @@ const Customers = () => {
     fetchTranslate();
   }, []);
 
-  const data = [
-    {
-      title: `${review.title}`,
-      place: `${review.place}`,
-      date: `${review.date}`,
-      name: `${review.name}`,
-      text: `${review.text}`,
-      rating: `${review.rating}`,
-      id: `${review._id}`,
-    },
-  ];
+  const formatDate = (dateStr) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", options);
+  };
+
   return (
     <div className="customer">
       <div className="customer-container">
@@ -60,51 +56,51 @@ const Customers = () => {
             >
               4.5
             </h3>
-            <span
-              class="star"
-              style={{
-                backgroundImage: `url(${activeStar})`,
-              }}
-            ></span>
-            <span
-              class="star"
-              style={{
-                backgroundImage: `url(${activeStar})`,
-              }}
-            ></span>
-            <span
-              class="star"
-              style={{
-                backgroundImage: `url(${activeStar})`,
-              }}
-            ></span>
-            <span
-              class="star"
-              style={{
-                backgroundImage: `url(${activeStar})`,
-              }}
-            ></span>
-            <span
-              class="star"
-              style={{
-                backgroundImage: `url(${inactiveStar})`,
-              }}
-            ></span>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <span
+                class="star"
+                style={{
+                  backgroundImage: `url(${activeStar})`,
+                }}
+              ></span>
+              <span
+                class="star"
+                style={{
+                  backgroundImage: `url(${activeStar})`,
+                }}
+              ></span>
+              <span
+                class="star"
+                style={{
+                  backgroundImage: `url(${activeStar})`,
+                }}
+              ></span>
+              <span
+                class="star"
+                style={{
+                  backgroundImage: `url(${activeStar})`,
+                }}
+              ></span>
+              <span
+                class="star"
+                style={{
+                  backgroundImage: `url(${inactiveStar})`,
+                }}
+              ></span>{" "}
+            </div>
           </div>
         </div>
-
-        <div className="customer-wrapper">
-          <CustomerCardSlider data={review} />{" "}
-        </div>
+        <CustomerCardSlider data={review} />{" "}
         <div className="pagination-container">
-          <button className="pagination-button-all">
+          <button className="pagination-button ">
             <a>SEE ALL REVIEWS</a>
           </button>
-          <button className="pagination-button-write">
+          <button className="pagination-button">
             <a>WRITE YOUR REVIEW</a>
           </button>
         </div>
       </div>
+      
     </div>
   );
 };

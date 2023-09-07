@@ -17,13 +17,7 @@
     text-transform: uppercase;
     color: #252c3e;
   }
-  /* .pop-up-content {
-    display: grid;
-    justify-items: center;
-    gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    background-color: red;
-  } */
+
 
   .grid {
     display: grid;
@@ -84,6 +78,7 @@
   .text-container {
     padding: 0 47px;
     display: flex;
+    flex-direction: column;
   }
   .pop-up-text-title {
     font-family: Open Sans, sans-serif;
@@ -92,7 +87,6 @@
     font-size: 18px;
     text-transform: uppercase;
     color: #fff;
-    margin-top: 30px;
   }
   .pop-up-text {
     font-family: Open Sans, sans-serif;
@@ -172,13 +166,7 @@
     text-transform: uppercase;
     color: #252c3e;
   }
-  /* .pop-up-content {
-    display: grid;
-    justify-items: center;
-    gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    background-color: red;
-  } */
+ 
 
   .grid {
     display: grid;
