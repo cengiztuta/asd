@@ -30,13 +30,30 @@ const Howuse = () => {
   useEffect(() => {
     fetchTempData();
   }, []);
-
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data.en;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempDataTwo);
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
   return (
     <div className="Howuse">
       <div className="Howuse-container">
-        <h3 className="Howuse-title">
-          HOW TO USE PRAGUE COOLPASS — FEW EASY STEPS
-        </h3>
+        <h3 className="Howuse-title">{tempDataTwo.HOME_how_to_use_title}</h3>
 
         <HowUseCard card={tempData} />
       </div>

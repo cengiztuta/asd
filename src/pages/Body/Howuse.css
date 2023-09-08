@@ -128,7 +128,9 @@
   margin: " 13px";
 }
 .how-use-swiper {
-  display: none;
+  display: block;
+  max-width: 1140px;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {

@@ -24,7 +24,26 @@ export const Newss = () => {
   useEffect(() => {
     fetchTranslate();
   }, []);
-
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data.en;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempDataTwo);
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
   return (
     <div>
       <div className="newss-content">
@@ -64,7 +83,7 @@ export const Newss = () => {
           {" "}
           <Button _hover={{ bg: "#FF9848" }} className="News-button">
             {" "}
-            SEE ALL NEWS
+            {tempDataTwo.SEE_ALL_NEWS}
           </Button>
         </a>
       </div>

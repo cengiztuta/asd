@@ -34,19 +34,33 @@ const Customers = () => {
     fetchTranslate();
   }, []);
 
-  const formatDate = (dateStr) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    const date = new Date(dateStr);
-    return date.toLocaleDateString("en-US", options);
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data.en;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
   };
-
+  console.log(tempDataTwo);
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
   return (
     <div className="customer">
       <div className="customer-container">
         <div className="title-container">
           <h3 className="customer-title">
             {" "}
-            WHAT OUR CUSTOMERS SAY ABOUT COOLPASS /PRAGUE CARD{" "}
+            {tempDataTwo.REVIEWS_what_do_customers_say}
           </h3>
 
           <div className="title-stars-rating">
@@ -93,14 +107,13 @@ const Customers = () => {
         <CustomerCardSlider data={review} />{" "}
         <div className="pagination-container">
           <button className="pagination-button ">
-            <a>SEE ALL REVIEWS</a>
+            <a>{tempDataTwo.REVIEWS_see_all} </a>
           </button>
           <button className="pagination-button">
-            <a>WRITE YOUR REVIEW</a>
+            <a>{tempDataTwo.REVIEWS_write_your_opinion  }</a>
           </button>
         </div>
       </div>
-      
     </div>
   );
 };

@@ -287,7 +287,9 @@ li::before {
   .calculator-container {
     height: auto;
     width: 100%;
+    max-width: 720px;
     margin-top: 40px;
+    overflow: hidden;
   }
   .wrapper {
     width: 100%;
@@ -295,6 +297,7 @@ li::before {
   }
   .wrapper-content {
     height: auto;
+    max-width: 720px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -302,11 +305,12 @@ li::before {
     row-gap: 20px;
   }
   .calc-slide {
-    max-width: 662px;
+    max-width: 700px;
     width: 100%;
     margin-right: 8px;
   }
   .Card {
+    max-width: 660px;
     width: 100%;
     height: auto;
     margin: 0;
@@ -348,5 +352,4 @@ li::before {
     display: flex;
     flex-direction: column;
   }
-
 }

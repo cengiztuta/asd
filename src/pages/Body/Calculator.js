@@ -4,6 +4,7 @@ import { Navigation } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Box } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import axios from "axios";
 import "swiper/css/navigation";
 import Card1 from "./CalculateCards/Card1";
 import Card2 from "./CalculateCards/Card2";
@@ -24,7 +25,7 @@ const swiperParams = {
   breakpoints: {
     320: {
       slidesPerView: "auto",
-      spaceBetween: '20px',
+      spaceBetween: "20px",
       pagination: {
         // 768 piksel veya daha küçük ekranlarda noktaları etkinleştirin
         clickable: true,
@@ -47,10 +48,33 @@ const swiperParams = {
 const Calculator = () => {
   const CardArray = [Card1, Card2, Card3, Card4, Card5, Card6, Card7, Card10];
   const swiperRef = useRef(null);
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data.en;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempDataTwo);
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
   return (
     <div className="calculator">
       <div className="calculator-container">
-        <h3 className="Benefits-title"> BUY PRAGUE COOL PASS / CARD</h3>
+        <h3 className="Benefits-title">
+          {" "}
+          {tempDataTwo.BUY_COOLPASS_PRAGUE_CARD}
+        </h3>
         <div className="wrapper">
           <div className="wrapper-content">
             <Box
@@ -101,7 +125,8 @@ const Calculator = () => {
           </div>
           <div className="third-tip-block">
             {" "}
-            <h>ADULT 16+ years</h> <p className="third-m"> STUDENT 16 - 26 years </p>{" "}
+            <h>ADULT 16+ years</h>{" "}
+            <p className="third-m"> STUDENT 16 - 26 years </p>{" "}
             <p> CHILD 6-16 years </p>{" "}
           </div>
         </div>

@@ -99,21 +99,4 @@ const BenefitsCard = () => {
 
 export default BenefitsCard;
 
-// <Button
-// _hover={{ bg: "#545454" }}
-// className="spoiler-title-box"
-// onClick={toggleCollapseOne}
-// >
-// <h4
-//   className="spoiler-title-text"
-//   dangerouslySetInnerHTML={{ __html: item.title }}
-// ></h4>
-// </Button>
-// <Collapse in={isExpandedOne} animateOpacity className="Collapse">
-// <VStack align="start" spacing="4">
-//   <Text
-//     className="spoiler-text"
-//     dangerouslySetInnerHTML={{ __html: item.text }}
-//   ></Text>
-// </VStack>
-// </Collapse>
+

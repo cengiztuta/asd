@@ -39,10 +39,31 @@ const Offer = () => {
     fetchTempData();
   }, []);
 
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data.en;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempDataTwo);
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
+
   return (
     <section className="offer">
       <div className="offer-content">
-        <h3 className="offer-h3">ALL-INCLUSIVE OFFER FOR YOUR PRAGUE SIGHTSEEING</h3>
+        <h3 className="offer-h3">{tempDataTwo.HOME_offers_title}</h3>
 
         <div>
           <OfferCard card={tempData} />

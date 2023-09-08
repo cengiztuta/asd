@@ -81,15 +81,9 @@ const HowUseCard = ({ card }) => {
                   className="how-use-step-image"
                   style={{ backgroundImage: `url(${api}${item})` }}
                 >
-                  <a
-                  className="how-use-m-link"
-                
-                  ></a>
+                  <a className="how-use-m-link"></a>
                   <div style={{ display: "block" }}> </div>
-                  <a
-                  className="how-use-m-link"
-              
-                  ></a>
+                  <a className="how-use-m-link"></a>
                 </div>
                 <div className="how-use-step-number">{index + 1} </div>
                 <div className="how-use-step-text">{card[index]}</div>

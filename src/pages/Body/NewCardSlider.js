@@ -9,6 +9,26 @@ import axios from "axios";
 import "./Card.css";
 
 const NewCardSlider = () => {
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data.en;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempData);
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
   const swiperRef = useRef(null);
   const [attractions, setAttractions] = useState([]);
   const getAttractions = async () => {
@@ -44,12 +64,9 @@ const NewCardSlider = () => {
             display: "flex",
             justifyContent: "center",
           }}
-        >
-       
-           
-       
+        > 
             <h3 className="top-attractions-title">
-              TOP PRAGUE ATTRACTIONS INCLUDED IN COOLPASS
+            {tempData.HOME_top_attractions_title}
             </h3>
        
         </section>

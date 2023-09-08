@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
   }
-  .h3 {
+  .newss-h3 {
     font-family: Open Sans Bold, sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -189,7 +189,6 @@
     min-height: 350px;
     height: auto;
     width: 560px;
-
   }
   .newss-link {
     text-decoration: none;
@@ -225,7 +224,7 @@
     font-size: 12px;
     line-height: 16px;
     color: #da4b07;
-   justify-content: flex-start;
+    justify-content: flex-start;
   }
   .newss-button-container {
     display: flex;
@@ -236,108 +235,6 @@
     width: 100%;
     margin-top: 30px;
     text-decoration: none;
-  }
-  .newss-title:hover {
-    color: #7c808b;
-  }
-}
-@media screen and (min-width: 721px) {
-  /* Değişen Stil Kuralları */
-  .News-container {
-    height: 100%;
-    width: 1140px;
-    display: flex;
-    flex-direction: column;
-  }
-  .News-top-content {
-    height: 350px;
-    width: 1140px;
-    display: flex;
-    flex-direction: row;
-  }
-  .content-image,
-  .content-text,
-  .vemem,
-  .News-text,
-  .News-Bottom-text {
-    width: 560px;
-    height: auto;
-  }
-  .newss-content {
-    display: grid;
-    justify-items: center;
-    row-gap: 65px;
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .newss-card-container {
-    display: grid;
-    column-gap: 20px;
-    width: 100%;
-    height: auto;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .newss-image {
-    display: flex;
-    height: 350px;
-    width: 560px;
-    background: #dbdbdb;
-    justify-content: flex-end;
-    align-items: flex-end;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-  }
-  .date {
-    align-items: center;
-    width: 90px;
-    height: 27px;
-    background: rgba(37, 44, 62, 0.6);
-    border-radius: 10px 0;
-    font-family: Open Sans Semibold, sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
-    color: #fff;
-    justify-content: center;
-    display: flex;
-  }
-  .newss-text-content {
-    min-height: 350px;
-    width: 560px;
-  }
-  .newss-title {
-    font-family: Open Sans Bold, sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 23px;
-    text-transform: uppercase;
-    color: #252c3e;
-  }
-  .newss-text {
-    margin-top: 15px;
-    font-family: Open Sans, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 23px;
-    color: #252c3e;
-    user-select: none;
-  }
-  .newss-read-more {
-    cursor: pointer;
-    margin-top: 25px;
-    text-decoration: underline;
-    text-transform: capitalize;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    color: #da4b07;
-  }
-  .newss-button-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    margin-top: 30px;
   }
   .newss-title:hover {
     color: #7c808b;
@@ -377,6 +274,9 @@
     border-radius: 10px;
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
   .date {
     width: auto;
@@ -384,7 +284,7 @@
   }
   .newss-text-content {
     width: 100%;
-    margin-left: 10px; 
+    margin-left: 10px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -410,7 +310,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 23px;
-    color: #252c3e;  
+    color: #252c3e;
     width: 100%;
     height: auto;
     text-align: left;
@@ -455,5 +355,22 @@
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
+  }
+  .newss-date {
+    align-items: center;
+    width: 90px;
+    height: 27px;
+    background: rgba(37, 44, 62, 0.6);
+    border-radius: 10px 0;
+    font-family: Open Sans Semibold, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+    justify-content: center;
+    -webkit-box-align: center;
+    display: flex;
+    -webkit-box-pack: center;
   }
 }
