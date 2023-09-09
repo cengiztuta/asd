@@ -71,7 +71,7 @@ export const Newss = () => {
                 }}
               ></a>
               <a className="newss-link">
-                <p className="newss-read-more">See More</p>
+                <p className="newss-read-more">{tempDataTwo.READ_MORE}</p>
               </a>
             </div>
           </div>

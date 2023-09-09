@@ -1,11 +1,11 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./Footer.css";
 import { Button } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
-
-const Footer = () => {  const [tempDataTwo, setTempDataTwo] = useState([]);
+const Footer = () => {
+  const [tempDataTwo, setTempDataTwo] = useState([]);
   const getOffersTempTwo = async () => {
     try {
       const response = await axios.get(
@@ -50,7 +50,7 @@ const Footer = () => {  const [tempDataTwo, setTempDataTwo] = useState([]);
               {tempDataTwo.FAQ}
             </Button>
           </a>
-          <a> {tempDataTwo.FOOTER_about_us}  </a>
+          <a> {tempDataTwo.FOOTER_about_us} </a>
           <a> {tempDataTwo.FOOTER_terms_and_conditions} </a>
           <a>{tempDataTwo.FOOTER_cancellation_and_refund}</a>
           <a> {tempDataTwo.FOOTER_privacy_policy} </a>
@@ -66,7 +66,7 @@ const Footer = () => {  const [tempDataTwo, setTempDataTwo] = useState([]);
           </a>
         </ul>
         <ul className="footer-first-section">
-          <a> News & Updates </a>
+          <a> {tempDataTwo.NEWS_AND_UPDATES} </a>
           <div
             style={{
               display: "flex",
@@ -79,14 +79,14 @@ const Footer = () => {  const [tempDataTwo, setTempDataTwo] = useState([]);
               placeholder="Search Attractions"
             />{" "}
             <button _hover={{ bg: "#FF9848" }} className="footer-subs-button">
-              SUBSCRIBE
+              {tempDataTwo.EMAIL_SUBSCRIBE}
             </button>
           </div>
           <div className="footer-year-info">CoolPass 2020-2023</div>
           <div className="footer-info">Prague Card 1992-2023</div>
           <p className="rights-reserved-block">
             {" "}
-            All rights reserved by Travel CoolPass Ltd. & Prague Card s.r.o.
+           {tempDataTwo.ALL_RIGHTS_RESERVED_LABE}
           </p>
         </ul>
       </div>

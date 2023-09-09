@@ -1,10 +1,11 @@
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import "./Card.css";
+import axios from "axios";
 const Card = ({ card, img }) => {
   const [isFilled, setIsFilled] = useState(false);
   const [filled, setFilled] = useState(false);
@@ -23,13 +24,32 @@ const Card = ({ card, img }) => {
   };
   const { title, banner, subtitle } = card;
   const [show, setShow] = useState(false);
-
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data.en;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempDataTwo);
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
   return (
     <Box
       className="att-Card"
       style={{
         backgroundImage: `url(${api}${img})`,
-        backgroundSize:'cover'
+        backgroundSize: "cover",
       }}
     >
       <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -49,7 +69,10 @@ const Card = ({ card, img }) => {
       </Box>
       {banner && (
         <div className="card-benefit">
-          <p className="benefit-text">INCLUDED with CoolPass</p>
+          <p className="benefit-text">
+            {tempDataTwo.ATTRACTIONS_label_included}{" "}
+            {tempDataTwo.ATTRACTIONS_label_with_pass}
+          </p>
         </div>
       )}
       <Box

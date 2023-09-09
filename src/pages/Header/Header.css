@@ -62,7 +62,7 @@
 }
 
 .asd {
-  background-color: #595b64;
+  background-color: #252c3e;
   border-width: 0;
   border-radius: 5px;
   margin-left: 20px;
@@ -76,14 +76,14 @@
 }
 
 .ButtonMenu {
-  background-color: #595b64;
+  background-color: #252c3e;
   border-radius: 5px;
   border-width: 1;
   color: white;
   width: 120px;
 }
 .MenuButton {
-  background-color: #595b64;
+  background-color: #252c3e;
   border-width: 0;
   font-size: 14px;
   color: white;
@@ -91,6 +91,7 @@
   margin-top: 2px;
   height: 30px;
   text-align: center;
+  cursor: pointer;
 }
 .m-navbar {
   display: none;
@@ -237,7 +238,7 @@
   }
   .asd {
     margin-right: 10px;
-    background-color: #595b64;
+    background-color: #252c3e;
     width: auto;
     min-width: 65px;
     padding: 0 20px;
@@ -258,5 +259,11 @@
     cursor: pointer;
     position: relative;
     color: #fff;
+  }
+  .ButtonMenu{
+    background: #252c3e;
+  }
+  .MenuButton{
+    background: #252c3e;
   }
 }

@@ -25,6 +25,7 @@ import axios from "axios";
 const Header = () => {
   const [scrolling, setScrolling] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [lang, setLang] = useState("ENGLISH");
 
   const [tempDataTwo, setTempDataTwo] = useState([]);
   const getOffersTempTwo = async () => {
@@ -45,6 +46,48 @@ const Header = () => {
   };
   useEffect(() => {
     fetchTempDataTwo();
+  }, []);
+
+  const [tempDataThree, setTempDataThree] = useState([]);
+  const getOffersTempThree = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/menu/5a7a894f66105c2e28d87bd3"
+      );
+      return response.data.content.en;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempDataThree);
+  const fetchTempDataThree = async () => {
+    const data = await getOffersTempThree();
+    setTempDataThree(data);
+  };
+  useEffect(() => {
+    fetchTempDataThree();
+  }, []);
+
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/menu/5a7a896166105c2e28d87bd4"
+      );
+      return response.data.content.en;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
   }, []);
 
   const handleScroll = () => {
@@ -105,20 +148,53 @@ const Header = () => {
                   as={Button}
                   rightIcon={<ChevronDownIcon />}
                 >
-                  ENGLISH
+                  {lang}
                 </MenuButton>
                 <MenuList _hover={{ bg: "#545454" }} className="ButtonMenu">
                   <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
-                    ENGLISH
+                    English
                   </MenuItem>
-                  <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
-                    TÜRKÇE
+                  <MenuItem
+                    _hover={{ bg: "#545454" }}
+                    className="MenuButton"
+                    onClick={() => setLang("Čeština")}
+                  >
+                    Čeština
                   </MenuItem>
-                  <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
-                    DEUTCH
+                  <MenuItem
+                    _hover={{ bg: "#545454" }}
+                    className="MenuButton"
+                    onClick={() => setLang("DEUTSCH")}
+                  >
+                    Deutsch
                   </MenuItem>
-                  <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
-                    Delete
+                  <MenuItem
+                    _hover={{ bg: "#545454" }}
+                    className="MenuButton"
+                    onClick={() => setLang("ESPAÑOL")}
+                  >
+                    Español
+                  </MenuItem>
+                  <MenuItem
+                    _hover={{ bg: "#545454" }}
+                    className="MenuButton"
+                    onClick={() => setLang("ITALIANO")}
+                  >
+                    Italiano
+                  </MenuItem>
+                  <MenuItem
+                    _hover={{ bg: "#545454" }}
+                    className="MenuButton"
+                    onClick={() => setLang("FRANÇAIS")}
+                  >
+                    Français
+                  </MenuItem>
+                  <MenuItem
+                    _hover={{ bg: "#545454" }}
+                    className="MenuButton"
+                    onClick={() => setLang("РУССКИЙ")}
+                  >
+                    Русский
                   </MenuItem>
                 </MenuList>
               </Menu>
@@ -149,10 +225,10 @@ const Header = () => {
                   <a className="navbar-link">{tempDataTwo.ATTRACTIONS}</a>
                 </div>
                 <div className="center-nav-container">
-                  <a className="navbar-link">GET YOUR PASS</a>
+                  <a className="navbar-link">{tempDataThree.title}</a>
                 </div>
                 <div className="center-nav-container">
-                  <a className="navbar-link">PLAN YOUR TRIP</a>
+                  <a className="navbar-link">{tempData.title}</a>
                 </div>
                 <div className="center-nav-container">
                   <a className="navbar-link">{tempDataTwo.HOME_news_title}</a>
@@ -185,14 +261,14 @@ const Header = () => {
         <div className="HeadMid">
           <Text className="HeadMidText">CoolPass/Card </Text>
           <Text className="HeadMidText">{tempDataTwo.ATTRACTIONS} </Text>
-          <Text className="HeadMidText">GET YOUR PASS </Text>
-          <Text className="HeadMidText">PLAN YOUR TRIP </Text>
+          <Text className="HeadMidText">{tempDataThree.title} </Text>
+          <Text className="HeadMidText">{tempData.title} </Text>
           <Text className="HeadMidText"> {tempDataTwo.HOME_news_title}</Text>
           <Text className="HeadMidText">{tempDataTwo.FAQ} </Text>
         </div>
         <div className="HeadButtons">
           <Button _hover={{ bg: "#FF9848" }} className="ButtonOne">
-            BUY ONLINE
+            {tempDataTwo.BUY_NOW}
           </Button>
           <Menu className="ButtonMenu">
             <MenuButton
@@ -201,20 +277,54 @@ const Header = () => {
               as={Button}
               rightIcon={<ChevronDownIcon />}
             >
-              ENGLISH
+              {lang}
             </MenuButton>
             <MenuList _hover={{ bg: "#545454" }} className="ButtonMenu">
               <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
-                ENGLISH
+                English
               </MenuItem>
-              <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
-                TÜRKÇE
+              <MenuItem
+                _hover={{ bg: "#545454" }}
+                className="MenuButton"
+                onClick={() => setLang("Čeština")}
+              >
+                Čeština
               </MenuItem>
-              <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
-                DEUTCH
+              <MenuItem
+                bg={"#252c3e"}
+                _hover={{ bg: "#545454" }}
+                className="MenuButton"
+                onClick={() => setLang("DEUTSCH")}
+              >
+                Deutsch
               </MenuItem>
-              <MenuItem _hover={{ bg: "#545454" }} className="MenuButton">
-                Delete
+              <MenuItem
+                _hover={{ bg: "#545454" }}
+                className="MenuButton"
+                onClick={() => setLang("ESPAÑOL")}
+              >
+                Español
+              </MenuItem>
+              <MenuItem
+                _hover={{ bg: "#545454" }}
+                className="MenuButton"
+                onClick={() => setLang("ITALIANO")}
+              >
+                Italiano
+              </MenuItem>
+              <MenuItem
+                _hover={{ bg: "#545454" }}
+                className="MenuButton"
+                onClick={() => setLang("FRANÇAIS")}
+              >
+                Français
+              </MenuItem>
+              <MenuItem
+                _hover={{ bg: "#545454" }}
+                className="MenuButton"
+                onClick={() => setLang("РУССКИЙ")}
+              >
+                Русский
               </MenuItem>
             </MenuList>
           </Menu>

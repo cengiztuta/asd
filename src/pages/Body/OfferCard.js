@@ -90,36 +90,9 @@ const OfferCard = ({ card, image }) => {
     );
   };
 
-  //   <Button
-  //   _hover={{ bg: "#FF9848" }}
-  //   className="pop-up-button"
-  // >
-  //   {card[index].button_text}
-  // </Button>
-
   return (
     <div>
       <Grid />
-
-      {/* {show === "popup1" ? (
-        <div className="hovered">
-          <div>
-            <h3 className="pop-up-text-title">{title}</h3>
-            <div className="pop-up-text">
-              <p>{features_list}</p>
-            </div>
-            <div className="pop-up-button-content">
-              <Button _hover={{ bg: "#FF9848" }} className="pop-up-button">
-                {button_text}
-              </Button>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="pop-up-title">
-          <h3 className="pop-up-title-h3">{title}</h3>
-        </div>
-      )} */}
     </div>
   );
 };

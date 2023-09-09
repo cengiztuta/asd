@@ -107,27 +107,24 @@ const Calculator = () => {
           <div class="first-tip-block">
             <li class="list-text">
               {" "}
-              Prague CoolPass/Card is valid for consecutive days, not hours.
+             {tempDataTwo.CALCULATOR_card_validity}
             </li>
             <li class="list-text">
               {" "}
-              Child/Student Pass is valid for children 6-16 years old and
-              students on daily studies up to 26 years old.
+           {tempDataTwo.CALCULATOR_child_card_validity_tip}
             </li>
           </div>
           <div class="second-tip-block">
             <li class="second-list-text">
               {" "}
-              Any national or international student ID is OK. You do not need it
-              when buying Pass, but you could be asked to show it when entering
-              the attractions with a student CoolPass.
+           {tempDataTwo.CALCULATOR_student_id_info}
             </li>
           </div>
           <div className="third-tip-block">
             {" "}
-            <h>ADULT 16+ years</h>{" "}
-            <p className="third-m"> STUDENT 16 - 26 years </p>{" "}
-            <p> CHILD 6-16 years </p>{" "}
+            <h>{tempDataTwo.ADULT_AGE}</h>{" "}
+            <p className="third-m"> {tempDataTwo.STUDENT_AGE} </p>{" "}
+            <p> {tempDataTwo.CHILD_AGE} </p>{" "}
           </div>
         </div>
       </div>

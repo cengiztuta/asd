@@ -61,7 +61,8 @@ const Slider = () => {
               <h1 className="header-content-title-one">{slides.title}</h1>
               <h3 className="header-content-title-two">{slides.subtitle}</h3>
               <p className="author-container-m">
-                Photo by Prague City Tourism & Czech Tourism{" "}
+                {tempDataTwo.HEADER_photo_by_label} Prague City Tourism & Czech
+                Tourism
               </p>
             </div>
             <div className="search-container">
@@ -79,7 +80,8 @@ const Slider = () => {
             </div>
           </div>
           <p className="author-container">
-            Photo by Prague City Tourism & Czech Tourism{" "}
+            {tempDataTwo.HEADER_photo_by_label} Prague City Tourism & Czech
+            Tourism{" "}
           </p>
         </section>
         <section className="underbar">
@@ -95,7 +97,7 @@ const Slider = () => {
             <SearchIcon color={"gray"} className="icon-m" />
           </div>
           <Button _hover={{ bg: "#FF9848" }} className="button-m">
-            LET'S GO
+          {tempDataTwo.APP_LETS_GO}
           </Button>
         </div>
       </div>
