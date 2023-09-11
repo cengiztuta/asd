@@ -4,7 +4,9 @@ import axios from "axios";
 import BenefitsCard from "./BenefitsCard.js";
 
 import "./Benefits.css";
+import { useTranslation } from "react-i18next";
 const Benefits = () => {
+  const { t } = useTranslation();
   const [tempData, setTempData] = useState([]);
   const getOffersTemp = async () => {
     try {
@@ -17,7 +19,7 @@ const Benefits = () => {
       return [];
     }
   };
-  console.log(tempData);
+
   const fetchTempData = async () => {
     const data = await getOffersTemp();
     setTempData(data);
@@ -27,7 +29,7 @@ const Benefits = () => {
   }, []);
   return (
     <section style={{ marginTop: "40px" }}>
-      <h3 className="Benefits-title">{tempData.HOME_benefits_title}</h3>
+      <h3 className="Benefits-title">{t("translation.HOME_benefits_title")}</h3>
 
       <div className="Benefits">
         <BenefitsCard />

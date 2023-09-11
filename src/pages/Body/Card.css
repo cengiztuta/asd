@@ -66,6 +66,7 @@
   background: #fdca2e;
   border-radius: 5px 0 0 5px;
   display: flex;
+  column-gap: 2px;
 }
 .benefit-text {
   font-family: Open Sans, sans-serif;
@@ -151,7 +152,6 @@
   margin-top: 40px;
   margin-left: 20px;
   align-self: flex-start;
-
 }
 @media screen and (max-width: 760px) {
   .att-slide-icon {

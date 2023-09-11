@@ -6,9 +6,12 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import "./Card.css";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 const Card = ({ card, img }) => {
   const [isFilled, setIsFilled] = useState(false);
   const [filled, setFilled] = useState(false);
+  const { t } = useTranslation();
 
   const api = "https://static2.praguecoolpass.com/";
 
@@ -24,26 +27,7 @@ const Card = ({ card, img }) => {
   };
   const { title, banner, subtitle } = card;
   const [show, setShow] = useState(false);
-  const [tempDataTwo, setTempDataTwo] = useState([]);
-  const getOffersTempTwo = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data.en;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  console.log(tempDataTwo);
-  const fetchTempDataTwo = async () => {
-    const data = await getOffersTempTwo();
-    setTempDataTwo(data);
-  };
-  useEffect(() => {
-    fetchTempDataTwo();
-  }, []);
+
   return (
     <Box
       className="att-Card"
@@ -69,10 +53,9 @@ const Card = ({ card, img }) => {
       </Box>
       {banner && (
         <div className="card-benefit">
-          <p className="benefit-text">
-            {tempDataTwo.ATTRACTIONS_label_included}{" "}
-            {tempDataTwo.ATTRACTIONS_label_with_pass}
-          </p>
+          <p className="benefit-text">{t("translation.ATTRACTIONS_label_included")} </p>
+      <span></span>
+          <p className="benefit-text"> {t("translation.ATTRACTIONS_label_with_pass")} </p>
         </div>
       )}
       <Box
@@ -81,7 +64,7 @@ const Card = ({ card, img }) => {
         className="att-card-footer"
       >
         <Box className="att-card-footer-content">
-          <p className="att-title">{title}</p>
+          <p className="att-title">{t('attraction.title')}</p>
         </Box>
         ;
         {show && (
@@ -89,7 +72,7 @@ const Card = ({ card, img }) => {
             <Text
               className="att-card-footer-text"
               dangerouslySetInnerHTML={{
-                __html: subtitle.slice(0, 200) + "...",
+                __html: t('attraction.subtitle').slice(0, 200) + "...",
               }}
             ></Text>
           </Box>

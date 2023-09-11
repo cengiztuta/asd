@@ -4,6 +4,7 @@ import axios from "axios";
 import HowUseCard from "./HowUseCard";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { t } from "i18next";
 
 const Howuse = () => {
   const [tempData, setTempData] = useState([]);
@@ -23,37 +24,19 @@ const Howuse = () => {
   const fetchTempData = async () => {
     const tempData = await getOffersTemp();
     const data = tempData.en.how_to_use.descriptions;
-
     setTempData(data);
   };
 
   useEffect(() => {
     fetchTempData();
   }, []);
-  const [tempDataTwo, setTempDataTwo] = useState([]);
-  const getOffersTempTwo = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data.en;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  console.log(tempDataTwo);
-  const fetchTempDataTwo = async () => {
-    const data = await getOffersTempTwo();
-    setTempDataTwo(data);
-  };
-  useEffect(() => {
-    fetchTempDataTwo();
-  }, []);
+
   return (
     <div className="Howuse">
       <div className="Howuse-container">
-        <h3 className="Howuse-title">{tempDataTwo.HOME_how_to_use_title}</h3>
+        <h3 className="Howuse-title">
+          {t("translation.HOME_how_to_use_title")}
+        </h3>
 
         <HowUseCard card={tempData} />
       </div>

@@ -7,28 +7,10 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "swiper/css/navigation";
 import axios from "axios";
 import "./Card.css";
-
+import { useTranslation } from "react-i18next";
 const NewCardSlider = () => {
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data.en;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  console.log(tempData);
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
-  useEffect(() => {
-    fetchTempData();
-  }, []);
+  const { t } = useTranslation();
+ 
   const swiperRef = useRef(null);
   const [attractions, setAttractions] = useState([]);
   const getAttractions = async () => {
@@ -66,7 +48,7 @@ const NewCardSlider = () => {
           }}
         > 
             <h3 className="top-attractions-title">
-            {tempData.HOME_top_attractions_title}
+            {t('translation.HOME_top_attractions_title')}
             </h3>
        
         </section>

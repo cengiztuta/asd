@@ -19,8 +19,11 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const BenefitsCard = () => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [tempData, setTempData] = useState([]);
   const getOffersTemp = async () => {
@@ -60,43 +63,45 @@ const BenefitsCard = () => {
     }
   };
   useEffect(() => {
-
     setOpenIndex(0);
   }, []);
+  const items = t("pages.5fd771cc072e5479bded0f2b.benefits.items", {
+    returnObjects: true,
+    something: "gold",
+  });
+  console.log(items);
 
   return (
- 
-      <div  className="acordion">
-        <Accordion defaultIndex={[0]}>
-          {tempData.map((item, index) => (
-            <AccordionItem key={index} className="benefits-spoiler">
-              <AccordionButton
-                className="spoiler-title-box"
-                _hover={{ bg: "#545454" }}
-                onClick={() => handleAccordionClick(index)}
-              >
-                <Box
-                  className="spoiler-title-text"
-                  as="span"
-           
-                  dangerouslySetInnerHTML={{ __html: item.title }}
-                />
-              </AccordionButton>
+    <div className="acordion">
+      <Accordion defaultIndex={[0]}>
+        {items.map((item, index) => (
+          <AccordionItem key={index} className="benefits-spoiler">
+            <AccordionButton
+              className="spoiler-title-box"
+              _hover={{ bg: "#545454" }}
+              onClick={() => handleAccordionClick(index)}
+            >
+              <Box
+                className="spoiler-title-text"
+                as="span"
+            
+              >{t(item.title)}</Box>
+            </AccordionButton>
 
-              <AccordionPanel className="spoiler-content" isOpen={openIndex === index}>
-                <a
-                  className="spoiler-text"
-                  dangerouslySetInnerHTML={{ __html: item.text }}
-                ></a>
-              </AccordionPanel>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
-   
+            <AccordionPanel
+              className="spoiler-content"
+              isOpen={openIndex === index}
+            >
+              <a
+                className="spoiler-text"
+                dangerouslySetInnerHTML={{ __html: t(item.text) }}
+              ></a>
+            </AccordionPanel>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
   );
 };
 
 export default BenefitsCard;
-
-

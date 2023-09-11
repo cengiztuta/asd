@@ -17,7 +17,7 @@ const Footer = () => {
       return [];
     }
   };
-  console.log(tempDataTwo);
+
   const fetchTempDataTwo = async () => {
     const data = await getOffersTempTwo();
     setTempDataTwo(data);

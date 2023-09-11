@@ -7,8 +7,9 @@ import offer4 from "../images/offer-4.jpg";
 import { Button } from "@chakra-ui/react";
 import axios from "axios";
 import OfferCard from "./OfferCard";
-
+import { useTranslation } from "react-i18next";
 const Offer = () => {
+  const { t } = useTranslation();
   const [tempData, setTempData] = useState([]);
 
   const getOffersTemp = async () => {
@@ -38,35 +39,35 @@ const Offer = () => {
   useEffect(() => {
     fetchTempData();
   }, []);
-
-  const [tempDataTwo, setTempDataTwo] = useState([]);
-  const getOffersTempTwo = async () => {
+  const [attractions, setAttraction] = useState([]);
+  const getMenu = async () => {
     try {
       const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
+        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
       );
-      return response.data.en;
+      return response.data.offers.web_images;
     } catch (error) {
       console.error(error);
       return [];
     }
   };
-  console.log(tempDataTwo);
-  const fetchTempDataTwo = async () => {
-    const data = await getOffersTempTwo();
-    setTempDataTwo(data);
+  const fetchTranslate = async () => {
+    const data = await getMenu();
+    setAttraction(data);
   };
+
   useEffect(() => {
-    fetchTempDataTwo();
+    fetchTranslate();
   }, []);
+
 
   return (
     <section className="offer">
       <div className="offer-content">
-        <h3 className="offer-h3">{tempDataTwo.HOME_offers_title}</h3>
+        <h3 className="offer-h3">{t("translation.HOME_offers_title")}</h3>
 
         <div>
-          <OfferCard card={tempData} />
+          <OfferCard  />
         </div>
       </div>
     </section>

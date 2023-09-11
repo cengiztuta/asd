@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./News.css";
 import axios from "axios";
 import { Button } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 export const Newss = () => {
   const api = "https://static2.praguecoolpass.com/";
-
+  const { t } = useTranslation();
   const [attractions, setAttraction] = useState([]);
   const getMenu = async () => {
     try {
@@ -19,7 +20,6 @@ export const Newss = () => {
     const data = await getMenu();
     setAttraction(data);
   };
-  console.log(attractions);
 
   useEffect(() => {
     fetchTranslate();
@@ -36,7 +36,7 @@ export const Newss = () => {
       return [];
     }
   };
-  console.log(tempDataTwo);
+
   const fetchTempDataTwo = async () => {
     const data = await getOffersTempTwo();
     setTempDataTwo(data);
@@ -44,10 +44,15 @@ export const Newss = () => {
   useEffect(() => {
     fetchTempDataTwo();
   }, []);
+  const items = t("news.news.webimages", {
+    returnObjects: true,
+    something: "gold",
+  });
+  console.log(items)
   return (
     <div>
       <div className="newss-content">
-        {attractions.map((item, index) => (
+        {items.map((item, index) => (
           <div
             key={index}
             className={`newss-card-container ${
@@ -56,13 +61,13 @@ export const Newss = () => {
           >
             <div
               className="newss-image"
-              style={{ backgroundImage: `url(${api}${item.webimages})` }}
+              style={{ backgroundImage: `url(${api}${t(item)})` }}
             >
               <div className="newss-date">02.06.2023 </div>
             </div>
             <div className="newss-text-content">
               <a className="newss-link">
-                <a className="newss-title"> {item.content.en.title} </a>
+                <a className="newss-title"> {t('translation.news.title')} </a>
               </a>
               <a
                 className="newss-text"
