@@ -110,13 +110,13 @@
     width: 100%;
     position: relative;
     justify-self: flex-end;
+    margin-bottom: 20px;
   }
   .see-all-button {
     min-width: 80px;
     width: auto;
     height: auto;
     text-decoration: none;
-    margin-left: 50px;
   }
   .pop-up-button {
     box-sizing: border-box;

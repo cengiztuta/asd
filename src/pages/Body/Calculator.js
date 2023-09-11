@@ -14,6 +14,7 @@ import Card5 from "./CalculateCards/Card5";
 import Card6 from "./CalculateCards/Card6";
 import Card7 from "./CalculateCards/Card7";
 import Card10 from "./CalculateCards/Card10";
+import { t } from "i18next";
 const swiperParams = {
   direction: "horizontal",
   slidesPerView: 3,
@@ -73,7 +74,7 @@ const Calculator = () => {
       <div className="calculator-container">
         <h3 className="Benefits-title">
           {" "}
-          {tempDataTwo.BUY_COOLPASS_PRAGUE_CARD}
+          {t("translation.BUY_COOLPASS_PRAGUE_CARD")}
         </h3>
         <div className="wrapper">
           <div className="wrapper-content">
@@ -107,24 +108,23 @@ const Calculator = () => {
           <div class="first-tip-block">
             <li class="list-text">
               {" "}
-             {tempDataTwo.CALCULATOR_card_validity}
+              {t("translation.CALCULATOR_card_validity")}
             </li>
             <li class="list-text">
               {" "}
-           {tempDataTwo.CALCULATOR_child_card_validity_tip}
+              {t("translation.CALCULATOR_child_card_validity_tip")}
             </li>
           </div>
           <div class="second-tip-block">
             <li class="second-list-text">
               {" "}
-           {tempDataTwo.CALCULATOR_student_id_info}
+              {t("translation.CALCULATOR_student_id_info")}
             </li>
           </div>
           <div className="third-tip-block">
-            {" "}
-            <h>{tempDataTwo.ADULT_AGE}</h>{" "}
-            <p className="third-m"> {tempDataTwo.STUDENT_AGE} </p>{" "}
-            <p> {tempDataTwo.CHILD_AGE} </p>{" "}
+            <h>{t("translation.ADULT_AGE")}</h>
+            <p className="third-m"> {t("translation.STUDENT_AGE")} </p>{" "}
+            <p> {t("translation.CHILD_AGE")} </p>{" "}
           </div>
         </div>
       </div>

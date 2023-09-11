@@ -9,8 +9,10 @@ import inactiveStar from "../images/star.png";
 import "swiper/css/navigation";
 import axios from "axios";
 import CustomerCardSlider from "./CustomerCard/CustomerCardSlider";
+import { useTranslation } from "react-i18next";
 
 const Customers = () => {
+  const { t } = useTranslation();
   const swiperRef = useRef(null);
   const [review, setReview] = useState([]);
 
@@ -59,7 +61,7 @@ const Customers = () => {
         <div className="title-container">
           <h3 className="customer-title">
             {" "}
-            {tempDataTwo.REVIEWS_what_do_customers_say}
+            {t("translation.REVIEWS_what_do_customers_say")}
           </h3>
 
           <div className="title-stars-rating">
@@ -106,10 +108,10 @@ const Customers = () => {
         <CustomerCardSlider data={review} />{" "}
         <div className="pagination-container">
           <button className="pagination-button ">
-            <a>{tempDataTwo.REVIEWS_see_all} </a>
+            <a>{t("translation.REVIEWS_see_all")} </a>
           </button>
           <button className="pagination-button">
-            <a>{tempDataTwo.REVIEWS_write_your_opinion  }</a>
+            <a>{t("translation.REVIEWS_write_your_opinion")}</a>
           </button>
         </div>
       </div>

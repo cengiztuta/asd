@@ -490,9 +490,15 @@
     "ATTRACTIONS_free_entry_attractions": "LES ATTRACTIONS À ENTRÉE PUBLIQUE GRATUITE",
     "ATTRACTIONS_prague_areas": "ZONES DE PRAGUE",
     "CALCULATOR_continue_btn": "continuer",
-    "CALCULATOR_2_day_pass": "",
-    "CALCULATOR_3_day_pass": "",
-    "CALCULATOR_4_day_pass": "",
+    "CALCULATOR_1_day_pass": "1 jOURS PASS",
+    "CALCULATOR_2_day_pass": "2 jOURS PASS",
+    "CALCULATOR_3_day_pass": "3 jOURS PASS",
+    "CALCULATOR_4_day_pass": "4 jOURS PASS",
+    "CALCULATOR_5_day_pass": "5 jOURS PASS",
+    "CALCULATOR_6_day_pass": "6 jOURS PASS",
+    "CALCULATOR_7_day_pass": "7 jOURS PASS",
+    "CALCULATOR_10_day_pass": "10 jOURS PASS",
+
     "ADULT": "Adulte",
     "STUDENT/CHILD": "Étudiant/ Enfant",
     "CALCULATOR_order_your_coolpass": "commandez votre coolpass",
@@ -940,9 +946,10 @@
   },
   "news": {
     "title": "Prague Card devient CoolPass - la génération numérique de la carte de visite classique",
-    "text": "<p>En août 2020, Prague Card a introduit une nouvelle version du pass touristique, apprécié par plus d'un million de visiteurs depuis 1992. Désormais, vous pouvez accéder à plus de 100 des meilleures attractions de Prague en utilisant le CoolPass - un code QR spécial, stocké sur votre smartphone.</p><p><br></p><p>Il suffit de télécharger Prague CoolPass App sur votre appareil iOS ou Android, et de choisir la version mobile du pass à la caisse. Le code sera délivré instantanément et vous pourrez l'enregistrer en quelques clics.</p><p><br></p><p>Une fois enregistré, le Prague CoolPass fonctionne également hors ligne et vous permet d'accéder facilement aux attractions. Moins de tracas, de grandes économies et une variété impressionnante de sites - tout ce dont vous avez besoin pour découvrir la capitale tchèque par vous-même !</p><p><br></p><p>Si vous le souhaitez, vous pouvez toujours opter pour la Prague Card physique et la récupérer dans l'un de nos points de collecte au centre-ville. L'application CoolPass de Prague reste disponible en téléchargement gratuit - pour vous aider à naviguer dans la ville et à vous tenir au courant des dernières informations.</p>"
-    ,     "webimages": [
+    "text": "<p>En août 2020, Prague Card a introduit une nouvelle version du pass touristique, apprécié par plus d'un million de visiteurs depuis 1992. Désormais, vous pouvez accéder à plus de 100 des meilleures attractions de Prague en utilisant le CoolPass - un code QR spécial, stocké sur votre smartphone.</p><p><br></p><p>Il suffit de télécharger Prague CoolPass App sur votre appareil iOS ou Android, et de choisir la version mobile du pass à la caisse. Le code sera délivré instantanément et vous pourrez l'enregistrer en quelques clics.</p><p><br></p><p>Une fois enregistré, le Prague CoolPass fonctionne également hors ligne et vous permet d'accéder facilement aux attractions. Moins de tracas, de grandes économies et une variété impressionnante de sites - tout ce dont vous avez besoin pour découvrir la capitale tchèque par vous-même !</p><p><br></p><p>Si vous le souhaitez, vous pouvez toujours opter pour la Prague Card physique et la récupérer dans l'un de nos points de collecte au centre-ville. L'application CoolPass de Prague reste disponible en téléchargement gratuit - pour vous aider à naviguer dans la ville et à vous tenir au courant des dernières informations.</p>",
+    "webimages": [
       "752acf48-8336-4a59-836d-9166fd6ec82f.jpg",
       "20c73979-f64a-4368-9837-7da12e057ee2.jpg"
-    ]}
+    ]
+  }
 }

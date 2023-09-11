@@ -38,7 +38,8 @@ li::before {
   list-style: none;
 }
 .footer-button {
-  width: 87px;
+  min-width: 87px;
+  width: auto;
   border-width: 0;
   background-color: #fb5a03;
   font-size: 15px;

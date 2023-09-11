@@ -24,6 +24,7 @@ export const Newss = () => {
   useEffect(() => {
     fetchTranslate();
   }, []);
+
   const [tempDataTwo, setTempDataTwo] = useState([]);
   const getOffersTempTwo = async () => {
     try {
@@ -44,15 +45,16 @@ export const Newss = () => {
   useEffect(() => {
     fetchTempDataTwo();
   }, []);
-  const items = t("news.news.webimages", {
+  const items = t("news.asd", {
     returnObjects: true,
     something: "gold",
   });
-  console.log(items)
+  console.log(items);
+
   return (
     <div>
       <div className="newss-content">
-        {items.map((item, index) => (
+        {attractions.map((item, index) => (
           <div
             key={index}
             className={`newss-card-container ${
@@ -61,22 +63,24 @@ export const Newss = () => {
           >
             <div
               className="newss-image"
-              style={{ backgroundImage: `url(${api}${t(item)})` }}
+              style={{
+                backgroundImage: `url(${api}${t(item.webimages[0])})`,
+              }}
             >
               <div className="newss-date">02.06.2023 </div>
             </div>
             <div className="newss-text-content">
               <a className="newss-link">
-                <a className="newss-title"> {t('translation.news.title')} </a>
+                <a className="newss-title"> {item.title} </a>
               </a>
               <a
                 className="newss-text"
                 dangerouslySetInnerHTML={{
-                  __html: item.content.en.text.slice(0, 700) + "...",
+                  __html: item.content.en.text.slice(0, 700)+"...",
                 }}
               ></a>
               <a className="newss-link">
-                <p className="newss-read-more">{tempDataTwo.READ_MORE}</p>
+                <p className="newss-read-more">{t('translation.READ_MORE')}</p>
               </a>
             </div>
           </div>
@@ -88,10 +92,37 @@ export const Newss = () => {
           {" "}
           <Button _hover={{ bg: "#FF9848" }} className="News-button">
             {" "}
-            {tempDataTwo.SEE_ALL_NEWS}
+            {t('translation.SEE_ALL_NEWS')}
           </Button>
         </a>
       </div>
     </div>
   );
 };
+
+// {items.slice(0,2).map((item, index) => (
+//   <div
+//     key={index}
+//     className={`newss-card-container ${
+//       index % 2 === 0 ? "even" : "odd"
+//     }`}
+//   >
+//     <div
+//       className="newss-image"
+//       style={{
+//         backgroundImage: `url(${api}${t(item.webimages)})`,
+//       }}
+//     >
+//       <div className="newss-date">02.06.2023 </div>
+//     </div>
+//     <div className="newss-text-content">
+//       <a className="newss-link">
+//         <a className="newss-title"> {t(item.title)} </a>
+//       </a>
+//       <a className="newss-text">{item.text.slice(0,700)+"..."}</a>
+//       <a className="newss-link">
+//         <p className="newss-read-more">{tempDataTwo.READ_MORE}</p>
+//       </a>
+//     </div>
+//   </div>
+// ))}

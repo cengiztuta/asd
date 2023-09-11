@@ -5,8 +5,10 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import { Box } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "swiper/css/navigation";
+import { useTranslation } from "react-i18next";
 
 const Card7  = () => {
+  const {t} = useTranslation()
   const [adultCounterValue, setAdultCounterValue] = useState(0);
   const [childCounterValue, setChildCounterValue] = useState(0);
   // const [totalPrice, setTotalPrice] = useState(0)
@@ -31,72 +33,87 @@ const Card7  = () => {
   const totalPrice = childCounterValue * 89 + adultCounterValue * 127;
   return (
     <Box className="Card">
-      <div className="Card-header">
-        <div className="Card-header-content">
-          <h2 className="Card-type">7 DAY PASS</h2>
-          <a className="Card-subtitle">Buying Prague Cool Pass / Card</a>
+    <div className="Card-header">
+      <div className="Card-header-content">
+        <h2 className="Card-type">
+          {" "}
+          {t("translation.CALCULATOR_7_day_pass")}
+        </h2>
+        <a className="Card-subtitle">
+          {" "}
+          {t("translation.BUY_PRAGUE_CARD_COOL_PASS")}
+        </a>
+      </div>
+    </div>
+    <div className="Card-body">
+      <div className="adult-calculator">
+        <p className="adult-calculator-label">
+          {" "}
+          {t("translation.ADULT_PRICE")}
+        </p>
+
+        <div className="price-section">
+          <a className="price-label">{t("translation.PRICE")}</a>
+          <a className="adult-price">127 EUR</a>
+        </div>
+        <div className="price-calculator">
+          <div class="decrement-button" onClick={adultDecreaseCounter}>
+            <span class="decrement"> </span>
+          </div>
+          <div class="card-count">
+            {" "}
+            <a class="card-counter">{adultCounterValue}</a>
+          </div>
+          <div class="increment-button" onClick={adultIncreaseCounter}>
+            <div class="plus">
+              <span class="vertical"></span>
+              <span class="horizontal"></span>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="Card-body">
-        <div className="adult-calculator">
-          <p className="adult-calculator-label">Adult</p>
 
-          <div className="price-section">
-            <a className="price-label">Price</a>
-            <a className="adult-price">127 EUR</a>
-          </div>
-          <div className="price-calculator">
-            <div class="decrement-button" onClick={adultDecreaseCounter}>
-              <span class="decrement"> </span>
-            </div>
-            <div class="card-count">
-              {" "}
-              <a class="card-counter">{adultCounterValue}</a>
-            </div>
-            <div class="increment-button" onClick={adultIncreaseCounter}>
-              <div class="plus">
-                <span class="vertical"></span>
-                <span class="horizontal"></span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="adult-calculator">
+        <p className="adult-calculator-label">
+          {" "}
+          {t("translation.STUDENT_PRICE")}
+          {t("translation.CHILD_PRICE")}{" "}
+        </p>
 
-        <div className="adult-calculator">
-          <p className="adult-calculator-label">Student Child</p>
-
-          <div className="price-section">
-            <a className="adult-price">89 EUR</a>
-          </div>
-          <div className="price-calculator">
-            <div class="decrement-button" onClick={childDecreaseCounter}>
-              <span class="decrement"> </span>
-            </div>
-            <div class="card-count">
-              {" "}
-              <a class="card-counter">{childCounterValue}</a>
-            </div>
-            <div class="increment-button" onClick={childIncreaseCounter}>
-              <div class="plus">
-                <span class="vertical"></span>
-                <span class="horizontal"></span>
-              </div>
-            </div>
-          </div>
+        <div className="price-section">
+          <a className="adult-price">89 EUR</a>
         </div>
-        <div class="total-price-section">
-          <div class="total-price">
-            <a class="price-label"> Your Price : </a>
-            <a class="price">{totalPrice} EUR</a>
+        <div className="price-calculator">
+          <div class="decrement-button" onClick={childDecreaseCounter}>
+            <span class="decrement"> </span>
           </div>
-        </div>
-        <div class="card-footer">
-          <a>
-            <p class="footer-text"> COMPLETE YOUR BOOKING </p>
-          </a>
+          <div class="card-count">
+            {" "}
+            <a class="card-counter">{childCounterValue}</a>
+          </div>
+          <div class="increment-button" onClick={childIncreaseCounter}>
+            <div class="plus">
+              <span class="vertical"></span>
+              <span class="horizontal"></span>
+            </div>
+          </div>
         </div>
       </div>
-    </Box>
+      <div class="total-price-section">
+        <div class="total-price">
+          <a class="price-label"> {t("translation.YOUR_PRICE")} : </a>
+          <a class="price">{totalPrice} EUR</a>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a>
+          <p class="footer-text">
+            {t("translation.CALCULATOR_COMPLETE_BOOKING_BTN")}
+          </p>
+        </a>
+      </div>
+    </div>
+  </Box>
   );
 };
 

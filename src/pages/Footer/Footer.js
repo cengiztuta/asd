@@ -4,7 +4,10 @@ import { Button } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
+import { useTranslation } from "react-i18next";
+
 const Footer = () => {
+  const {t} = useTranslation()
   const [tempDataTwo, setTempDataTwo] = useState([]);
   const getOffersTempTwo = async () => {
     try {
@@ -30,33 +33,33 @@ const Footer = () => {
       <div className="footer-content">
         <ul className="footer-first-section">
           <a> CoolPass / Prague Card </a>
-          <a> {tempDataTwo.FOOTER_USING_COOLPASS}</a>
-          <a>{tempDataTwo.FOOTER_how_you_save} </a>
+          <a> {t('translation.FOOTER_USING_COOLPASS')}</a>
+          <a>{t('translation.FOOTER_how_you_save')} </a>
           <a>Getting Your Pass </a>
-          <a> {tempDataTwo.FOOTER_sales_points} </a>
-          <a>{tempDataTwo.FOOTER_reviews} </a>
+          <a> {t('translation.FOOTER_sales_points')} </a>
+          <a>{t('translation.FOOTER_reviews')} </a>
         </ul>
         <ul className="footer-first-section">
-          <a> {tempDataTwo.ATTRACTIONS} </a>
-          <a> {tempDataTwo.FOOTER_sightseeing_tours} </a>
-          <a> {tempDataTwo.FOOTER_areas} </a>
-          <a>{tempDataTwo.FOOTER_closures} </a>
-          <a> {tempDataTwo.FOOTER_whats_on} </a>
-          <a> {tempDataTwo.FOOTER_contact_us} </a>
+          <a> {t('translation.ATTRACTIONS')} </a>
+          <a> {t('translation.FOOTER_sightseeing_tours')} </a>
+          <a> {t('translation.FOOTER_areas')} </a>
+          <a>{t('translation.FOOTER_closures')} </a>
+          <a> {t('translation.FOOTER_whats_on')} </a>
+          <a> {t('translation.FOOTER_contact_us')} </a>
         </ul>
         <ul className="footer-first-section">
           <a>
             <Button _hover={{ bg: "#FF9848" }} className="footer-button">
-              {tempDataTwo.FAQ}
+              {t('translation.FAQ')}
             </Button>
           </a>
-          <a> {tempDataTwo.FOOTER_about_us} </a>
-          <a> {tempDataTwo.FOOTER_terms_and_conditions} </a>
-          <a>{tempDataTwo.FOOTER_cancellation_and_refund}</a>
-          <a> {tempDataTwo.FOOTER_privacy_policy} </a>
+          <a> {t('translation.FOOTER_about_us')} </a>
+          <a> {t('translation.FOOTER_terms_and_conditions')} </a>
+          <a>{t('translation.FOOTER_cancellation_and_refund')}</a>
+          <a> {t('translation.FOOTER_privacy_policy')} </a>
         </ul>
         <ul className="footer-first-section">
-          <a> {tempDataTwo.DOWNLOAD} </a>
+          <a> {t('translation.DOWNLOAD')} </a>
           <a> Prague Cool Pass App </a>
           <a target="_blank">
             <div className="app-store"></div>{" "}
@@ -66,7 +69,7 @@ const Footer = () => {
           </a>
         </ul>
         <ul className="footer-first-section">
-          <a> {tempDataTwo.NEWS_AND_UPDATES} </a>
+          <a> {t('translation.NEWS_AND_UPDATES')} </a>
           <div
             style={{
               display: "flex",
@@ -79,14 +82,14 @@ const Footer = () => {
               placeholder="Search Attractions"
             />{" "}
             <button _hover={{ bg: "#FF9848" }} className="footer-subs-button">
-              {tempDataTwo.EMAIL_SUBSCRIBE}
+              {t('translation.EMAIL_SUBSCRIBE')}
             </button>
           </div>
           <div className="footer-year-info">CoolPass 2020-2023</div>
           <div className="footer-info">Prague Card 1992-2023</div>
           <p className="rights-reserved-block">
             {" "}
-           {tempDataTwo.ALL_RIGHTS_RESERVED_LABE}
+           {t('translation.ALL_RIGHTS_RESERVED_LABEL')}
           </p>
         </ul>
       </div>
