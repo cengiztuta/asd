@@ -14,7 +14,8 @@ import Card5 from "./CalculateCards/Card5";
 import Card6 from "./CalculateCards/Card6";
 import Card7 from "./CalculateCards/Card7";
 import Card10 from "./CalculateCards/Card10";
-import { t } from "i18next";
+
+import { useTranslation } from "react-i18next";
 const swiperParams = {
   direction: "horizontal",
   slidesPerView: 3,
@@ -47,28 +48,10 @@ const swiperParams = {
   },
 };
 const Calculator = () => {
+  const { t } = useTranslation();
   const CardArray = [Card1, Card2, Card3, Card4, Card5, Card6, Card7, Card10];
   const swiperRef = useRef(null);
-  const [tempDataTwo, setTempDataTwo] = useState([]);
-  const getOffersTempTwo = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data.en;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
 
-  const fetchTempDataTwo = async () => {
-    const data = await getOffersTempTwo();
-    setTempDataTwo(data);
-  };
-  useEffect(() => {
-    fetchTempDataTwo();
-  }, []);
   return (
     <div className="calculator">
       <div className="calculator-container">

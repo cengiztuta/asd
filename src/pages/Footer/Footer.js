@@ -8,26 +8,7 @@ import { useTranslation } from "react-i18next";
 
 const Footer = () => {
   const {t} = useTranslation()
-  const [tempDataTwo, setTempDataTwo] = useState([]);
-  const getOffersTempTwo = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data.en;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
 
-  const fetchTempDataTwo = async () => {
-    const data = await getOffersTempTwo();
-    setTempDataTwo(data);
-  };
-  useEffect(() => {
-    fetchTempDataTwo();
-  }, []);
   return (
     <div className="footer">
       <div className="footer-content">

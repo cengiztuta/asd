@@ -24,34 +24,6 @@ import i18next from "i18next";
 
 const BenefitsCard = () => {
   const { t } = useTranslation();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
-      );
-      return response.data.content.en;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-
-  const fetchTempData = async () => {
-    const tempData = await getOffersTemp();
-    const data = tempData.benefits.items.map((item, index) => {
-      return {
-        title: item.title,
-        text: item.text,
-      };
-    });
-    setTempData(data);
-  };
-
-  useEffect(() => {
-    fetchTempData();
-  }, []);
 
   const [openIndex, setOpenIndex] = useState(0);
 
@@ -69,7 +41,7 @@ const BenefitsCard = () => {
     returnObjects: true,
     something: "gold",
   });
-  console.log(items);
+
 
   return (
     <div className="acordion">

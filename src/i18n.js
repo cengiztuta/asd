@@ -11,12 +11,21 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
+    fallbackLng: {
+      "en-US": ["en"],
+    },
     debug: true,
     whitelist: Languages,
     interpolation: {
       escapeValue: false,
     },
+    lng: "en",
   });
+
+i18n.on("languageChanged", (newLang) => {
+  if (!Languages.includes(newLang)) {
+    i18n.changeLanguage("en");
+  }
+});
 
 export default i18n;

@@ -21,7 +21,6 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { ChevronDownIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 const Header = () => {
@@ -34,26 +33,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [lang, setLang] = useState("ENGLISH");
 
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/menu/5a7a896166105c2e28d87bd4"
-      );
-      return response.data.content.en;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
-  useEffect(() => {
-    fetchTempData();
-  }, []);
 
   const handleScroll = () => {
     if (window.scrollY > 100) {

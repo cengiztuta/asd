@@ -1,38 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Howuse.css";
-import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useTranslation } from "react-i18next";
-const HowUseCard = ({ card }) => {
+const HowUseCard = () => {
   const { t } = useTranslation();
-  const { descriptions } = card;
   const api = "https://static2.praguecoolpass.com/";
-
-  const [howUse, setHowUse] = useState([]);
-  const getHowUse = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
-      );
-      return response.data.how_to_use.web_images;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTranslate = async () => {
-    const data = await getHowUse();
-    setHowUse(data);
-  };
-
-  useEffect(() => {
-    fetchTranslate();
-  }, []);
-
   const swiperParams = {
     direction: "horizontal",
     slidesPerView: 4,

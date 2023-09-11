@@ -25,31 +25,12 @@ export const Newss = () => {
     fetchTranslate();
   }, []);
 
-  const [tempDataTwo, setTempDataTwo] = useState([]);
-  const getOffersTempTwo = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data.en;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
 
-  const fetchTempDataTwo = async () => {
-    const data = await getOffersTempTwo();
-    setTempDataTwo(data);
-  };
-  useEffect(() => {
-    fetchTempDataTwo();
-  }, []);
   const items = t("news.asd", {
     returnObjects: true,
     something: "gold",
   });
-  console.log(items);
+
 
   return (
     <div>
@@ -100,29 +81,3 @@ export const Newss = () => {
   );
 };
 
-// {items.slice(0,2).map((item, index) => (
-//   <div
-//     key={index}
-//     className={`newss-card-container ${
-//       index % 2 === 0 ? "even" : "odd"
-//     }`}
-//   >
-//     <div
-//       className="newss-image"
-//       style={{
-//         backgroundImage: `url(${api}${t(item.webimages)})`,
-//       }}
-//     >
-//       <div className="newss-date">02.06.2023 </div>
-//     </div>
-//     <div className="newss-text-content">
-//       <a className="newss-link">
-//         <a className="newss-title"> {t(item.title)} </a>
-//       </a>
-//       <a className="newss-text">{item.text.slice(0,700)+"..."}</a>
-//       <a className="newss-link">
-//         <p className="newss-read-more">{tempDataTwo.READ_MORE}</p>
-//       </a>
-//     </div>
-//   </div>
-// ))}
