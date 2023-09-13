@@ -498,7 +498,7 @@
     "CALCULATOR_6_day_pass": "6 TAGES PASS",
     "CALCULATOR_7_day_pass": "7 TAGES PASS",
     "CALCULATOR_10_day_pass": "10 TAGES PASS",
-  
+
     "ADULT": "Erwachsene",
     "STUDENT/CHILD": "Student/ Kind",
     "CALCULATOR_order_your_coolpass": "Bestellen Sie Ihren Pass",
@@ -852,8 +852,58 @@
     }
   },
   "attraction": {
-    "title": "ALTER KÖNIGSPALAST",
-    "subtitle": "Eindrucksvolle Residenz der böhmischen Könige",
+    "title": [
+      "ALTER KÖNIGSPALAST",
+      "NATIONALMUSEUM",
+      "PRAGER ZOO",
+      "JÜDISCHES MUSEUM IN PRAG",
+      "BUSRUNDFAHRT \"PRAG - HISTORISCHE STADT\"",
+      "PILSNER URQUELL EXPERIENCE - ORIGINAL TOUR",
+      "HARD ROCK CAFE PRAG",
+      "KUNSTHALLE PRAHA",
+      "MUSEUM FÜR ILLUSIONSKUNST",
+      "PRAGUE VENICE SCHIFFFAHRT",
+      "GROSSE PRAGER SCHIFFFAHRT",
+      "RETRO-MUSEUM",
+      "PALAIS SCHWARZENBERG",
+      "KLOSTER DER HEILIGEN AGNES",
+      "VYŠEHRAD KASEMATTEN"
+    ],
+
+    "subtitle": [
+      "Eindrucksvolle Residenz der böhmischen Könige",
+      "Das älteste und größte tschechische Museum, gegründet 1818",
+      "Der viertbeliebteste Zoo der Welt",
+      "Eine der größten Sammlungen von Judaica in der Welt",
+      "Lassen Sie sich von der Geschichte Prags verzaubern<br> bei einer Stadtrundfahrt mit Martin Tour",
+      "Interaktives Abenteuer über die Geschichte des ersten goldenen Bieres der Welt",
+      "Größtes Hard Rock Cafe in Europa",
+      "Ein internationaler Raum für Kunst",
+      "Das erste Museum der Tschechischen Republik, das der Illusions- und Trickkunst gewidmet ist",
+      "Sehen Sie das Beste des historischen Prags in 45 Minuten",
+      "Eine von vier Schifffahrten mit Prague Boats, von denen du mit CoolPass eine kostenlos auswählen kannst",
+      "Alltagsleben, Design und Trends in der Tschechoslowakei in den 1970er-1980er Jahren",
+      "Alte Meister - Dauerausstellung der Nationalgalerie in Prag",
+      "Eines der ältesten gotischen Gebäude in Prag<br>Ausstellung der mittelalterlichen Kunst in Böhmen und Mitteleuropa (Nationalgalerie Prag)",
+      "Monumentale unterirdische Halle Gorlice "
+    ],
+    "images": [
+      "c757f3d2-c948-430c-89d1-ea4cd45b4634.jpg",
+      "small_7311e70d-d382-400a-92a4-fae87bb917a8.jpg",
+      "small_e355f6ab-122a-44d0-b907-8e5abe0fc447.jpg",
+      "small_397ef1fc-8a9e-4337-8d77-49f13fbddbda.jpg",
+      "small_7620d433-1d5e-4ed8-a4c9-cd3fc7cfd208.jpg",
+      "small_6b334ea9-eb8e-46d1-b434-a253802b1204.jpg",
+      "small_97cca5a8-ddf8-4bce-b9e6-807232d68f15.jpg",
+      "small_35308084-e45b-410e-bc35-7abb3e34471b.jpg",
+      "small_d013e18e-681c-4b0a-a813-e436a5d91f14.jpg",
+      "small_999665f4-58b9-421f-b30f-f23c22944650.jpg",
+      "small_373457e3-4ae3-4afd-8b84-c84ad9e19b8e.jpg",
+      "small_96c6dccf-1309-4980-9308-e99f4d2ea1a3.jpg",
+      "small_2b381de5-54b8-4394-864b-df5046eb0adc.jpg",
+      "small_4b0e6599-1bdd-4a15-8105-ce42f77b7e05.jpg",
+      "small_7b637824-8370-4da4-b13b-8c7ae45067d1.jpg"
+    ],
     "text": "<p>Während der Neue Königspalast auf der Prager Burg das Präsidialamt beherbergt, war der Alte Königspalast bereits im Mittelalter Sitz der böhmischen Herrscher. Der älteste Teil des Alten Königspalastes ist ein Steinbau, der im 12. Jahrhundert von Fürst Soběslav errichtet wurde und bis heute erhalten ist.</p><p><br></p><p>Der Alte Königspalast, der sich neben dem Veitsdom befindet, wurde im Laufe der Geschichte mehrfach umgebaut. Ursprünglich handelte es sich um ein romanisches Gebäude, das später mit Elementen der Gotik und der Renaissance ergänzt wurde.&nbsp;</p><p><br></p><p>Es überrascht nicht, dass Karl IV. und sein Sohn Wenzel IV. viel zur Vergrößerung des Palastes beitrugen. Während des stürmischen 15. Jahrhunderts stand das Gebäude fast 80 Jahre lang leer, doch als König Vladislav Jagellonský 1483 auf die Prager Burg zurückkehrte, begann er mit einem weiteren groß angelegten Umbau des Königspalastes. Unter seiner Herrschaft wurde der prächtige und feierliche Vladislav-Saal - der wichtigste Höhepunkt des Palastes - hinzugefügt. Er wurde von dem Architekten Benedikt Ried entworfen und zeichnet sich durch ein beeindruckendes Rippengewölbe und quadratische Fenster im Renaissance-Stil aus.&nbsp;</p><p><br></p><p>Dieser große Raum erfüllte viele Funktionen, und nicht alle davon waren so offensichtlich wie offizielle Bankette! Eine der Wandmalereien deutet darauf hin, dass der Vladislav-Saal auch als Veranstaltungsort für Hallenturniere diente. Gepanzerte Ritter auf Pferden betraten den Saal über die so genannte Reitertreppe. Nachdem die Habsburger den böhmischen Thron bestiegen hatten, dienten die Innenräume für Krönungsfeiern und wichtige Treffen.&nbsp;</p><p><br></p><p>Insgesamt ist das Alte Königliche Palais schlicht gestaltet und besticht nicht durch opulente Dekoration. Aber mit seiner gut erhaltenen Architektur ist es wunderbar geschichtsträchtig und versetzt Sie in das Goldene Zeitalter Böhmens zurück.</p>",
     "banner": "<p>Dieser Palast, der bis zum 16. Jahrhundert als Sitz der böhmischen Königsfamilie diente, ist eine Mischung aus Romanik, Gotik und früher Renaissance. Sein Highlight ist der gewölbte Vladislav-Saal, der für Krönungsfeiern, den Verkauf von Waren und sogar für Ritterturniere genutzt wurde.</p>",
     "tips": [
@@ -945,9 +995,10 @@
   },
   "news": {
     "title": "Prague Card ist jetzt CoolPass - die digitale Generation der klassischen Besucherkarte",
-    "text": "<p>Im August 2020 führte Prague Card eine neue Version des Sightseeing-Passes ein, der seit 1992 von über 1 Mio. Besuchern genutzt wird. Jetzt können Sie mehr als 100 beste Attraktionen in Prag mit CoolPass - einem speziellen QR-Code, der auf Ihrem Smartphone gespeichert ist - besuchen.</p><p><br></p><p>Laden Sie einfach die Prague CoolPass App auf Ihr iOS- oder Android-Gerät herunter und wählen Sie die mobile Version des Passes an der Kasse. Der Code wird sofort geliefert und Sie können ihn mit ein paar Klicks registrieren.</p><p><br></p><p>Einmal registriert, funktioniert Prague CoolPass auch offline und bietet Ihnen einen bequemen Zugang zu Attraktionen. Weniger Ärger, große Ersparnisse und eine beeindruckende Vielfalt an Sehenswürdigkeiten - alles, was Sie brauchen, um die tschechische Hauptstadt auf eigene Faust zu erschließen!</p><p><br></p><p>Wenn Sie möchten, können Sie sich immer noch für die physische Prague Card entscheiden und sie an einer unserer Sammelstellen im Stadtzentrum abholen. Die Prague CoolPass App steht weiterhin zum kostenlosen Download bereit - damit Sie sich in der Stadt zurechtfinden und mit den neuesten Infos auf dem Laufenden bleiben.</p>"
-    ,     "webimages": [
+    "text": "<p>Im August 2020 führte Prague Card eine neue Version des Sightseeing-Passes ein, der seit 1992 von über 1 Mio. Besuchern genutzt wird. Jetzt können Sie mehr als 100 beste Attraktionen in Prag mit CoolPass - einem speziellen QR-Code, der auf Ihrem Smartphone gespeichert ist - besuchen.</p><p><br></p><p>Laden Sie einfach die Prague CoolPass App auf Ihr iOS- oder Android-Gerät herunter und wählen Sie die mobile Version des Passes an der Kasse. Der Code wird sofort geliefert und Sie können ihn mit ein paar Klicks registrieren.</p><p><br></p><p>Einmal registriert, funktioniert Prague CoolPass auch offline und bietet Ihnen einen bequemen Zugang zu Attraktionen. Weniger Ärger, große Ersparnisse und eine beeindruckende Vielfalt an Sehenswürdigkeiten - alles, was Sie brauchen, um die tschechische Hauptstadt auf eigene Faust zu erschließen!</p><p><br></p><p>Wenn Sie möchten, können Sie sich immer noch für die physische Prague Card entscheiden und sie an einer unserer Sammelstellen im Stadtzentrum abholen. Die Prague CoolPass App steht weiterhin zum kostenlosen Download bereit - damit Sie sich in der Stadt zurechtfinden und mit den neuesten Infos auf dem Laufenden bleiben.</p>",
+    "webimages": [
       "752acf48-8336-4a59-836d-9166fd6ec82f.jpg",
       "20c73979-f64a-4368-9837-7da12e057ee2.jpg"
-    ]}
+    ]
+  }
 }

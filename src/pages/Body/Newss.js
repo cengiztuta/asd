@@ -5,7 +5,8 @@ import { Button } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 export const Newss = () => {
   const api = "https://static2.praguecoolpass.com/";
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
   const [attractions, setAttraction] = useState([]);
   const getMenu = async () => {
     try {
@@ -20,18 +21,31 @@ export const Newss = () => {
     const data = await getMenu();
     setAttraction(data);
   };
+  console.log(attractions);
 
   useEffect(() => {
     fetchTranslate();
   }, []);
-
-
-  const items = t("news.asd", {
-    returnObjects: true,
-    something: "gold",
-  });
-
-
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempDataTwo);
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
   return (
     <div>
       <div className="newss-content">
@@ -44,40 +58,34 @@ export const Newss = () => {
           >
             <div
               className="newss-image"
-              style={{
-                backgroundImage: `url(${api}${t(item.webimages[0])})`,
-              }}
+              style={{ backgroundImage: `url(${api}${item.webimages})` }}
             >
               <div className="newss-date">02.06.2023 </div>
             </div>
             <div className="newss-text-content">
               <a className="newss-link">
-                <a className="newss-title"> {item.title} </a>
+                <a className="newss-title"> {item.content.en.title} </a>
               </a>
-              <a
-                className="newss-text"
-                dangerouslySetInnerHTML={{
-                  __html: item.content.en.text.slice(0, 700)+"...",
-                }}
-              ></a>
+              <a className="newss-text">
+                {item.content.en.text.slice(0, 700) + "..."}
+              </a>
               <a className="newss-link">
-                <p className="newss-read-more">{t('translation.READ_MORE')}</p>
+                <p className="newss-read-more">{tempDataTwo[lng]?.READ_MORE}</p>
               </a>
             </div>
           </div>
         ))}
       </div>
       <div>
-        {" "}
+    
         <a className="newss-button-container">
-          {" "}
+    
           <Button _hover={{ bg: "#FF9848" }} className="News-button">
-            {" "}
-            {t('translation.SEE_ALL_NEWS')}
+         
+            {tempDataTwo[lng]?.SEE_ALL_NEWS}
           </Button>
         </a>
       </div>
     </div>
   );
 };
-

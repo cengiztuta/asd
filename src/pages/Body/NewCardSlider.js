@@ -7,11 +7,14 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "swiper/css/navigation";
 import axios from "axios";
 import "./Card.css";
+
 import { useTranslation } from "react-i18next";
+
 const NewCardSlider = () => {
-  const { t } = useTranslation();
- 
+  const { t, i18n } = useTranslation();
   const swiperRef = useRef(null);
+
+  const asd = i18n.language;
   const [attractions, setAttractions] = useState([]);
   const getAttractions = async () => {
     try {
@@ -46,11 +49,10 @@ const NewCardSlider = () => {
             display: "flex",
             justifyContent: "center",
           }}
-        > 
-            <h3 className="top-attractions-title">
-            {t('translation.HOME_top_attractions_title')}
-            </h3>
-       
+        >
+          <h3 className="top-attractions-title">
+            {t("translation.HOME_top_attractions_title")}
+          </h3>
         </section>
         <div className="att-wrapper">
           <Box class="slide-iconn">
@@ -76,7 +78,7 @@ const NewCardSlider = () => {
                 spaceBetween: 10,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 20,
               },
             }}
@@ -84,7 +86,7 @@ const NewCardSlider = () => {
           >
             {attractions.map((card, index) => (
               <SwiperSlide key={index} className="att-swiper-slide">
-                <Card card={card.content.en} img={card.images[0]} />
+                <Card card={card} hakan={asd} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -92,7 +94,6 @@ const NewCardSlider = () => {
             <ChevronRightIcon
               onClick={() => swiperRef.current.swiper.slideNext()}
               class="att-slide-icon"
-              color={"green"}
             />
           </Box>
         </div>

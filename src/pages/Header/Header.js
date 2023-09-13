@@ -33,7 +33,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [lang, setLang] = useState("ENGLISH");
 
-
   const handleScroll = () => {
     if (window.scrollY > 100) {
       setScrolling(true);
@@ -306,7 +305,10 @@ const Header = () => {
               <MenuItem
                 _hover={{ bg: "#545454" }}
                 className="MenuButton"
-                onClick={() => setLang("ITALIANO")}
+                onClick={function (event) {
+                  handleClick("it");
+                  setLang("ITALIANO");
+                }}
               >
                 Italiano
               </MenuItem>

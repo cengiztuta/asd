@@ -7,40 +7,60 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 
 const Footer = () => {
-  const {t} = useTranslation()
-
+  const { t, i18n } = useTranslation();
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const lng = i18n.language;
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempDataTwo);
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
   return (
     <div className="footer">
       <div className="footer-content">
         <ul className="footer-first-section">
           <a> CoolPass / Prague Card </a>
-          <a> {t('translation.FOOTER_USING_COOLPASS')}</a>
-          <a>{t('translation.FOOTER_how_you_save')} </a>
-          <a>Getting Your Pass </a>
-          <a> {t('translation.FOOTER_sales_points')} </a>
-          <a>{t('translation.FOOTER_reviews')} </a>
+          <a> {tempDataTwo[lng]?.FOOTER_USING_COOLPASS}</a>
+          <a>{tempDataTwo[lng]?.FOOTER_how_you_save} </a>
+          <a>{tempDataTwo[lng]?.FOOTER_get_your_pass} </a>
+          <a> {tempDataTwo[lng]?.FOOTER_sales_points} </a>
+          <a>{tempDataTwo[lng]?.FOOTER_reviews} </a>
         </ul>
         <ul className="footer-first-section">
-          <a> {t('translation.ATTRACTIONS')} </a>
-          <a> {t('translation.FOOTER_sightseeing_tours')} </a>
-          <a> {t('translation.FOOTER_areas')} </a>
-          <a>{t('translation.FOOTER_closures')} </a>
-          <a> {t('translation.FOOTER_whats_on')} </a>
-          <a> {t('translation.FOOTER_contact_us')} </a>
+          <a> {tempDataTwo[lng]?.ATTRACTIONS} </a>
+          <a> {tempDataTwo[lng]?.FOOTER_sightseeing_tours} </a>
+          <a> {tempDataTwo[lng]?.FOOTER_areas} </a>
+          <a>{tempDataTwo[lng]?.FOOTER_closures} </a>
+          <a> {tempDataTwo[lng]?.FOOTER_whats_on} </a>
+          <a> {tempDataTwo[lng]?.FOOTER_contact_us} </a>
         </ul>
         <ul className="footer-first-section">
           <a>
             <Button _hover={{ bg: "#FF9848" }} className="footer-button">
-              {t('translation.FAQ')}
+              {tempDataTwo[lng]?.FAQ}
             </Button>
           </a>
-          <a> {t('translation.FOOTER_about_us')} </a>
-          <a> {t('translation.FOOTER_terms_and_conditions')} </a>
-          <a>{t('translation.FOOTER_cancellation_and_refund')}</a>
-          <a> {t('translation.FOOTER_privacy_policy')} </a>
+          <a> {tempDataTwo[lng]?.FOOTER_about_us} </a>
+          <a> {tempDataTwo[lng]?.FOOTER_terms_and_conditions} </a>
+          <a>{tempDataTwo[lng]?.FOOTER_cancellation_and_refund}</a>
+          <a> {tempDataTwo[lng]?.FOOTER_privacy_policy} </a>
         </ul>
         <ul className="footer-first-section">
-          <a> {t('translation.DOWNLOAD')} </a>
+          <a> {tempDataTwo[lng]?.DOWNLOAD} </a>
           <a> Prague Cool Pass App </a>
           <a target="_blank">
             <div className="app-store"></div>{" "}
@@ -50,7 +70,7 @@ const Footer = () => {
           </a>
         </ul>
         <ul className="footer-first-section">
-          <a> {t('translation.NEWS_AND_UPDATES')} </a>
+          <a> {tempDataTwo[lng]?.NEWS_AND_UPDATES} </a>
           <div
             style={{
               display: "flex",
@@ -60,17 +80,17 @@ const Footer = () => {
             <input
               className="footer-input"
               type="text"
-              placeholder="Search Attractions"
+              placeholder={tempDataTwo[lng]?.SEARCH}
             />{" "}
             <button _hover={{ bg: "#FF9848" }} className="footer-subs-button">
-              {t('translation.EMAIL_SUBSCRIBE')}
+              {tempDataTwo[lng]?.EMAIL_SUBSCRIBE}
             </button>
           </div>
           <div className="footer-year-info">CoolPass 2020-2023</div>
           <div className="footer-info">Prague Card 1992-2023</div>
           <p className="rights-reserved-block">
             {" "}
-           {t('translation.ALL_RIGHTS_RESERVED_LABEL')}
+            {tempDataTwo[lng]?.ALL_RIGHTS_RESERVED_LABEL}
           </p>
         </ul>
       </div>

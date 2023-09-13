@@ -2,19 +2,36 @@ import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 import { useState, useEffect } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
 import "./Card.css";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
-const Card = ({ card, img }) => {
+import axios from "axios";
+
+const Card = ({ card, hakan }) => {
   const [isFilled, setIsFilled] = useState(false);
   const [filled, setFilled] = useState(false);
-  const { t } = useTranslation();
-
   const api = "https://static2.praguecoolpass.com/";
-
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempData);
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
   const toggleHeart = () => {
     setIsFilled(!isFilled);
   };
@@ -25,14 +42,16 @@ const Card = ({ card, img }) => {
   const handleMouseLeave = () => {
     setFilled(false);
   };
-  const { title, banner, subtitle } = card;
+  const { banner, title, subtitle, images } = card;
   const [show, setShow] = useState(false);
+
+  console.log("5555555", card);
 
   return (
     <Box
       className="att-Card"
       style={{
-        backgroundImage: `url(${api}${img})`,
+        backgroundImage: `url(${api}${card.images[0]})`,
         backgroundSize: "cover",
       }}
     >
@@ -53,9 +72,14 @@ const Card = ({ card, img }) => {
       </Box>
       {banner && (
         <div className="card-benefit">
-          <p className="benefit-text">{t("translation.ATTRACTIONS_label_included")} </p>
-      <span></span>
-          <p className="benefit-text"> {t("translation.ATTRACTIONS_label_with_pass")} </p>
+          <p className="benefit-text">
+            {tempData[lng]?.ATTRACTIONS_label_included}{" "}
+          </p>
+          <span></span>
+          <p className="benefit-text">
+            {" "}
+            {tempData[lng]?.ATTRACTIONS_label_with_pass}{" "}
+          </p>
         </div>
       )}
       <Box
@@ -64,7 +88,7 @@ const Card = ({ card, img }) => {
         className="att-card-footer"
       >
         <Box className="att-card-footer-content">
-          <p className="att-title">{t('attraction.title')}</p>
+          <p className="att-title">{card.content[hakan].title}</p>
         </Box>
         ;
         {show && (
@@ -72,7 +96,7 @@ const Card = ({ card, img }) => {
             <Text
               className="att-card-footer-text"
               dangerouslySetInnerHTML={{
-                __html: t('attraction.subtitle').slice(0, 200) + "...",
+                __html: card.content[hakan].subtitle + "...",
               }}
             ></Text>
           </Box>

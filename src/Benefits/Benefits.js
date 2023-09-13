@@ -6,11 +6,32 @@ import BenefitsCard from "./BenefitsCard.js";
 import "./Benefits.css";
 import { useTranslation } from "react-i18next";
 const Benefits = () => {
-  const { t } = useTranslation();
-
+  const { t,i18n } = useTranslation();
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempData);
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
+  const asd = i18n.language
+  console.log(tempData)
   return (
     <section style={{ marginTop: "40px" }}>
-      <h3 className="Benefits-title">{t("translation.HOME_benefits_title")}</h3>
+      <h3 className="Benefits-title">{tempData[asd]?.HOME_benefits_title}</h3>
 
       <div className="Benefits">
         <BenefitsCard />

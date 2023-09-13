@@ -850,8 +850,59 @@
     }
   },
   "attraction": {
-    "title": "STARÝ KRÁLOVSKÝ PALÁC",
-    "subtitle": "Působivé sídlo českých knížat a králů\t",
+    "title": [
+      "STARÝ KRÁLOVSKÝ PALÁC",
+      "NÁRODNÍ MUZEUM",
+      "ZOO PRAHA",
+      "ŽIDOVSKÉ MUZEUM V PRAZE",
+      "PROHLÍDKA AUTOBUSEM \"PRAHA - HISTORICKÉ MĚSTO\"",
+      "PILSNER URQUELL EXPERIENCE - THE ORIGINAL TOUR",
+      "HARD ROCK CAFE PRAHA",
+      "KUNSTHALLE PRAHA",
+      "MUZEUM ILUZIVNÍHO UMĚNÍ",
+      "VYHLÍDKOVÁ PLAVBA PRAŽSKÉ BENÁTKY",
+      "VELKÁ PLAVBA PRAHOU",
+      "RETRO MUZEUM",
+      "SCHWARZENBERSKÝ PALÁC ",
+      "KLÁŠTER SVATÉ ANEŽKY",
+      "VYŠEHRADSKÉ KASEMATY"
+    ],
+
+    "subtitle": [
+      "Působivé sídlo českých knížat a králů\t",
+      "Nejstarší a největší české muzeum založené v roce 1818.",
+      "Čtvrtá nejoblíbenější zoologická zahrada na světě",
+      "Jedna z největších sbírek judaik na světě",
+      "Nechte se okouzlit historií Prahy<br> během okružní jízdy s Martin Tour",
+      "Interaktivní zážitek vyprávějící příběh prvního zlatého piva na světě",
+      "Největší Hard Rock Cafe v Evropě ",
+      "Mezinárodní umělecký prostor",
+      "První muzeum iluzí a trikového umění v České republice",
+      "Prohlédněte si to nejlepší z historické Prahy za 45 minut",
+      "Jedna ze čtyř plaveb s Prague Boats, z nichž si s CoolPassem můžete vybrat jednu zdarma",
+      "Každodenní život, design a trendy v Československu v 70.-80. letech 20. století",
+      "Staří mistři - stálá expozice Národní galerie v Praze",
+      "Jedna z nejstarších gotických staveb v Praze<br>Výstava středověkého umění v Čechách a střední Evropě (Národní galerie v Praze)",
+      "Monumentální podzemní sál Gorlice "
+    ],
+    "images": [
+      "c757f3d2-c948-430c-89d1-ea4cd45b4634.jpg",
+      "small_7311e70d-d382-400a-92a4-fae87bb917a8.jpg",
+      "small_e355f6ab-122a-44d0-b907-8e5abe0fc447.jpg",
+      "small_397ef1fc-8a9e-4337-8d77-49f13fbddbda.jpg",
+      "small_7620d433-1d5e-4ed8-a4c9-cd3fc7cfd208.jpg",
+      "small_6b334ea9-eb8e-46d1-b434-a253802b1204.jpg",
+      "small_97cca5a8-ddf8-4bce-b9e6-807232d68f15.jpg",
+      "small_35308084-e45b-410e-bc35-7abb3e34471b.jpg",
+      "small_d013e18e-681c-4b0a-a813-e436a5d91f14.jpg",
+      "small_999665f4-58b9-421f-b30f-f23c22944650.jpg",
+      "small_373457e3-4ae3-4afd-8b84-c84ad9e19b8e.jpg",
+      "small_96c6dccf-1309-4980-9308-e99f4d2ea1a3.jpg",
+      "small_2b381de5-54b8-4394-864b-df5046eb0adc.jpg",
+      "small_4b0e6599-1bdd-4a15-8105-ce42f77b7e05.jpg",
+      "small_7b637824-8370-4da4-b13b-8c7ae45067d1.jpg"
+    ],
+
     "text": "<p>Zatímco v Novém královském paláci na Pražském hradě sídlí prezidentská kancelář, Starý královský palác byl ve středověku sídlem českých panovníků. Nejstarší částí Starého královského paláce je kamenná stavba postavená ve 12. století knížetem Soběslavem a dochovaná dodnes.</p><p><br></p><p>Starý královský palác, který se nachází v sousedství katedrály svatého Víta, se v průběhu historie dočkal poměrně mnoha přestaveb. Původně se jednalo o románskou stavbu, ke které později přibyly prvky gotické a renesanční architektury.&nbsp;</p><p><br></p><p>Není divu, že na zvýšení jeho velkoleposti se významně podílel Karel IV. i jeho syn Václav IV. Během bouřlivého 15. století stála budova téměř 80 let opuštěná, ale když se král Vladislav Jagellonský v roce 1483 vrátil na Pražský hrad, zahájil další rozsáhlou přestavbu královského paláce. Právě za jeho vlády byl přistavěn velkolepý a slavnostní Vladislavský sál - hlavní dominanta paláce. Podle návrhu architekta Benedikta Rieda se pyšní působivou žebrovou klenbou stropů a čtvercovými okny v renesančním stylu.&nbsp;</p><p><br></p><p>Tento rozsáhlý prostor plnil mnoho funkcí, a ne všechny byly tak samozřejmé jako oficiální hostiny! Jedna z nástěnných maleb naznačuje, že Vladislavský sál byl také místem konání halových turnajů. Rytíři v brnění na koních do něj vjížděli po takzvaných Jezdeckých schodech. Po nástupu Habsburků na český trůn sloužily interiéry ke korunovačním slavnostem a důležitým jednáním.&nbsp;</p><p><br></p><p>Celkově má Starý královský palác jednoduchý design a neohromí vás opulentní výzdobou. Díky své zachovalé architektuře je však nádherně opředen historií a přenese vás do zlatého věku Čech.</p>",
     "banner": "<p>Tento palác, který až do 16. století sloužil jako sídlo české královské rodiny, je směsicí románských, gotických a raně renesančních prvků. Jeho dominantou je klenutý Vladislavský sál, který sloužil ke korunovačním slavnostem, prodeji zboží a dokonce i k rytířským turnajům.</p>",
     "tips": [

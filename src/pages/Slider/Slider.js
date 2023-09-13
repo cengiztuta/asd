@@ -7,7 +7,51 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 
 const Slider = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
+      );
+      return response.data.content;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempData);
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
+
+
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempDataTwo);
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
+
 
   return (
     <div id="app">
@@ -22,13 +66,13 @@ const Slider = () => {
           <div className="header-content">
             <div className="header-content-title">
               <h1 className="header-content-title-one">
-                {t("pages.5fd771cc072e5479bded0f2b.title")}
+                {tempData[lng]?.title}
               </h1>
               <h3 className="header-content-title-two">
-                {t("pages.5fd771cc072e5479bded0f2b.subtitle")}
+                {tempData[lng]?.subtitle}
               </h3>
               <p className="author-container-m">
-                {t("translation.HEADER_photo_by_label")} Prague City Tourism &
+                {tempDataTwo[lng]?.HEADER_photo_by_label} Prague City Tourism &
                 Czech Tourism
               </p>
             </div>
@@ -37,23 +81,23 @@ const Slider = () => {
                 <input
                   className="dsadsa"
                   type="text"
-                  placeholder={t("translation.SEARCH")}
+                  placeholder={tempDataTwo[lng]?.SEARCH}
                 />
                 <SearchIcon color={"gray"} className="icon" />
               </div>
               <Button _hover={{ bg: "#FF9848" }} className="button">
-                {t("translation.APP_LETS_GO")}
+                {tempDataTwo[lng]?.APP_LETS_GO}
               </Button>
             </div>
           </div>
           <p className="author-container">
-            {t("translation.HEADER_photo_by_label")} Prague City Tourism & Czech
+            {tempDataTwo[lng]?.HEADER_photo_by_label} Prague City Tourism & Czech
             Tourism{" "}
           </p>
         </section>
         <section className="underbar">
           <a className="underbar-text">
-            {t("pages.5fd771cc072e5479bded0f2b.header_banner")}
+            {tempData[lng]?.header_banner}
           </a>
         </section>
         <div className="search-container-m">
@@ -61,12 +105,12 @@ const Slider = () => {
             <Input
               className="dsadsa-m"
               type="text"
-              placeHolder={t("translation.SEARCH")}
+              placeHolder={tempDataTwo[lng]?.SEARCH}
             />
             <SearchIcon color={"gray"} className="icon-m" />
           </div>
           <Button _hover={{ bg: "#FF9848" }} className="button-m">
-            {t("translation.APP_LETS_GO")}
+            {tempDataTwo[lng]?.APP_LETS_GO}
           </Button>
         </div>
       </div>

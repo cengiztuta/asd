@@ -20,11 +20,31 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+
 
 const BenefitsCard = () => {
-  const { t } = useTranslation();
-
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
+      );
+      return response.data.content;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempData);
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
   const [openIndex, setOpenIndex] = useState(0);
 
   const handleAccordionClick = (index) => {
@@ -37,16 +57,12 @@ const BenefitsCard = () => {
   useEffect(() => {
     setOpenIndex(0);
   }, []);
-  const items = t("pages.5fd771cc072e5479bded0f2b.benefits.items", {
-    returnObjects: true,
-    something: "gold",
-  });
-
+  console.log(tempData);
 
   return (
     <div className="acordion">
       <Accordion defaultIndex={[0]}>
-        {items.map((item, index) => (
+        {tempData[lng]?.benefits.items.map((item, index) => (
           <AccordionItem key={index} className="benefits-spoiler">
             <AccordionButton
               className="spoiler-title-box"
@@ -56,8 +72,8 @@ const BenefitsCard = () => {
               <Box
                 className="spoiler-title-text"
                 as="span"
-            
-              >{t(item.title)}</Box>
+                dangerouslySetInnerHTML={{ __html: item.title }}
+              ></Box>
             </AccordionButton>
 
             <AccordionPanel
@@ -66,7 +82,7 @@ const BenefitsCard = () => {
             >
               <a
                 className="spoiler-text"
-                dangerouslySetInnerHTML={{ __html: t(item.text) }}
+                dangerouslySetInnerHTML={{ __html: item.text }}
               ></a>
             </AccordionPanel>
           </AccordionItem>

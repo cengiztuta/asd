@@ -1,3 +1,55 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+      "title": [
+        "VIEUX PALAIS ROYAL",
+        "MUSÉE NATIONAL",
+        "ZOO DE PRAGUE",
+        "MUSÉE JUIF DE PRAGUE",
+        "VISITE GUIDÉE EN BUS \"PRAGUE - VILLE HISTORIQUE",
+        "PILSNER URQUELL EXPERIENCE - ORIGINAL TOUR",
+        "HARD ROCK CAFE PRAGUE",
+        "KUNSTHALLE PRAHA",
+        "MUSÉE D'ART DE L'ILLUSION",
+        "PRAGUE VENICE CROISIÈRE",
+        "GRANDE CROISIÈRE DE PRAGUE",
+        "MUSÉE RETRO",
+        "PALAIS SCHWARZENBERG ",
+        "COUVENT DE SAINT-AGNES",
+        "CASEMATES DE VYŠEHRAD"
+      ],
+      "subtitle": [
+        "Résidence impressionnante de Rois de Bohême",
+        "Le plus ancien et le plus grand musée tchèque, fondé en 1818",
+        "Le quatrième zoo le plus populaire au monde",
+        "L'une des plus grandes collections de judaïca au monde",
+        "Laissez-vous enchanter par l'histoire de Prague<br> lors d'une visite touristique avec Martin Tour.",
+        "Aventure interactive racontant l'histoire de la première bière dorée au monde",
+        "Le plus grand Hard Rock Cafe en Europe",
+        "Un espace international pour l'art",
+        "Le premier musée de la République tchèque consacré à l'art de l'illusion et du trucage.",
+        "Découvrez le meilleur du Prague historique en 45 minutes",
+        "L'une des quatre croisières de Prague Boats, parmi lesquelles vous pouvez en choisir une gratuitement avec le CoolPass",
+        "Vie quotidienne, design et tendances en Tchécoslovaquie dans les années 1970-1980",
+        "Maîtres anciens - exposition permanente de la Galerie nationale de Prague",
+        "L'un des plus anciens bâtiments gothiques de Prague<br>Exposition d'art médiéval en Bohême et en Europe centrale (Galerie nationale de Prague)",
+        "Salle souterraine monumentale Gorlice "
+      ],
+      "images": [
+        "c757f3d2-c948-430c-89d1-ea4cd45b4634.jpg",
+        "small_7311e70d-d382-400a-92a4-fae87bb917a8.jpg",
+        "small_e355f6ab-122a-44d0-b907-8e5abe0fc447.jpg",
+        "small_397ef1fc-8a9e-4337-8d77-49f13fbddbda.jpg",
+        "small_7620d433-1d5e-4ed8-a4c9-cd3fc7cfd208.jpg",
+        "small_6b334ea9-eb8e-46d1-b434-a253802b1204.jpg",
+        "small_97cca5a8-ddf8-4bce-b9e6-807232d68f15.jpg",
+        "small_35308084-e45b-410e-bc35-7abb3e34471b.jpg",
+        "small_d013e18e-681c-4b0a-a813-e436a5d91f14.jpg",
+        "small_999665f4-58b9-421f-b30f-f23c22944650.jpg",
+        "small_373457e3-4ae3-4afd-8b84-c84ad9e19b8e.jpg",
+        "small_96c6dccf-1309-4980-9308-e99f4d2ea1a3.jpg",
+        "small_2b381de5-54b8-4394-864b-df5046eb0adc.jpg",
+        "small_4b0e6599-1bdd-4a15-8105-ce42f77b7e05.jpg",
+        "small_7b637824-8370-4da4-b13b-8c7ae45067d1.jpg"
+      ],

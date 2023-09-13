@@ -1,12 +1,33 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../Calculator.css";
-
+import axios from "axios";
 import { Box } from "@chakra-ui/react";
 import "swiper/css/navigation";
 import { useTranslation } from "react-i18next";
 
 const Card2 = () => {
-  const { t } = useTranslation();
+  const [tempData, setTempData] = useState([]);
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempData);
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
   const [adultCounterValue, setAdultCounterValue] = useState(0);
   const [childCounterValue, setChildCounterValue] = useState(0);
 
@@ -37,20 +58,16 @@ const Card2 = () => {
             {t("translation.CALCULATOR_2_day_pass")}
           </h2>
           <a className="Card-subtitle">
-            {" "}
-            {t("translation.BUY_PRAGUE_CARD_COOL_PASS")}
+            {tempData[lng]?.BUY_PRAGUE_CARD_COOL_PASS}
           </a>
         </div>
       </div>
       <div className="Card-body">
         <div className="adult-calculator">
-          <p className="adult-calculator-label">
-            {" "}
-            {t("translation.ADULT_PRICE")}
-          </p>
+          <p className="adult-calculator-label">{tempData[lng]?.ADULT_PRICE}</p>
 
           <div className="price-section">
-            <a className="price-label">{t("translation.PRICE")}</a>
+            <a className="price-label">{tempData[lng]?.PRICE}</a>
             <a className="adult-price">80 EUR</a>
           </div>
           <div className="price-calculator">
@@ -72,9 +89,8 @@ const Card2 = () => {
 
         <div className="adult-calculator">
           <p className="adult-calculator-label">
-            {" "}
-            {t("translation.STUDENT_PRICE")}
-            {t("translation.CHILD_PRICE")}{" "}
+            {tempData[lng]?.STUDENT_PRICE}
+            {tempData[lng]?.CHILD_PRICE}
           </p>
 
           <div className="price-section">
@@ -98,15 +114,15 @@ const Card2 = () => {
         </div>
         <div class="total-price-section">
           <div class="total-price">
-            <a class="price-label"> {t("translation.YOUR_PRICE")} : </a>
+            <a class="price-label"> {tempData[lng]?.YOUR_PRICE} : </a>
             <a class="price">{totalPrice} EUR</a>
           </div>
         </div>
         <div class="card-footer">
           <a>
             <p class="footer-text">
-           
-              {t("translation.CALCULATOR_COMPLETE_BOOKING_BTN")}
+              {" "}
+              {tempData[lng]?.CALCULATOR_COMPLETE_BOOKING_BTN}
             </p>
           </a>
         </div>

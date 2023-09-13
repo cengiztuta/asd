@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Howuse.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -6,8 +6,30 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 const HowUseCard = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempData);
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
   const api = "https://static2.praguecoolpass.com/";
   const swiperParams = {
     direction: "horizontal",
@@ -57,19 +79,25 @@ const HowUseCard = () => {
           {...swiperParams}
           className="how-use-swiper"
         >
-          {items.map((item, index) => (
+          {tempData.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="how-use-step-new">
                 <div
                   className="how-use-step-image"
-                  style={{ backgroundImage: `url(${api}${t(item.web_images)})` }}
+                  style={{
+                    backgroundImage: `url(${api}${t(
+                      item.how_to_use.web_images
+                    )})`,
+                  }}
                 >
                   <a className="how-use-m-link"></a>
                   <div style={{ display: "block" }}> </div>
                   <a className="how-use-m-link"></a>
                 </div>
                 <div className="how-use-step-number">{index + 1} </div>
-                <div className="how-use-step-text">{t(item.descriptions)}</div>
+                <div className="how-use-step-text">
+                  {item.content[lng]?.how_to_use.descriptions}
+                </div>
               </div>
             </SwiperSlide>
           ))}

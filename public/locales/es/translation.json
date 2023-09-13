@@ -498,7 +498,7 @@
     "CALCULATOR_6_day_pass": "6 DÍAS PASS ",
     "CALCULATOR_7_day_pass": "7 DÍAS PASS ",
     "CALCULATOR_10_day_pass": "10 DÍAS PASS ",
-  
+
     "ADULT": "Adulto",
     "STUDENT/CHILD": "Estudiante/ Niño",
     "CALCULATOR_order_your_coolpass": "pida su coolpass",
@@ -851,8 +851,57 @@
     }
   },
   "attraction": {
-    "title": "ANTIGUO PALACIO REAL",
-    "subtitle": "Residencia impresionante de los reyes de Bohemia\t",
+    "title": [
+      "ANTIGUO PALACIO REAL",
+      "MUSEO NACIONAL",
+      "ZOO DE PRAGA ",
+      "MUSEO JUDÍO DE PRAGA",
+      "TOUR EN BUS \"PRAGA - CIUDAD HISTÓRICA\"",
+      "PILSNER URQUELL EXPERIENCE - ORIGINAL TOUR",
+      "HARD ROCK CAFE PRAGA",
+      "KUNSTHALLE PRAHA",
+      "MUSEO DE ARTE DE LA ILUSIÓN",
+      "CRUCERO PEQUEÑA VENECIA DE PRAGA",
+      "GRAN CRUCERO POR PRAGA",
+      "MUSEO RETRO",
+      "PALACIO SCHWARZENBERG ",
+      "CONVENTO DE SANTA INÉS",
+      "CASAMATAS DE VYŠEHRAD"
+    ],
+    "subtitle": [
+      "Residencia impresionante de los reyes de Bohemia\t",
+      "El mayor y más antiguo museo checo, fundado en 1818",
+      "El cuarto zoológico más popular del mundo",
+      "Una de las mayores colecciones de judaica del mundo",
+      "Déjese encantar por la historia de Praga<br> durante un recorrido turístico con Martin Tour",
+      "Aventura interactiva que cuenta la historia de la primera cerveza dorada del mundo",
+      "Hard Rock Café más grande de Europa",
+      "Un espacio internacional para el arte",
+      "El primer museo de la República Checa dedicado al arte de la ilusión y el truco",
+      "Vea lo mejor de la Praga histórica en 45 minutos",
+      "Uno de los cuatro cruceros con Prague Boats, entre los que puedes elegir uno gratis con CoolPass",
+      "Vida cotidiana, diseño y tendencias en la Checoslovaquia de los años 1970-1980",
+      "Maestros antiguos - exposición permanente de la Galería Nacional en Praga",
+      "Uno de los edificios góticos más antiguos de Praga<br>Exposición de Arte Medieval en Bohemia y Europa Central (Galería Nacional de Praga)",
+      "Sala subterránea monumental Gorlice"
+    ],
+    "images": [
+      "c757f3d2-c948-430c-89d1-ea4cd45b4634.jpg",
+      "small_7311e70d-d382-400a-92a4-fae87bb917a8.jpg",
+      "small_e355f6ab-122a-44d0-b907-8e5abe0fc447.jpg",
+      "small_397ef1fc-8a9e-4337-8d77-49f13fbddbda.jpg",
+      "small_7620d433-1d5e-4ed8-a4c9-cd3fc7cfd208.jpg",
+      "small_6b334ea9-eb8e-46d1-b434-a253802b1204.jpg",
+      "small_97cca5a8-ddf8-4bce-b9e6-807232d68f15.jpg",
+      "small_35308084-e45b-410e-bc35-7abb3e34471b.jpg",
+      "small_d013e18e-681c-4b0a-a813-e436a5d91f14.jpg",
+      "small_999665f4-58b9-421f-b30f-f23c22944650.jpg",
+      "small_373457e3-4ae3-4afd-8b84-c84ad9e19b8e.jpg",
+      "small_96c6dccf-1309-4980-9308-e99f4d2ea1a3.jpg",
+      "small_2b381de5-54b8-4394-864b-df5046eb0adc.jpg",
+      "small_4b0e6599-1bdd-4a15-8105-ce42f77b7e05.jpg",
+      "small_7b637824-8370-4da4-b13b-8c7ae45067d1.jpg"
+    ],
     "text": "<p>Mientras que el Nuevo Palacio Real del Castillo de Praga alberga la Oficina Presidencial, el Antiguo Palacio Real fue la sede de los gobernantes de Bohemia en la Edad Media. La parte más antigua del Antiguo Palacio Real es una estructura de piedra construida en el siglo XII por el príncipe Soběslav y conservada hasta hoy.</p><p><br></p><p>Situado junto a la catedral de San Vito, el Antiguo Palacio Real ha sufrido bastantes reconstrucciones a lo largo de la historia. Originalmente era un edificio románico, y los elementos de la arquitectura gótica y renacentista se añadieron posteriormente.&nbsp;</p><p><br></p><p>No es de extrañar que Carlos IV contribuyera mucho a realzar su grandeza, así como su hijo Wenceslao IV. Durante el tormentoso siglo XV el edificio permaneció abandonado durante casi 80 años, pero cuando el rey Vladislav Jagellonský regresó al Castillo de Praga en 1483, comenzó otra reconstrucción a gran escala del Palacio Real. Fue durante su reinado cuando se añadió la magnífica y solemne Sala Vladislav, el punto más destacado del Palacio. Diseñado por el arquitecto Benedikt Ried, cuenta con una impresionante bóveda de crucería en los techos y ventanas cuadradas de estilo renacentista.&nbsp;</p><p><br></p><p>Este gran espacio cumplía muchas funciones, ¡y no todas tan obvias como los banquetes oficiales! Una de las pinturas murales sugiere que la Sala Vladislav también fue un lugar de celebración de torneos en el interior. Los caballeros acorazados a caballo entraban por la llamada escalera de los jinetes. Después de la sucesión de los Habsburgo en el trono de Bohemia, los interiores sirvieron para las fiestas de coronación y las reuniones importantes.&nbsp;</p><p><br></p><p>En general, el Antiguo Palacio Real tiene un diseño sencillo y no le llamará la atención por su opulenta decoración. Sin embargo, con su arquitectura bien conservada, está maravillosamente impregnado de historia y le transporta a la Edad de Oro de Bohemia.</p>",
     "banner": "<p>Este palacio, que fue sede de la monarquía bohemia hasta el siglo XVI, es una mezcla de elementos románicos, góticos y de principios del Renacimiento. Lo más destacado es la sala abovedada Vladislav, utilizada para las fiestas de coronación, la venta de productos e incluso los torneos de justas.</p>",
     "tips": [
@@ -943,13 +992,13 @@
       "header_banner": "¡Ahora puedes elegir! Descarga el nuevo PRAGUE COOLPASS DIGITAL directamente en tu móvil o recoge la TARJETA DE PRAGA FÍSICA a tu llegada",
       "modal_description": "<p class=\"ql-align-center\" style=\"line-height: 1.2;\"><span style=\"color: rgb(0, 0, 0); font-size: 24px;\">LA TARJETA PRAGA</span></p><p class=\"ql-align-center\" style=\"line-height: 1.2;\"><span style=\"color: rgb(0, 0, 0); font-size: 24px;\">PLANEA REINICIAR</span></p><p class=\"ql-align-center\" style=\"line-height: 1.2;\"><span style=\"color: rgb(0, 0, 0); font-size: 24px;\">SUS OPERACIONES</span></p><p class=\"ql-align-center\" style=\"line-height: 1.2;\"><br></p><p class=\"ql-align-center\" style=\"line-height: 1.2;\"><strong style=\"color: rgb(0, 0, 0); font-size: 32px;\">15 de JULIO 2021</strong></p><p class=\"ql-align-center\" style=\"line-height: 1.2;\"><br></p><p class=\"ql-align-center\" style=\"line-height: 1.2;\"><span style=\"font-size: 12px; color: rgb(0, 0, 0);\">a menos&nbsp;que la situación pandémica </span></p><p class=\"ql-align-center\" style=\"line-height: 1.2;\"><span style=\"font-size: 12px; color: rgb(0, 0, 0);\">solicite lo contrario&nbsp;</span></p>"
     },
-    "news": { 
-        "title": "Prague Card es ahora CoolPass: la generación digital de la clásica tarjeta de visitante",
-        "text": "<p>En agosto de 2020, Prague Card introdujo una nueva versión del pase turístico, del que han disfrutado más de 1 millón de visitantes desde 1992. Ahora puede acceder a más de 100 de las mejores atracciones de Praga utilizando CoolPass, un código QR especial que se almacena en su smartphone.</p><p><br></p><p>Simplemente descargue la aplicación Prague CoolPass en su aparato iOS o Android, y elija la versión móvil del pase en la caja. El código se entregará al instante y podrá registrarlo en un par de clics.</p><p><br></p><p>Una vez registrado, Prague CoolPass funciona también fuera de línea y le proporciona un cómodo acceso a las atracciones. Menos complicaciones, grandes ahorros y una impresionante variedad de lugares de interés: ¡todo lo que necesita para descubrir la capital checa por su cuenta!</p><p><br></p><p>Si lo desea, puede seguir optando por la Tarjeta de Praga física y recogerla en uno de nuestros puntos de recogida en el centro de la ciudad. La aplicación Prague CoolPass sigue estando disponible para su descarga gratuita, para ayudarte a navegar por la ciudad y mantenerte actualizado con la información más reciente.</p>",
-        "webimages": [
-          "752acf48-8336-4a59-836d-9166fd6ec82f.jpg",
-          "20c73979-f64a-4368-9837-7da12e057ee2.jpg"
-        ]      
+    "news": {
+      "title": "Prague Card es ahora CoolPass: la generación digital de la clásica tarjeta de visitante",
+      "text": "<p>En agosto de 2020, Prague Card introdujo una nueva versión del pase turístico, del que han disfrutado más de 1 millón de visitantes desde 1992. Ahora puede acceder a más de 100 de las mejores atracciones de Praga utilizando CoolPass, un código QR especial que se almacena en su smartphone.</p><p><br></p><p>Simplemente descargue la aplicación Prague CoolPass en su aparato iOS o Android, y elija la versión móvil del pase en la caja. El código se entregará al instante y podrá registrarlo en un par de clics.</p><p><br></p><p>Una vez registrado, Prague CoolPass funciona también fuera de línea y le proporciona un cómodo acceso a las atracciones. Menos complicaciones, grandes ahorros y una impresionante variedad de lugares de interés: ¡todo lo que necesita para descubrir la capital checa por su cuenta!</p><p><br></p><p>Si lo desea, puede seguir optando por la Tarjeta de Praga física y recogerla en uno de nuestros puntos de recogida en el centro de la ciudad. La aplicación Prague CoolPass sigue estando disponible para su descarga gratuita, para ayudarte a navegar por la ciudad y mantenerte actualizado con la información más reciente.</p>",
+      "webimages": [
+        "752acf48-8336-4a59-836d-9166fd6ec82f.jpg",
+        "20c73979-f64a-4368-9837-7da12e057ee2.jpg"
+      ]
     }
   }
 }

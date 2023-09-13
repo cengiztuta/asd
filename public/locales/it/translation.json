@@ -848,16 +848,66 @@
     },
     "5a7a896166105c2e28d87bd4": {
       "title": "PIANIFICA TUO VIAGGIO"
+    },
+
+    "attraction": {
+      "title": [
+        "VECCHIO PALAZZO REALE",
+        "MUZEO NAZIONALE",
+        "ZOO DI PRAGA",
+        "MUSEO EBRAICO DI PRAGA",
+        "TOUR IN AUTOBUS \"PRAGA - CITTA' STORICA",
+        "PILSNER URQUELL EXPERIENCE - ORIGINAL TOUR",
+        "HARD ROCK CAFE PRAGA",
+        "KUNSTHALLE PRAHA",
+        "MUSEO DELL'ARTE DELL'ILLUSIONE",
+        "CROCIERA PICCOLA VENEZIA DI PRAGA",
+        "GRANDE CROCIERA DI PRAGA",
+        "MUSEO RETRO",
+        "PALAZZO SCHWARZENBERG",
+        "CONVENTO DI SANTA AGNESE",
+        "CASEMATTE DI VYŠEHRAD"
+      ],
+      "subtitle": [
+        "Impressionante residenza dei re boemi",
+        "Il più antico e più grande museo ceco fondato nel 1818",
+        "Il quarto zoo più popolare del mondo",
+        "Una delle più grandi collezioni di Judaica del mondo",
+        "Lasciatevi incantare dalla storia di Praga<br> durante un giro turistico con Martin Tour ",
+        "Avventura interattiva che racconta la storia della prima birra dorata del mondo",
+        "Il più grande Hard Rock Cafe in Europa",
+        "Uno spazio internazionale per l'arte",
+        "Il primo museo della Repubblica Ceca dedicato all'illusione e all'arte del trucco",
+        "Vedi il meglio della Praga storica in 45 minuti",
+        "Una delle quattro crociere con Prague Boats, tra cui puoi sceglierne una gratuitamente con CoolPass",
+        "Vita quotidiana, design e tendenze nella Cecoslovacchia degli anni 1970-1980",
+        "Vecchi maestri - mostra permanente della Galleria Nazionale a Praga",
+        "Uno dei più antichi edifici gotici di Praga<br>Mostra dell'arte medievale in Boemia e in Europa centrale (Galleria Nazionale di Praga)",
+        "Sala monumentale sotterranea Gorlice "
+      ],
+      "images": [
+        "c757f3d2-c948-430c-89d1-ea4cd45b4634.jpg",
+        "small_7311e70d-d382-400a-92a4-fae87bb917a8.jpg",
+        "small_e355f6ab-122a-44d0-b907-8e5abe0fc447.jpg",
+        "small_397ef1fc-8a9e-4337-8d77-49f13fbddbda.jpg",
+        "small_7620d433-1d5e-4ed8-a4c9-cd3fc7cfd208.jpg",
+        "small_6b334ea9-eb8e-46d1-b434-a253802b1204.jpg",
+        "small_97cca5a8-ddf8-4bce-b9e6-807232d68f15.jpg",
+        "small_35308084-e45b-410e-bc35-7abb3e34471b.jpg",
+        "small_d013e18e-681c-4b0a-a813-e436a5d91f14.jpg",
+        "small_999665f4-58b9-421f-b30f-f23c22944650.jpg",
+        "small_373457e3-4ae3-4afd-8b84-c84ad9e19b8e.jpg",
+        "small_96c6dccf-1309-4980-9308-e99f4d2ea1a3.jpg",
+        "small_2b381de5-54b8-4394-864b-df5046eb0adc.jpg",
+        "small_4b0e6599-1bdd-4a15-8105-ce42f77b7e05.jpg",
+        "small_7b637824-8370-4da4-b13b-8c7ae45067d1.jpg"
+      ],
+      "text": "<p>Mentre il Nuovo Palazzo Reale nel Castello di Praga ospita l'Ufficio Presidenziale, il Vecchio Palazzo Reale era la sede dei governanti boemi nel Medioevo. La parte più antica del Vecchio Palazzo Reale è una struttura in pietra costruita nel XII secolo dal principe Soběslav e conservata fino ad oggi.</p><p><br></p><p>Situato accanto alla Cattedrale di San Vito, il Vecchio Palazzo Reale ha visto diverse ricostruzioni nel corso della storia. Originariamente era un edificio romanico, e gli elementi dell'architettura gotica e rinascimentale furono aggiunti in seguito.&nbsp;</p><p><br></p><p>Non sorprende che Carlo IV abbia contribuito molto ad aumentare la sua grandezza, così come suo figlio Venceslao IV. Durante il tempestoso XV secolo il palazzo rimase abbandonato per quasi 80 anni, ma quando il re Vladislav Jagellonský tornò al Castello di Praga nel 1483, iniziò un'altra ricostruzione su larga scala del Palazzo Reale. Fu durante il suo regno che fu aggiunta la magnifica e solenne Sala di Vladislav - l'attrazione principale del palazzo. Progettata dall'architetto Benedikt Ried, vanta un'impressionante volta a costoloni dei soffitti e finestre quadrate in stile rinascimentale.&nbsp;</p><p><br></p><p>Questo grande spazio svolgeva molte funzioni, e non tutte così ovvie come i banchetti ufficiali! Uno dei dipinti murali suggerisce che la Sala Vladislav era anche un luogo di tornei al coperto. I cavalieri corazzati a cavallo entravano usando la cosiddetta scala Rider's Steps. Dopo la successione degli Asburgo al trono di Boemia, gli interni servirono per le feste di incoronazione e le riunioni importanti.&nbsp;</p><p><br></p><p>Nel complesso, l'Antico Palazzo Reale ha un design semplice e non vi colpirà con decorazioni opulente. Ma con la sua architettura ben conservata, è meravigliosamente intrisa di storia e vi riporta all'età dell'oro della Boemia.</p>",
+      "banner": "<p>Servito come sede della monarchia boema fino al XVI secolo, questo palazzo è un misto di elementi romanici, gotici e del primo Rinascimento. Il suo punto culminante è la sala Vladislav con le sue volte, usata per le feste di incoronazione, la vendita di merci e anche i tornei di giostra.</p>",
+      "tips": [
+        "L'attrazione fa parte del Circuito del Castello di Praga. Vai in qualsiasi centro informazioni del Castello di Praga, presenta il tuo CoolPass /Card e ricevi un biglietto gratuito per il circuito del Castello di Praga (Cattedrale di San Vito, Vecchio Palazzo Reale, Basilica di San Giorgio, Vicolo d'Oro, Torre Daliborka). Il biglietto è valido per 2 giorni."
+      ]
     }
-  },
-  "attraction": {
-    "title": "VECCHIO PALAZZO REALE",
-    "subtitle": "Impressionante residenza dei re boemi",
-    "text": "<p>Mentre il Nuovo Palazzo Reale nel Castello di Praga ospita l'Ufficio Presidenziale, il Vecchio Palazzo Reale era la sede dei governanti boemi nel Medioevo. La parte più antica del Vecchio Palazzo Reale è una struttura in pietra costruita nel XII secolo dal principe Soběslav e conservata fino ad oggi.</p><p><br></p><p>Situato accanto alla Cattedrale di San Vito, il Vecchio Palazzo Reale ha visto diverse ricostruzioni nel corso della storia. Originariamente era un edificio romanico, e gli elementi dell'architettura gotica e rinascimentale furono aggiunti in seguito.&nbsp;</p><p><br></p><p>Non sorprende che Carlo IV abbia contribuito molto ad aumentare la sua grandezza, così come suo figlio Venceslao IV. Durante il tempestoso XV secolo il palazzo rimase abbandonato per quasi 80 anni, ma quando il re Vladislav Jagellonský tornò al Castello di Praga nel 1483, iniziò un'altra ricostruzione su larga scala del Palazzo Reale. Fu durante il suo regno che fu aggiunta la magnifica e solenne Sala di Vladislav - l'attrazione principale del palazzo. Progettata dall'architetto Benedikt Ried, vanta un'impressionante volta a costoloni dei soffitti e finestre quadrate in stile rinascimentale.&nbsp;</p><p><br></p><p>Questo grande spazio svolgeva molte funzioni, e non tutte così ovvie come i banchetti ufficiali! Uno dei dipinti murali suggerisce che la Sala Vladislav era anche un luogo di tornei al coperto. I cavalieri corazzati a cavallo entravano usando la cosiddetta scala Rider's Steps. Dopo la successione degli Asburgo al trono di Boemia, gli interni servirono per le feste di incoronazione e le riunioni importanti.&nbsp;</p><p><br></p><p>Nel complesso, l'Antico Palazzo Reale ha un design semplice e non vi colpirà con decorazioni opulente. Ma con la sua architettura ben conservata, è meravigliosamente intrisa di storia e vi riporta all'età dell'oro della Boemia.</p>",
-    "banner": "<p>Servito come sede della monarchia boema fino al XVI secolo, questo palazzo è un misto di elementi romanici, gotici e del primo Rinascimento. Il suo punto culminante è la sala Vladislav con le sue volte, usata per le feste di incoronazione, la vendita di merci e anche i tornei di giostra.</p>",
-    "tips": [
-      "L'attrazione fa parte del Circuito del Castello di Praga. Vai in qualsiasi centro informazioni del Castello di Praga, presenta il tuo CoolPass /Card e ricevi un biglietto gratuito per il circuito del Castello di Praga (Cattedrale di San Vito, Vecchio Palazzo Reale, Basilica di San Giorgio, Vicolo d'Oro, Torre Daliborka). Il biglietto è valido per 2 giorni."
-    ]
   },
   "pages": {
     "5fd771cc072e5479bded0f2b": {

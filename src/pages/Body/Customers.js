@@ -12,7 +12,8 @@ import CustomerCardSlider from "./CustomerCard/CustomerCardSlider";
 import { useTranslation } from "react-i18next";
 
 const Customers = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language
   const swiperRef = useRef(null);
   const [review, setReview] = useState([]);
 
@@ -36,6 +37,26 @@ const Customers = () => {
     fetchTranslate();
   }, []);
 
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempData);
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
 
   return (
     <div className="customer">
@@ -43,7 +64,7 @@ const Customers = () => {
         <div className="title-container">
           <h3 className="customer-title">
             {" "}
-            {t("translation.REVIEWS_what_do_customers_say")}
+            {tempData[lng]?.REVIEWS_what_do_customers_say}
           </h3>
 
           <div className="title-stars-rating">
@@ -90,10 +111,10 @@ const Customers = () => {
         <CustomerCardSlider data={review} />{" "}
         <div className="pagination-container">
           <button className="pagination-button ">
-            <a>{t("translation.REVIEWS_see_all")} </a>
+            <a>{tempData[lng]?.REVIEWS_see_all} </a>
           </button>
           <button className="pagination-button">
-            <a>{t("translation.REVIEWS_write_your_opinion")}</a>
+            <a>{tempData[lng]?.REVIEWS_write_your_opinion}</a>
           </button>
         </div>
       </div>

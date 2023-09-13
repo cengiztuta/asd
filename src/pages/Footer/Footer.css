@@ -38,10 +38,10 @@ li::before {
   list-style: none;
 }
 .footer-button {
-  min-width: 87px;
+  min-width: 127px;
   width: auto;
   border-width: 0;
-  background-color: #fb5a03;
+  background-color: #da4b07;
   font-size: 15px;
   color: white;
   border-radius: 5px;
@@ -88,7 +88,7 @@ li::before {
 .footer-subs-button {
   width: 110px;
   border: none;
-  background-color: #fb5a03;
+  background-color: #da4b07;
   font-size: 15px;
   color: white;
   border-top-right-radius: 5px;

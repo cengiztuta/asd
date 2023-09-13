@@ -48,7 +48,28 @@ const swiperParams = {
   },
 };
 const Calculator = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  console.log(tempData);
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
   const CardArray = [Card1, Card2, Card3, Card4, Card5, Card6, Card7, Card10];
   const swiperRef = useRef(null);
 
@@ -57,7 +78,7 @@ const Calculator = () => {
       <div className="calculator-container">
         <h3 className="Benefits-title">
           {" "}
-          {t("translation.BUY_COOLPASS_PRAGUE_CARD")}
+          {tempData[lng]?.BUY_COOLPASS_PRAGUE_CARD}
         </h3>
         <div className="wrapper">
           <div className="wrapper-content">
@@ -91,23 +112,23 @@ const Calculator = () => {
           <div class="first-tip-block">
             <li class="list-text">
               {" "}
-              {t("translation.CALCULATOR_card_validity")}
+              {tempData[lng]?.CALCULATOR_card_validity}
             </li>
             <li class="list-text">
               {" "}
-              {t("translation.CALCULATOR_child_card_validity_tip")}
+              {tempData[lng]?.CALCULATOR_child_card_validity_tip}
             </li>
           </div>
           <div class="second-tip-block">
             <li class="second-list-text">
               {" "}
-              {t("translation.CALCULATOR_student_id_info")}
+              {tempData[lng]?.CALCULATOR_student_id_info}
             </li>
           </div>
           <div className="third-tip-block">
-            <h>{t("translation.ADULT_AGE")}</h>
-            <p className="third-m"> {t("translation.STUDENT_AGE")} </p>{" "}
-            <p> {t("translation.CHILD_AGE")} </p>{" "}
+            <h>{tempData[lng]?.ADULT_AGE}</h>
+            <p className="third-m"> {tempData[lng]?.STUDENT_AGE} </p>{" "}
+            <p> {tempData[lng]?.CHILD_AGE} </p>
           </div>
         </div>
       </div>
