@@ -17,6 +17,9 @@
 .Header.hide {
   transform: translateY(-100%);
 }
+.Header.show{
+  transform: translateZ()
+}
 
 .CoolPass {
   display: flex;
