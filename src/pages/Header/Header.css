@@ -24,16 +24,18 @@
   font-size: 22px;
   color: white;
   justify-content: flex-end;
-  width: 20%;
+  width: auto;
   font-weight: bold;
   cursor: pointer;
 }
 .HeadMid {
-  width: 70%;
+  min-width: 70%;
+  width: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  column-gap: 10px;
 }
 .HeadMidText {
   font-size: 16px;
@@ -41,11 +43,12 @@
   cursor: pointer;
 }
 .HeadButtons {
-  width: 28%;
+  width: auto;
   justify-content: flex-start;
   display: flex;
 }
 .Button {
+  width: auto;
   justify-content: flex-start;
 }
 .ButtonOne {
@@ -68,7 +71,7 @@
   border-width: 0;
   border-radius: 5px;
   margin-left: 20px;
-  width: 30%;
+  width:auto;
   font-size: 15px;
   color: white;
   text-align: center;
@@ -82,7 +85,8 @@
   border-radius: 5px;
   border-width: 1;
   color: white;
-  width: 120px;
+  min-width: 150px;
+  width: auto;
 }
 .MenuButton {
   background-color: #252c3e;
@@ -94,6 +98,7 @@
   height: 30px;
   text-align: center;
   cursor: pointer;
+  width: auto;
 }
 .m-navbar {
   display: none;

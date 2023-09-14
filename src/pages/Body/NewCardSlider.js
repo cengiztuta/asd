@@ -12,9 +12,10 @@ import { useTranslation } from "react-i18next";
 
 const NewCardSlider = () => {
   const { t, i18n } = useTranslation();
+  const lng = i18n.language
   const swiperRef = useRef(null);
 
-  const asd = i18n.language;
+ 
   const [attractions, setAttractions] = useState([]);
   const getAttractions = async () => {
     try {
@@ -35,7 +36,26 @@ const NewCardSlider = () => {
   useEffect(() => {
     fetchTranslate();
   }, []);
+  const [tempData, setTempData] = useState([]);
 
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
   return (
     <div
       style={{
@@ -51,7 +71,7 @@ const NewCardSlider = () => {
           }}
         >
           <h3 className="top-attractions-title">
-            {t("translation.HOME_top_attractions_title")}
+            {tempData[lng]?.HOME_top_attractions_title}
           </h3>
         </section>
         <div className="att-wrapper">
@@ -78,7 +98,7 @@ const NewCardSlider = () => {
                 spaceBetween: 10,
               },
               1024: {
-                slidesPerView: 4,
+                slidesPerView: 4, 
                 spaceBetween: 20,
               },
             }}
@@ -86,7 +106,7 @@ const NewCardSlider = () => {
           >
             {attractions.map((card, index) => (
               <SwiperSlide key={index} className="att-swiper-slide">
-                <Card card={card} hakan={asd} />
+                <Card card={card} hakan={lng} />
               </SwiperSlide>
             ))}
           </Swiper>

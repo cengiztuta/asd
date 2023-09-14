@@ -21,7 +21,6 @@ const Slider = () => {
       return [];
     }
   };
-  console.log(tempData);
   const fetchTempData = async () => {
     const data = await getOffersTemp();
     setTempData(data);
@@ -43,7 +42,6 @@ const Slider = () => {
       return [];
     }
   };
-  console.log(tempDataTwo);
   const fetchTempDataTwo = async () => {
     const data = await getOffersTempTwo();
     setTempDataTwo(data);

@@ -3,11 +3,13 @@ import { Button } from "@chakra-ui/react";
 import "./Offer.css";
 import axios from "axios";
 import { MdWidthFull } from "react-icons/md";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
-const OfferCard = () => {
+const OfferCard = ({ card }) => {
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
   const api = "https://static2.praguecoolpass.com/";
- 
+
   const [show, setShow] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -19,22 +21,36 @@ const OfferCard = () => {
     setHoveredIndex(null);
   };
 
+  const [tempData, setTempData] = useState([]);
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
+      );
+      return response.data.content;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
   const Grid = () => {
-    const items = t("pages.5fd771cc072e5479bded0f2b.offers.items", {
-      returnObjects: true,
-      something: "gold",
-    });
-
     return (
       <div className="grid">
-        {items.map((item, index) => (
+        {tempData[lng]?.offers.items.map((item, index) => (
           <div
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
             className={`pop-up ${hoveredIndex === index ? "active" : ""}`}
             key={index}
             style={{
-              backgroundImage: `url(${api}${t(item.web_images)})`,
+              backgroundImage: `url(${api}${card[index]})`,
             }}
           >
             {hoveredIndex === index ? (
@@ -43,13 +59,13 @@ const OfferCard = () => {
                   <p
                     className="pop-up-text-title"
                     dangerouslySetInnerHTML={{
-                      __html: t(item.title),
+                      __html: item.title,
                     }}
                   ></p>
                   <div className="pop-up-text">
                     <p
                       dangerouslySetInnerHTML={{
-                        __html: t(item.features_list),
+                        __html: item.features_list,
                       }}
                     ></p>
                   </div>
@@ -57,7 +73,7 @@ const OfferCard = () => {
                 <div className="pop-up-button-content">
                   <a className="see-all-button">
                     <button className="pop-up-button">
-                      {t(item.button_text)}
+                      {item.button_text}{" "}
                     </button>
                   </a>
                 </div>
@@ -67,7 +83,7 @@ const OfferCard = () => {
                 <p
                   className="pop-up-title-h3"
                   dangerouslySetInnerHTML={{
-                    __html: t(item.title),
+                    __html: item.title,
                   }}
                 ></p>
               </div>

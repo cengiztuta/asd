@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-const HowUseCard = () => {
+const HowUseCard = ({ card }) => {
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
   const [tempData, setTempData] = useState([]);
@@ -16,13 +16,12 @@ const HowUseCard = () => {
       const response = await axios.get(
         "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
       );
-      return response.data;
+      return response.data.how_to_use.web_images;
     } catch (error) {
       console.error(error);
       return [];
     }
   };
-  console.log(tempData);
   const fetchTempData = async () => {
     const data = await getOffersTemp();
     setTempData(data);
@@ -62,10 +61,6 @@ const HowUseCard = () => {
       },
     },
   };
-  const items = t("pages.5fd771cc072e5479bded0f2b.how_to_use.descriptions", {
-    returnObjects: true,
-    something: "gold",
-  });
 
   return (
     <div className="how-use-wrapper">
@@ -85,9 +80,7 @@ const HowUseCard = () => {
                 <div
                   className="how-use-step-image"
                   style={{
-                    backgroundImage: `url(${api}${t(
-                      item.how_to_use.web_images
-                    )})`,
+                    backgroundImage: `url(${api}${item})`,
                   }}
                 >
                   <a className="how-use-m-link"></a>
@@ -96,7 +89,7 @@ const HowUseCard = () => {
                 </div>
                 <div className="how-use-step-number">{index + 1} </div>
                 <div className="how-use-step-text">
-                  {item.content[lng]?.how_to_use.descriptions}
+                  {card[lng]?.how_to_use.descriptions[index]}
                 </div>
               </div>
             </SwiperSlide>

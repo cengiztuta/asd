@@ -23,15 +23,76 @@ import { motion } from "framer-motion";
 import { ChevronDownIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import axios from "axios";
 const Header = () => {
-  const { t } = useTranslation();
-
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
   function handleClick(lang) {
     i18next.changeLanguage(lang);
   }
   const [scrolling, setScrolling] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [lang, setLang] = useState("ENGLISH");
+  const [tempData, setTempData] = useState([]);
+
+  const getOffersTemp = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/translation"
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  const fetchTempData = async () => {
+    const data = await getOffersTemp();
+    setTempData(data);
+  };
+  useEffect(() => {
+    fetchTempData();
+  }, []);
+
+  const [tempDataTwo, setTempDataTwo] = useState([]);
+  const getOffersTempTwo = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/menu/5a7a894f66105c2e28d87bd3"
+      );
+      return response.data.content;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  const fetchTempDataTwo = async () => {
+    const data = await getOffersTempTwo();
+    setTempDataTwo(data);
+  };
+  useEffect(() => {
+    fetchTempDataTwo();
+  }, []);
+
+  const [tempDataThree, setTempDataThree] = useState([]);
+  const getOffersTempThree = async () => {
+    try {
+      const response = await axios.get(
+        "https://api2.praguecoolpass.com/menu/5a7a896166105c2e28d87bd4"
+      );
+      return response.data.content;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
+  const fetchTempDataThree = async () => {
+    const data = await getOffersTempThree();
+    setTempDataThree(data);
+  };
+  useEffect(() => {
+    fetchTempDataThree();
+  }, []);
 
   const handleScroll = () => {
     if (window.scrollY > 100) {
@@ -81,7 +142,7 @@ const Header = () => {
           <Box className="right-nav">
             {isOpen ? (
               <Button _hover={{ bg: "#FF9848" }} className="ButtonOne">
-                {t("translation.BUY_NOW")}
+                {tempData[lng].BUY_NOW}
               </Button>
             ) : (
               <Menu className="ButtonMenu">
@@ -190,29 +251,25 @@ const Header = () => {
                   <a className="navbar-link">COOLPASS/CARD</a>
                 </div>
                 <div className="center-nav-container">
-                  <a className="navbar-link">{t("translation.ATTRACTIONS")}</a>
+                  <a className="navbar-link">{tempData[lng]?.ATTRACTIONS}</a>
+                </div>
+                <div className="center-nav-container">
+                  <a className="navbar-link">{tempDataTwo[lng]?.title}</a>
+                </div>
+                <div className="center-nav-container">
+                  <a className="navbar-link">{tempDataThree[lng]?.title}</a>
                 </div>
                 <div className="center-nav-container">
                   <a className="navbar-link">
-                    {t("menu.5a7a894f66105c2e28d87bd3.title")}
+                    {tempData[lng]?.HOME_news_title}
                   </a>
                 </div>
                 <div className="center-nav-container">
-                  <a className="navbar-link">
-                    {t("menu.5a7a896166105c2e28d87bd4.title")}
-                  </a>
-                </div>
-                <div className="center-nav-container">
-                  <a className="navbar-link">
-                    {t("translation.HOME_news_title")}
-                  </a>
-                </div>
-                <div className="center-nav-container">
-                  <a className="navbar-link">{t("translation.FAQ")} </a>
+                  <a className="navbar-link">{tempData[lng]?.FAQ} </a>
                 </div>
 
                 <Button _hover={{ bg: "#FF9848" }} className="ButtonOne">
-                  {t("translation.BUY_NOW")}
+                  {tempData[lng]?.BUY_NOW}
                 </Button>
               </Box>
             </Collapse>
@@ -234,22 +291,15 @@ const Header = () => {
         <Text className="CoolPass">CoolPass </Text>
         <div className="HeadMid">
           <Text className="HeadMidText">CoolPass/Card </Text>
-          <Text className="HeadMidText">{t("translation.ATTRACTIONS")} </Text>
-          <Text className="HeadMidText">
-            {t("menu.5a7a894f66105c2e28d87bd3.title")}{" "}
-          </Text>
-          <Text className="HeadMidText">
-            {t("menu.5a7a896166105c2e28d87bd4.title")}{" "}
-          </Text>
-          <Text className="HeadMidText">
-            {" "}
-            {t("translation.HOME_news_title")}
-          </Text>
-          <Text className="HeadMidText">{t("translation.FAQ")} </Text>
+          <Text className="HeadMidText">{tempData[lng]?.ATTRACTIONS} </Text>
+          <Text className="HeadMidText">{tempDataTwo[lng]?.title} </Text>
+          <Text className="HeadMidText">{tempDataThree[lng]?.title} </Text>
+          <Text className="HeadMidText"> {tempData[lng]?.HOME_news_title}</Text>
+          <Text className="HeadMidText">{tempData[lng]?.FAQ} </Text>
         </div>
         <div className="HeadButtons">
           <Button _hover={{ bg: "#FF9848" }} className="ButtonOne">
-            {t("translation.BUY_NOW")}
+            {tempData[lng]?.BUY_NOW}
           </Button>
           <Menu className="ButtonMenu">
             <MenuButton

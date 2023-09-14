@@ -37,7 +37,6 @@ const BenefitsCard = () => {
       return [];
     }
   };
-  console.log(tempData);
   const fetchTempData = async () => {
     const data = await getOffersTemp();
     setTempData(data);
@@ -57,7 +56,6 @@ const BenefitsCard = () => {
   useEffect(() => {
     setOpenIndex(0);
   }, []);
-  console.log(tempData);
 
   return (
     <div className="acordion">

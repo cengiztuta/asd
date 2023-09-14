@@ -22,7 +22,6 @@ const Card10 = () => {
       return [];
     }
   };
-  console.log(tempData);
   const fetchTempData = async () => {
     const data = await getOffersTemp();
     setTempData(data);
@@ -58,7 +57,7 @@ const Card10 = () => {
         <div className="Card-header-content">
           <h2 className="Card-type">
             {" "}
-            {t("translation.CALCULATOR_10_day_pass")}
+            {tempData[lng]?.CALCULATOR_10_day_pass}
           </h2>
           <a className="Card-subtitle">
             {tempData[lng]?.BUY_PRAGUE_CARD_COOL_PASS}

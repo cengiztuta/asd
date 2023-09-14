@@ -21,7 +21,6 @@ export const Newss = () => {
     const data = await getMenu();
     setAttraction(data);
   };
-  console.log(attractions);
 
   useEffect(() => {
     fetchTranslate();
@@ -38,7 +37,6 @@ export const Newss = () => {
       return [];
     }
   };
-  console.log(tempDataTwo);
   const fetchTempDataTwo = async () => {
     const data = await getOffersTempTwo();
     setTempDataTwo(data);
@@ -66,8 +64,13 @@ export const Newss = () => {
               <a className="newss-link">
                 <a className="newss-title"> {item.content.en.title} </a>
               </a>
-              <a className="newss-text">
-                {item.content.en.text.slice(0, 700) + "..."}
+              <a
+                className="newss-text"
+                dangerouslySetInnerHTML={{
+                  __html: item.content.en.text.slice(0, 700) + "...",
+                }}
+              >
+              
               </a>
               <a className="newss-link">
                 <p className="newss-read-more">{tempDataTwo[lng]?.READ_MORE}</p>
@@ -77,11 +80,8 @@ export const Newss = () => {
         ))}
       </div>
       <div>
-    
         <a className="newss-button-container">
-    
           <Button _hover={{ bg: "#FF9848" }} className="News-button">
-         
             {tempDataTwo[lng]?.SEE_ALL_NEWS}
           </Button>
         </a>

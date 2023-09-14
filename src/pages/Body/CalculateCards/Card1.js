@@ -23,7 +23,6 @@ const Card1 = () => {
       return [];
     }
   };
-  console.log(tempData);
   const fetchTempData = async () => {
     const data = await getOffersTemp();
     setTempData(data);
@@ -57,7 +56,7 @@ const Card1 = () => {
     <Box className="Card">
       <div className="Card-header">
         <div className="Card-header-content">
-          <h2 className="Card-type">{t('translation.CALCULATOR_1_day_pass')}</h2>
+          <h2 className="Card-type">{tempData[lng]?.CALCULATOR_1_day_pass}</h2>
           <a className="Card-subtitle">
           {tempData[lng]?.BUY_PRAGUE_CARD_COOL_PASS}
           </a>

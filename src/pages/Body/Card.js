@@ -24,7 +24,6 @@ const Card = ({ card, hakan }) => {
       return [];
     }
   };
-  console.log(tempData);
   const fetchTempData = async () => {
     const data = await getOffersTemp();
     setTempData(data);
@@ -45,7 +44,6 @@ const Card = ({ card, hakan }) => {
   const { banner, title, subtitle, images } = card;
   const [show, setShow] = useState(false);
 
-  console.log("5555555", card);
 
   return (
     <Box

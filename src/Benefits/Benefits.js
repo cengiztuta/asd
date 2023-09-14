@@ -19,7 +19,6 @@ const Benefits = () => {
       return [];
     }
   };
-  console.log(tempData);
   const fetchTempData = async () => {
     const data = await getOffersTemp();
     setTempData(data);
@@ -28,7 +27,6 @@ const Benefits = () => {
     fetchTempData();
   }, []);
   const asd = i18n.language
-  console.log(tempData)
   return (
     <section style={{ marginTop: "40px" }}>
       <h3 className="Benefits-title">{tempData[asd]?.HOME_benefits_title}</h3>
