@@ -141,22 +141,17 @@ const Header = () => {
 
           <Box className="right-nav">
             {isOpen ? (
-              <Button _hover={{ bg: "#FF9848" }} className="ButtonOne">
-                {tempData[lng].BUY_NOW}
-              </Button>
-            ) : (
               <Menu className="ButtonMenu">
                 <MenuButton
-                  _hover={{ bg: "#545454" }}
+                  
                   className="asd"
                   as={Button}
                   rightIcon={<ChevronDownIcon />}
                 >
                   {lang}
                 </MenuButton>
-                <MenuList _hover={{ bg: "#545454" }} className="ButtonMenu">
+                <MenuList className="ButtonMenu">
                   <MenuItem
-                    _hover={{ bg: "#545454" }}
                     className="MenuButton"
                     onClick={function (event) {
                       handleClick("en");
@@ -166,7 +161,6 @@ const Header = () => {
                     English
                   </MenuItem>
                   <MenuItem
-                    _hover={{ bg: "#545454" }}
                     className="MenuButton"
                     onClick={function (event) {
                       handleClick("cs");
@@ -176,7 +170,6 @@ const Header = () => {
                     Čeština
                   </MenuItem>
                   <MenuItem
-                    _hover={{ bg: "#545454" }}
                     className="MenuButton"
                     onClick={function (event) {
                       handleClick("de");
@@ -186,7 +179,6 @@ const Header = () => {
                     Deutsch
                   </MenuItem>
                   <MenuItem
-                    _hover={{ bg: "#545454" }}
                     className="MenuButton"
                     onClick={function (event) {
                       handleClick("es");
@@ -196,7 +188,6 @@ const Header = () => {
                     Español
                   </MenuItem>
                   <MenuItem
-                    _hover={{ bg: "#545454" }}
                     className="MenuButton"
                     onClick={function (event) {
                       handleClick("it");
@@ -206,7 +197,6 @@ const Header = () => {
                     Italiano
                   </MenuItem>
                   <MenuItem
-                    _hover={{ bg: "#545454" }}
                     className="MenuButton"
                     onClick={function (event) {
                       handleClick("fr");
@@ -216,7 +206,6 @@ const Header = () => {
                     Français
                   </MenuItem>
                   <MenuItem
-                    _hover={{ bg: "#545454" }}
                     className="MenuButton"
                     onClick={function (event) {
                       handleClick("ru");
@@ -227,6 +216,8 @@ const Header = () => {
                   </MenuItem>
                 </MenuList>
               </Menu>
+            ) : (
+              <Button className="ButtonOne">{tempData[lng]?.BUY_NOW}</Button>
             )}
           </Box>
         </Box>
@@ -268,9 +259,7 @@ const Header = () => {
                   <a className="navbar-link">{tempData[lng]?.FAQ} </a>
                 </div>
 
-                <Button _hover={{ bg: "#FF9848" }} className="ButtonOne">
-                  {tempData[lng]?.BUY_NOW}
-                </Button>
+                <Button className="ButtonOne">{tempData[lng]?.BUY_NOW}</Button>
               </Box>
             </Collapse>
           </motion.div>
@@ -303,16 +292,14 @@ const Header = () => {
           </Button>
           <Menu className="ButtonMenu">
             <MenuButton
-              _hover={{ bg: "#545454" }}
               className="asd"
               as={Button}
               rightIcon={<ChevronDownIcon />}
             >
               {lang}
             </MenuButton>
-            <MenuList _hover={{ bg: "#545454" }} className="ButtonMenu">
+            <MenuList className="ButtonMenu">
               <MenuItem
-                _hover={{ bg: "#545454" }}
                 className="MenuButton"
                 onClick={function (event) {
                   handleClick("en");
@@ -322,7 +309,6 @@ const Header = () => {
                 English
               </MenuItem>
               <MenuItem
-                _hover={{ bg: "#545454" }}
                 className="MenuButton"
                 onClick={function (event) {
                   handleClick("cs");
@@ -333,7 +319,6 @@ const Header = () => {
               </MenuItem>
               <MenuItem
                 bg={"#252c3e"}
-                _hover={{ bg: "#545454" }}
                 className="MenuButton"
                 onClick={function (event) {
                   handleClick("de");
@@ -343,7 +328,6 @@ const Header = () => {
                 Deutsch
               </MenuItem>
               <MenuItem
-                _hover={{ bg: "#545454" }}
                 className="MenuButton"
                 onClick={function (event) {
                   handleClick("es");
@@ -353,7 +337,6 @@ const Header = () => {
                 Español
               </MenuItem>
               <MenuItem
-                _hover={{ bg: "#545454" }}
                 className="MenuButton"
                 onClick={function (event) {
                   handleClick("it");
@@ -363,7 +346,6 @@ const Header = () => {
                 Italiano
               </MenuItem>
               <MenuItem
-                _hover={{ bg: "#545454" }}
                 className="MenuButton"
                 onClick={function (event) {
                   handleClick("fr");
@@ -373,7 +355,6 @@ const Header = () => {
                 Français
               </MenuItem>
               <MenuItem
-                _hover={{ bg: "#545454" }}
                 className="MenuButton"
                 onClick={function (event) {
                   handleClick("ru");

@@ -11,6 +11,8 @@
     line-height: 130%;
     text-transform: uppercase;
     color: #252c3e;
+  
+
   }
   .News-container {
     height: 100%;
@@ -61,6 +63,7 @@
     text-transform: uppercase;
     color: black;
     text-decoration: none;
+    margin-left: 10px;
   }
   .News-title:hover {
     color: #7c808b;
@@ -373,5 +376,10 @@
     -webkit-box-align: center;
     display: flex;
     -webkit-box-pack: center;
+  }
+  .newss-h3 {
+ margin-left: 10px;
+  
+
   }
 }

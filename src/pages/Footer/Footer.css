@@ -18,17 +18,20 @@
   font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
   color: #fff;
   margin-bottom: 10px;
   display: block;
+ 
 }
 .footer-first-section {
   height: auto;
   list-style: none;
   display: flex;
   flex-direction: column;
+  min-width: none;
+  width: auto;
 }
 li::before {
   font-family: Open Sans, sans-serif;

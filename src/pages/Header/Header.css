@@ -62,8 +62,6 @@
   align-self: flex-start;
   justify-content: center;
   cursor: pointer;
-
-  
 }
 
 .asd {
@@ -71,7 +69,7 @@
   border-width: 0;
   border-radius: 5px;
   margin-left: 20px;
-  width:auto;
+  width: auto;
   font-size: 15px;
   color: white;
   text-align: center;
@@ -109,7 +107,6 @@
     justify-content: center;
   }
 
-
   .HeadButtons {
     display: none;
   }
@@ -120,7 +117,6 @@
     display: flex;
     max-width: 720px;
     width: 100%;
- 
   }
   .Header {
     height: 56px;
@@ -136,7 +132,6 @@
     justify-content: flex-start;
     height: 56px;
     width: auto;
-
   }
   .left-nav.li {
     list-style: none;
@@ -201,7 +196,7 @@
     margin: 0;
     top: 100%;
     overflow: hidden;
-    z-index: 1000;
+    z-index: -1;
     justify-content: center;
   }
   .center-nav-container {
@@ -267,10 +262,16 @@
     position: relative;
     color: #fff;
   }
-  .ButtonMenu{
+  .ButtonMenu {
     background: #252c3e;
+    position: absolute;
+    width: 50px;
+    z-index: 1;
+    left: -20px;
   }
-  .MenuButton{
+  .MenuButton {
     background: #252c3e;
+    margin-right: 10px;
+    width: 100%;
   }
 }
