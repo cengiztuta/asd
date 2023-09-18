@@ -4,8 +4,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ImageSlider.css";
 import axios from "axios";
-import { Navigation } from "swiper/modules";
-import { SwiperSlide, Swiper } from "swiper/react";
 const ImageSlider = () => {
   const sliderRef = useRef(null);
   const api = "https://static2.praguecoolpass.com/";

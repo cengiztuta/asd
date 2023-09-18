@@ -1,32 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./Benefits.css";
-import axios from "axios";
-import BenefitsCard from "./BenefitsCard.js";
 
+import BenefitsCard from "./BenefitsCard.js";
+import { connect } from "react-redux";
+import { setTempData, setTempDataTwo } from "../redux/action.js";
+import { fetchData, fetchDataTwo } from "../dataFetching";
 import "./Benefits.css";
 import { useTranslation } from "react-i18next";
-const Benefits = () => {
-  const { t,i18n } = useTranslation();
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
+const Benefits = ({ tempData,  }) => {
+  const { t, i18n } = useTranslation();
+  const asd = i18n.language;
   useEffect(() => {
-    fetchTempData();
+    fetchData();
   }, []);
-  const asd = i18n.language
+
   return (
     <section style={{ marginTop: "40px" }}>
       <h3 className="Benefits-title">{tempData[asd]?.HOME_benefits_title}</h3>
@@ -42,4 +29,8 @@ const Benefits = () => {
   );
 };
 
-export default Benefits;
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+});
+
+export default connect(mapStateToProps, { setTempData })(Benefits);

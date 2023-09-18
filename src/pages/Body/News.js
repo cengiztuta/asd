@@ -2,41 +2,31 @@ import React, { useState, useEffect } from "react";
 import "./News.css";
 import { Button, Text } from "@chakra-ui/react";
 import News1 from "../images/News1.jpg";
-import { Newss } from "./Newss";
+import Newss from "./Newss";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-
-const News = () => {
+import { fetchData } from "../../dataFetching";
+import { setTempData } from "../../redux/action";
+import { connect } from "react-redux";
+const News = ({ tempData }) => {
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
-  const [tempDataTwo, setTempDataTwo] = useState([]);
-  const getOffersTempTwo = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
 
-  const fetchTempDataTwo = async () => {
-    const data = await getOffersTempTwo();
-    setTempDataTwo(data);
-  };
   useEffect(() => {
-    fetchTempDataTwo();
+    fetchData();
   }, []);
   return (
     <div className="News">
       <div className="News-container">
-        <h3 className="newss-h3"> {tempDataTwo[lng]?.HOME_news_title} </h3>
+        <h3 className="newss-h3"> {tempData[lng]?.HOME_news_title} </h3>
         <Newss />
       </div>
     </div>
   );
 };
 
-export default News;
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+});
+
+export default connect(mapStateToProps, { setTempData })(News);

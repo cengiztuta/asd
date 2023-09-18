@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "@chakra-ui/react";
 import "./Offer.css";
-import axios from "axios";
-import { MdWidthFull } from "react-icons/md";
 import { useTranslation } from "react-i18next";
-
-const OfferCard = ({ card }) => {
+import { fetchDataTwo } from "../../dataFetching";
+import { setTempDataTwo } from "../../redux/action";
+import { connect } from "react-redux";
+const OfferCard = ({ card, tempDataTwo }) => {
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
   const api = "https://static2.praguecoolpass.com/";
 
-  const [show, setShow] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const handleMouseEnter = (index) => {
@@ -21,29 +19,13 @@ const OfferCard = ({ card }) => {
     setHoveredIndex(null);
   };
 
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
-      );
-      return response.data.content;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
   useEffect(() => {
-    fetchTempData();
+    fetchDataTwo();
   }, []);
   const Grid = () => {
     return (
       <div className="grid">
-        {tempData[lng]?.offers.items.map((item, index) => (
+        {tempDataTwo[lng]?.offers.items.map((item, index) => (
           <div
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
@@ -101,4 +83,8 @@ const OfferCard = ({ card }) => {
   );
 };
 
-export default OfferCard;
+const mapStateToProps = (state) => ({
+  tempDataTwo: state.tempDataTwo,
+});
+
+export default connect(mapStateToProps, { setTempDataTwo })(OfferCard);

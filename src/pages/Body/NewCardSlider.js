@@ -7,15 +7,15 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "swiper/css/navigation";
 import axios from "axios";
 import "./Card.css";
-
 import { useTranslation } from "react-i18next";
+import { fetchData } from "../../dataFetching";
+import { setTempData } from "../../redux/action";
+import { connect } from "react-redux";
 
-const NewCardSlider = () => {
-  const { t, i18n } = useTranslation();
-  const lng = i18n.language
+const NewCardSlider = ({ tempData }) => {
+  const { i18n } = useTranslation();
+  const lng = i18n.language;
   const swiperRef = useRef(null);
-
- 
   const [attractions, setAttractions] = useState([]);
   const getAttractions = async () => {
     try {
@@ -36,25 +36,9 @@ const NewCardSlider = () => {
   useEffect(() => {
     fetchTranslate();
   }, []);
-  const [tempData, setTempData] = useState([]);
 
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
   useEffect(() => {
-    fetchTempData();
+    fetchData();
   }, []);
   return (
     <div
@@ -98,7 +82,7 @@ const NewCardSlider = () => {
                 spaceBetween: 10,
               },
               1024: {
-                slidesPerView: 4, 
+                slidesPerView: 4,
                 spaceBetween: 20,
               },
             }}
@@ -122,4 +106,8 @@ const NewCardSlider = () => {
   );
 };
 
-export default NewCardSlider;
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+});
+
+export default connect(mapStateToProps, { setTempData })(NewCardSlider);

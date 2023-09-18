@@ -3,50 +3,17 @@ import "./Howuse.css";
 import HowUseCard from "./HowUseCard";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-
-const Howuse = () => {
+import { fetchData, fetchDataTwo } from "../../dataFetching";
+import { setTempData, setTempDataTwo } from "../../redux/action";
+import { connect } from "react-redux";
+const Howuse = ({ tempData, tempDataTwo }) => {
   const { t, i18n } = useTranslation();
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
 
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
   useEffect(() => {
-    fetchTempData();
+    fetchData();
+    fetchDataTwo();
   }, []);
   const lng = i18n.language;
-
-  const [tempDataTwo, setTempDataTwo] = useState([]);
-  const getOffersTempTwo = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
-      );
-      return response.data.content;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempDataTwo = async () => {
-    const data = await getOffersTempTwo();
-    setTempDataTwo(data);
-  };
-  useEffect(() => {
-    fetchTempDataTwo();
-  }, []);
 
   return (
     <div className="Howuse">
@@ -59,4 +26,11 @@ const Howuse = () => {
   );
 };
 
-export default Howuse;
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+  tempDataTwo: state.tempDataTwo,
+});
+
+export default connect(mapStateToProps, { setTempData, setTempDataTwo })(
+  Howuse
+);

@@ -14,7 +14,9 @@ import Card5 from "./CalculateCards/Card5";
 import Card6 from "./CalculateCards/Card6";
 import Card7 from "./CalculateCards/Card7";
 import Card10 from "./CalculateCards/Card10";
-
+import { connect } from "react-redux";
+import { setTempData } from "../../redux/action";
+import { fetchData } from "../../dataFetching";
 import { useTranslation } from "react-i18next";
 const swiperParams = {
   direction: "horizontal",
@@ -47,27 +49,12 @@ const swiperParams = {
     },
   },
 };
-const Calculator = () => {
+const Calculator = ({ tempData }) => {
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
+
   useEffect(() => {
-    fetchTempData();
+    fetchData();
   }, []);
   const CardArray = [Card1, Card2, Card3, Card4, Card5, Card6, Card7, Card10];
   const swiperRef = useRef(null);
@@ -134,5 +121,7 @@ const Calculator = () => {
     </div>
   );
 };
-
-export default Calculator;
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+});
+export default connect(mapStateToProps, { setTempData })(Calculator);

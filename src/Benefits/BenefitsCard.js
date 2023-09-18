@@ -20,30 +20,18 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import { setTempData, setTempDataTwo } from "../redux/action.js";
+import { fetchData, fetchDataTwo } from "../dataFetching";
+import { connect } from "react-redux";
 
+const BenefitsCard = ({ tempDataTwo }) => {
+  useEffect(() => {
+    fetchDataTwo();
+  }, []);
 
-const BenefitsCard = () => {
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
-      );
-      return response.data.content;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
-  useEffect(() => {
-    fetchTempData();
-  }, []);
+
   const [openIndex, setOpenIndex] = useState(0);
 
   const handleAccordionClick = (index) => {
@@ -60,7 +48,7 @@ const BenefitsCard = () => {
   return (
     <div className="acordion">
       <Accordion defaultIndex={[0]}>
-        {tempData[lng]?.benefits.items.map((item, index) => (
+        {tempDataTwo[lng]?.benefits.items.map((item, index) => (
           <AccordionItem key={index} className="benefits-spoiler">
             <AccordionButton
               className="spoiler-title-box"
@@ -90,4 +78,8 @@ const BenefitsCard = () => {
   );
 };
 
-export default BenefitsCard;
+const mapStateToProps = (state) => ({
+  tempDataTwo: state.tempDataTwo,
+});
+
+export default connect(mapStateToProps, { setTempDataTwo })(BenefitsCard);

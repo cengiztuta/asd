@@ -3,7 +3,10 @@ import "./News.css";
 import axios from "axios";
 import { Button } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-export const Newss = () => {
+import { fetchData } from "../../dataFetching";
+import { setTempData } from "../../redux/action";
+import { connect } from "react-redux";
+const Newss = ({ tempData }) => {
   const api = "https://static2.praguecoolpass.com/";
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
@@ -25,24 +28,9 @@ export const Newss = () => {
   useEffect(() => {
     fetchTranslate();
   }, []);
-  const [tempDataTwo, setTempDataTwo] = useState([]);
-  const getOffersTempTwo = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempDataTwo = async () => {
-    const data = await getOffersTempTwo();
-    setTempDataTwo(data);
-  };
+
   useEffect(() => {
-    fetchTempDataTwo();
+    fetchData();
   }, []);
   return (
     <div>
@@ -69,11 +57,9 @@ export const Newss = () => {
                 dangerouslySetInnerHTML={{
                   __html: item.content.en.text.slice(0, 700) + "...",
                 }}
-              >
-              
-              </a>
+              ></a>
               <a className="newss-link">
-                <p className="newss-read-more">{tempDataTwo[lng]?.READ_MORE}</p>
+                <p className="newss-read-more">{tempData[lng]?.READ_MORE}</p>
               </a>
             </div>
           </div>
@@ -82,10 +68,15 @@ export const Newss = () => {
       <div>
         <a className="newss-button-container">
           <Button _hover={{ bg: "#FF9848" }} className="News-button">
-            {tempDataTwo[lng]?.SEE_ALL_NEWS}
+            {tempData[lng]?.SEE_ALL_NEWS}
           </Button>
         </a>
       </div>
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+});
+
+export default connect(mapStateToProps, { setTempData })(Newss);

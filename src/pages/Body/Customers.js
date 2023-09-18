@@ -10,13 +10,15 @@ import "swiper/css/navigation";
 import axios from "axios";
 import CustomerCardSlider from "./CustomerCard/CustomerCardSlider";
 import { useTranslation } from "react-i18next";
+import { fetchData } from "../../dataFetching";
+import { setTempData } from "../../redux/action";
+import { connect } from "react-redux";
 
-const Customers = () => {
+const Customers = ({ tempData }) => {
   const { t, i18n } = useTranslation();
-  const lng = i18n.language
+  const lng = i18n.language;
   const swiperRef = useRef(null);
   const [review, setReview] = useState([]);
-
   const getReview = async () => {
     try {
       const response = await axios.get(
@@ -37,24 +39,8 @@ const Customers = () => {
     fetchTranslate();
   }, []);
 
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
   useEffect(() => {
-    fetchTempData();
+    fetchData();
   }, []);
 
   return (
@@ -62,7 +48,7 @@ const Customers = () => {
       <div className="customer-container">
         <div className="title-container">
           <h3 className="customer-title">
-            {" "}
+            {" "} 
             {tempData[lng]?.REVIEWS_what_do_customers_say}
           </h3>
 
@@ -121,4 +107,9 @@ const Customers = () => {
   );
 };
 
-export default Customers;
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+});
+
+export default connect(mapStateToProps, { setTempData })(Customers);
+

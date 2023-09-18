@@ -3,29 +3,15 @@ import "./Offer.css";
 import OfferCard from "./OfferCard";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-
-const Offer = () => {
+import { fetchData } from "../../dataFetching";
+import { setTempData } from "../../redux/action";
+import { connect } from "react-redux";
+const Offer = ({ tempData }) => {
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
-  const [tempData, setTempData] = useState([]);
 
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
   useEffect(() => {
-    fetchTempData();
+    fetchData();
   }, []);
   const [tempDataTwo, setTempDataTwo] = useState([]);
   const getOffersTempTwo = async () => {
@@ -46,7 +32,6 @@ const Offer = () => {
   useEffect(() => {
     fetchTempDataTwo();
   }, []);
-  console.log(tempDataTwo)
   return (
     <section className="offer">
       <div className="offer-content">
@@ -60,4 +45,8 @@ const Offer = () => {
   );
 };
 
-export default Offer;
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+});
+
+export default connect(mapStateToProps, { setTempData })(Offer);

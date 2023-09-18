@@ -24,34 +24,21 @@ import { ChevronDownIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import axios from "axios";
-const Header = () => {
+import { fetchData } from "../../dataFetching";
+import { setTempData } from "../../redux/action";
+import { connect } from "react-redux";
+const Header = ({ tempData }) => {
+  const [scrolling, setScrolling] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [lang, setLang] = useState("ENGLISH");
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
   function handleClick(lang) {
     i18next.changeLanguage(lang);
   }
-  const [scrolling, setScrolling] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [lang, setLang] = useState("ENGLISH");
-  const [tempData, setTempData] = useState([]);
 
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
   useEffect(() => {
-    fetchTempData();
+    fetchData();
   }, []);
 
   const [tempDataTwo, setTempDataTwo] = useState([]);
@@ -143,7 +130,6 @@ const Header = () => {
             {isOpen ? (
               <Menu className="ButtonMenu">
                 <MenuButton
-                  
                   className="asd"
                   as={Button}
                   rightIcon={<ChevronDownIcon />}
@@ -371,4 +357,8 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+});
+
+export default connect(mapStateToProps, { setTempData })(Header);

@@ -5,32 +5,21 @@ import { useState, useEffect } from "react";
 import "./Card.css";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
+import { connect } from "react-redux";
+import { setTempData } from "../../redux/action";
+import { fetchData } from "../../dataFetching";
 
-const Card = ({ card, hakan }) => {
+const Card = ({ card, hakan, tempData }) => {
   const [isFilled, setIsFilled] = useState(false);
   const [filled, setFilled] = useState(false);
   const api = "https://static2.praguecoolpass.com/";
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
+
   useEffect(() => {
-    fetchTempData();
+    fetchData();
   }, []);
+
   const toggleHeart = () => {
     setIsFilled(!isFilled);
   };
@@ -43,7 +32,6 @@ const Card = ({ card, hakan }) => {
   };
   const { banner, title, subtitle, images } = card;
   const [show, setShow] = useState(false);
-
 
   return (
     <Box
@@ -103,5 +91,7 @@ const Card = ({ card, hakan }) => {
     </Box>
   );
 };
-
-export default Card;
+const mapStateToProps = (state) => ({
+  tempData: state.tempData,
+});
+export default connect(mapStateToProps, { setTempData })(Card);
