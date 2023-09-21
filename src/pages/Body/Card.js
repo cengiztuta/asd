@@ -12,7 +12,7 @@ import { fetchData } from "../../dataFetching";
 const Card = ({ card, hakan, tempData }) => {
   const [isFilled, setIsFilled] = useState(false);
   const [filled, setFilled] = useState(false);
-  const api = "https://static2.praguecoolpass.com/";
+  const api = process.env.REACT_APP_IMAGE_URL;
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
 

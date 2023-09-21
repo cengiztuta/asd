@@ -4,9 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ImageSlider.css";
 import axios from "axios";
+
 const ImageSlider = () => {
   const sliderRef = useRef(null);
-  const api = "https://static2.praguecoolpass.com/";
+  const api = process.env.REACT_APP_IMAGE_URL;
   const [slides, setSlides] = useState([]);
   const getSlides = async () => {
     try {
@@ -49,37 +50,31 @@ const ImageSlider = () => {
   }, []);
 
   useEffect(() => {
-    // Ekran boyutu değiştikçe slayt sayısını ayarlayın
     const handleResize = () => {
       if (sliderRef.current) {
-        // Özelleştirilmiş slayt sayısı hesaplaması
         const screenWidth = window.innerWidth;
-        let slidesToShow = 4; // Başlangıçta dört slayt göster
+        let slidesToShow = 4;
 
         if (screenWidth < 1024) {
-          slidesToShow = 3; // Ekran genişliği 1024px'den küçükse 3 slayt göster
+          slidesToShow = 3;
         }
         if (screenWidth < 768) {
-          slidesToShow = 2; // Ekran genişliği 768px'den küçükse 2 slayt göster
+          slidesToShow = 2;
         }
         if (screenWidth < 640) {
-          slidesToShow = 1; // Ekran genişliği 640px'den küçükse 1 slayt göster
+          slidesToShow = 1;
         }
 
-        sliderRef.current.slickGoTo(0); // Aktif slaytı sıfırla
-        sliderRef.current.slickSetOption(
-          "slidesToShow",
-          slidesToShow,
-          true // Yeniden çizmeden önce ayarı güncelle
-        );
+        sliderRef.current.slickGoTo(0);
+        sliderRef.current.slickSetOption("slidesToShow", slidesToShow, true);
       }
     };
 
-    handleResize(); // Sayfa ilk yüklendiğinde çalıştır
-    window.addEventListener("resize", handleResize); // Ekran boyutu değişikliklerini dinle
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize); // Temizleme işlemi
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

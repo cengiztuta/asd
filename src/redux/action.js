@@ -16,3 +16,9 @@ export const setTempDataTwoImages = (data) => {
       payload: data,
     };
   };
+export const setNewsData = (data) => {
+    return {
+      type: 'SET_NEWS_DATA',
+      payload: data,
+    };
+  };

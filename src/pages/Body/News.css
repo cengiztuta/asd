@@ -149,12 +149,12 @@
   }
   .odd {
     display: flex;
-    flex-direction: row-reverse; /* İndeks çiftse ters sırala */
+    flex-direction: row-reverse; 
   }
 
   .even {
     display: flex;
-    flex-direction: row; /* İndeks tekse normal sırala */
+    flex-direction: row; 
   }
   .newss-image {
     display: flex;
@@ -245,9 +245,9 @@
   }
 }
 
-/* Ekran genişliği 320px ile 720px arasındaki mobil için */
+
 @media screen and (max-width: 720px) and (min-width: 320px) {
-  /* Değişen Stil Kuralları */
+
   .News-container {
     width: 100%;
   }

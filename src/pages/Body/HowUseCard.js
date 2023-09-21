@@ -7,7 +7,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-const HowUseCard = ({ card }) => {
+import { fetchDataTwoImages } from "../../dataFetching";
+import { connect } from "react-redux";
+import { setTempDataTwoImages } from "../../redux/action";
+const HowUseCard = ({ card, tempDataTwoImages }) => {
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
   const [tempData, setTempData] = useState([]);
@@ -29,21 +32,24 @@ const HowUseCard = ({ card }) => {
   useEffect(() => {
     fetchTempData();
   }, []);
-  const api = "https://static2.praguecoolpass.com/";
+  useEffect(() => {
+    fetchDataTwoImages();
+  }, []);
+
+  const api = process.env.REACT_APP_IMAGE_URL;
   const swiperParams = {
     direction: "horizontal",
     slidesPerView: 4,
-    loop: false, // Loop devre dışı
-    autoplay: false, // Otomatik oynatmayı devre dışı
-    allowSlideNext: true, // Sonraki slayta geçişi engelle
-    allowSlidePrev: true, // Önceki slayta geçişi engelle
+    loop: false,
+    autoplay: false,
+    allowSlideNext: true,
+    allowSlidePrev: true,
 
     breakpoints: {
       320: {
         slidesPerView: 1,
         spaceBetween: 10,
         pagination: {
-          // 768 piksel veya daha küçük ekranlarda noktaları etkinleştirin
           clickable: true,
         },
       },
@@ -99,5 +105,9 @@ const HowUseCard = ({ card }) => {
     </div>
   );
 };
+const mapStateToProps = (state) => ({
 
-export default HowUseCard;
+  tempDataTwoImages: state.tempDataTwoImages,
+});
+
+export default connect(mapStateToProps, { setTempDataTwoImages })(HowUseCard);

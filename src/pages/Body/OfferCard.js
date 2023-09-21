@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 const OfferCard = ({ card, tempDataTwo }) => {
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
-  const api = "https://static2.praguecoolpass.com/";
+  const api = process.env.REACT_APP_IMAGE_URL;
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 

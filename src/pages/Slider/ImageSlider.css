@@ -35,7 +35,7 @@
   align-items: center;
 }
 .slick-active .ft-slick__dots--custom {
-  background-color: #da4b07; /* Seçilen noktanın arka plan rengini belirleyebilirsiniz */
+  background-color: #da4b07;
 }
 
 .header-content {

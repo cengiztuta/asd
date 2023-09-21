@@ -21,17 +21,17 @@ import { useTranslation } from "react-i18next";
 const swiperParams = {
   direction: "horizontal",
   slidesPerView: 3,
-  loop: false, // Loop devre dışı
-  autoplay: false, // Otomatik oynatmayı devre dışı
-  allowSlideNext: true, // Sonraki slayta geçişi engelle
-  allowSlidePrev: true, // Önceki slayta geçişi engelle
+  loop: false, 
+  autoplay: false, 
+  allowSlideNext: true,
+  allowSlidePrev: true, 
 
   breakpoints: {
     320: {
       slidesPerView: "auto",
       spaceBetween: "20px",
       pagination: {
-        // 768 piksel veya daha küçük ekranlarda noktaları etkinleştirin
+      
         clickable: true,
       },
     },

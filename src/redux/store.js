@@ -3,6 +3,8 @@ import { createStore } from "redux";
 const initialState = {
   tempData: [],
   tempDataTwo: [],
+  newsData: [],
+  tempDataTwoImages : [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -21,6 +23,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         tempDataTwoImages: action.payload,
+      };
+    case "SET_NEWS_DATA":
+      return {
+        ...state,
+        newsData: action.payload,
       };
     default:
       return state;

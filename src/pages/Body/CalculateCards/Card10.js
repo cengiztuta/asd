@@ -14,7 +14,7 @@ const Card10 = () => {
   const getOffersTemp = async () => {
     try {
       const response = await axios.get(
-        "https://api2.praguecoolpass.com/translation"
+        "translation"
       );
       return response.data;
     } catch (error) {
@@ -31,7 +31,7 @@ const Card10 = () => {
   }, []);
   const [adultCounterValue, setAdultCounterValue] = useState(0);
   const [childCounterValue, setChildCounterValue] = useState(0);
-  // const [totalPrice, setTotalPrice] = useState(0)
+
 
   const adultIncreaseCounter = () => {
     setAdultCounterValue(adultCounterValue + 1);

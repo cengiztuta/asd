@@ -3,39 +3,22 @@ import "./News.css";
 import axios from "axios";
 import { Button } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import { fetchData } from "../../dataFetching";
-import { setTempData } from "../../redux/action";
+import { fetchData, fetchNewsData } from "../../dataFetching";
+import { setTempData, setNewsData } from "../../redux/action";
 import { connect } from "react-redux";
-const Newss = ({ tempData }) => {
-  const api = "https://static2.praguecoolpass.com/";
+const Newss = ({ tempData, newsData }) => {
+  const api = process.env.REACT_APP_IMAGE_URL;
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
-  const [attractions, setAttraction] = useState([]);
-  const getMenu = async () => {
-    try {
-      const response = await axios.get("https://api2.praguecoolpass.com/news");
-      return response.data.slice(0, 2);
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTranslate = async () => {
-    const data = await getMenu();
-    setAttraction(data);
-  };
-
-  useEffect(() => {
-    fetchTranslate();
-  }, []);
-
   useEffect(() => {
     fetchData();
+    fetchNewsData();
   }, []);
+
   return (
     <div>
       <div className="newss-content">
-        {attractions.map((item, index) => (
+        {newsData.map((item, index) => (
           <div
             key={index}
             className={`newss-card-container ${
@@ -77,6 +60,7 @@ const Newss = ({ tempData }) => {
 };
 const mapStateToProps = (state) => ({
   tempData: state.tempData,
+  newsData: state.newsData,
 });
 
-export default connect(mapStateToProps, { setTempData })(Newss);
+export default connect(mapStateToProps, { setTempData, setNewsData })(Newss);

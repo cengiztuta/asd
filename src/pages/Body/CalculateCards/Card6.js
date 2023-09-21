@@ -32,7 +32,7 @@ const Card6  = () => {
   }, []);
   const [adultCounterValue, setAdultCounterValue] = useState(0);
   const [childCounterValue, setChildCounterValue] = useState(0);
-  // const [totalPrice, setTotalPrice] = useState(0)
+
 
   const adultIncreaseCounter = () => {
     setAdultCounterValue(adultCounterValue + 1);
