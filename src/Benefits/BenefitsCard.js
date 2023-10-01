@@ -11,7 +11,6 @@ import {
   VStack,
   Box,
 } from "@chakra-ui/react";
-import axios from "axios";
 import {
   Accordion,
   AccordionItem,

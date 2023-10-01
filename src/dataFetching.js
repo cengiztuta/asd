@@ -30,7 +30,7 @@ export const fetchDataTwo = async () => {
 export const fetchDataTwoImages = async () => {
   try {
     const response = await axios.get(
-      "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
+      `${dataURL}pages/5fd771cc072e5479bded0f2b`
     );
     store.dispatch(setTempDataTwoImages(response.data));
   } catch (error) {

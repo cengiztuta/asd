@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Calculator.css";
-import { Navigation } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Box } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import axios from "axios";
 import "swiper/css/navigation";
 import Card1 from "./CalculateCards/Card1";
 import Card2 from "./CalculateCards/Card2";

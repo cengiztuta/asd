@@ -4,31 +4,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ImageSlider.css";
 import axios from "axios";
+import { connect } from "react-redux";
+import { fetchDataTwoImages } from "../../dataFetching";
+import { setTempDataTwoImages } from "../../redux/action";
 
-const ImageSlider = () => {
-  const sliderRef = useRef(null);
+const ImageSlider = ({ tempDataTwoImages }) => {
+  const sliderRef = useRef(null);   
   const api = process.env.REACT_APP_IMAGE_URL;
-  const [slides, setSlides] = useState([]);
-  const getSlides = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTranslate = async () => {
-    const data = await getSlides();
-    setSlides(data.mainImage.web_image);
-  };
-
   useEffect(() => {
-    fetchTranslate();
+    fetchDataTwoImages();
   }, []);
-
+  const images = tempDataTwoImages?.mainImage?.web_image;
   const settings = {
     dots: true,
     speed: 1500,
@@ -45,9 +31,6 @@ const ImageSlider = () => {
       </div>
     ),
   };
-  useEffect(() => {
-    fetchTranslate();
-  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -81,7 +64,7 @@ const ImageSlider = () => {
   return (
     <div className="image-slider-container">
       <Slider {...settings} className="image-slider">
-        {slides.map((image, index) => (
+        {images?.map((image, index) => (
           <div key={index}>
             <div
               className="image"
@@ -99,4 +82,8 @@ const ImageSlider = () => {
   );
 };
 
-export default ImageSlider;
+const mapStateToProps = (state) => ({
+  tempDataTwoImages: state.tempDataTwoImages,
+});
+
+export default connect(mapStateToProps, { setTempDataTwoImages })(ImageSlider);

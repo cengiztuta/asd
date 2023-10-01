@@ -27,6 +27,8 @@ import axios from "axios";
 import { fetchData } from "../../dataFetching";
 import { setTempData } from "../../redux/action";
 import { connect } from "react-redux";
+import { NavLink, Link } from "react-router-dom";
+
 const Header = ({ tempData }) => {
   const [scrolling, setScrolling] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -228,7 +230,7 @@ const Header = ({ tempData }) => {
                   <a className="navbar-link">COOLPASS/CARD</a>
                 </div>
                 <div className="center-nav-container">
-                  <a className="navbar-link">{tempData[lng]?.ATTRACTIONS}</a>
+                  <a href="/attractions">{tempData[lng]?.ATTRACTIONS}</a>
                 </div>
                 <div className="center-nav-container">
                   <a className="navbar-link">{tempDataTwo[lng]?.title}</a>
@@ -263,14 +265,18 @@ const Header = ({ tempData }) => {
         >
           <NavMenu />{" "}
         </div>
-        <Text className="CoolPass">CoolPass </Text>
+        <a className="CoolPass" href="/">
+          CoolPass{" "}
+        </a>
         <div className="HeadMid">
-          <Text className="HeadMidText">CoolPass/Card </Text>
-          <Text className="HeadMidText">{tempData[lng]?.ATTRACTIONS} </Text>
-          <Text className="HeadMidText">{tempDataTwo[lng]?.title} </Text>
-          <Text className="HeadMidText">{tempDataThree[lng]?.title} </Text>
-          <Text className="HeadMidText"> {tempData[lng]?.HOME_news_title}</Text>
-          <Text className="HeadMidText">{tempData[lng]?.FAQ} </Text>
+          <a className="HeadMidText ">CoolPass/Card </a>
+          <a className="HeadMidText clickable" href="/attractions">
+            {tempData[lng]?.ATTRACTIONS}{" "}
+          </a>
+          <a className="HeadMidText">{tempDataTwo[lng]?.title} </a>
+          <a className="HeadMidText">{tempDataThree[lng]?.title} </a>
+          <a className="HeadMidText"> {tempData[lng]?.HOME_news_title}</a>
+          <a className="HeadMidText">{tempData[lng]?.FAQ} </a>
         </div>
         <div className="HeadButtons">
           <Button _hover={{ bg: "#FF9848" }} className="ButtonOne">

@@ -6,35 +6,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
 import { fetchDataTwoImages } from "../../dataFetching";
 import { connect } from "react-redux";
 import { setTempDataTwoImages } from "../../redux/action";
 const HowUseCard = ({ card, tempDataTwoImages }) => {
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
-  const [tempData, setTempData] = useState([]);
-  const getOffersTemp = async () => {
-    try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b"
-      );
-      return response.data.how_to_use.web_images;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchTempData = async () => {
-    const data = await getOffersTemp();
-    setTempData(data);
-  };
-  useEffect(() => {
-    fetchTempData();
-  }, []);
   useEffect(() => {
     fetchDataTwoImages();
   }, []);
+  const images = tempDataTwoImages?.how_to_use?.web_images;
 
   const api = process.env.REACT_APP_IMAGE_URL;
   const swiperParams = {
@@ -80,7 +61,7 @@ const HowUseCard = ({ card, tempDataTwoImages }) => {
           {...swiperParams}
           className="how-use-swiper"
         >
-          {tempData.map((item, index) => (
+          {images?.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="how-use-step-new">
                 <div
@@ -106,7 +87,6 @@ const HowUseCard = ({ card, tempDataTwoImages }) => {
   );
 };
 const mapStateToProps = (state) => ({
-
   tempDataTwoImages: state.tempDataTwoImages,
 });
 

@@ -1,0 +1,101 @@
+thead {
+  background: #f9f9fb;
+}
+thead th {
+  font-family: Open Sans Semibold, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  color: #252c3e;
+}
+table td,
+table th {
+  vertical-align: middle;
+}
+thead tr {
+  width: 100%;
+  height: 50px;
+}
+.attractions-summary {
+  width: 453px;
+}
+.price-title {
+  height: 32px;
+  text-align: right;
+  width: 165px;
+}
+.benefit-col {
+  text-align: right;
+  width: 165px;
+  height: 32px;
+}
+.like-col {
+  width: 70px;
+}
+.like-button {
+  height: 70px;
+  width: 70px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+tbody tr {
+  background: #fff;
+  height: 70px;
+  border-color: #000;
+  text-align: right;
+}
+.attraction-image-col {
+  width: 111px;
+  vertical-align: top;
+  padding-left: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: left;
+  cursor: pointer;
+}
+.attraction-image {
+  border-radius: 5px;
+  width: 111px;
+  height: 66px;
+  background-size: cover;
+  cursor: pointer;
+}
+.attraction-row {
+  width: 337px;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 49px;
+  font-family: Open Sans Bold, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #252527;
+}
+.price {
+  font-family: Open Sans, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: right;
+  color: #252527;
+  min-width: 165px;
+}
+.benefit-value {
+  font-family: Open Sans, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: right;
+  color: #252527;
+  min-width: 165px;
+}
+.area-heart-image {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}

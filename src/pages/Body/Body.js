@@ -9,9 +9,11 @@ import Howuse from "./Howuse";
 import News from "./News";
 import Calculator from "./Calculator";
 import Customers from "./Customers";
+import Slider from "../Slider/Slider";
 const Body = () => {
   return (
     <div className="body">
+      <Slider />
       <section>
         <NewCardSlider />
       </section>
