@@ -31,6 +31,7 @@ const Attraction = ({ tempData }) => {
   const [showCalculator, setShowCalculator] = useState(true);
   const [attractionsData, setAttractionsData] = useState([]);
   const [show, setShow] = useState(false);
+  const [favoriteCard, setFavoriteCard] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(
     tempData[lng]?.ATTRACTIONS_order_by_popularity
   );
@@ -588,9 +589,31 @@ const Attraction = ({ tempData }) => {
                 </button>
               </a>
             </div>{" "}
-            <div style={{ height: "50px", width: "50px", background: "red" }}>
-              Burada Calculator Olacak
-            </div>
+            {showCalculator === false ? null : (
+              <div className="calculator">
+                <div className="calculator-container">
+                  <div className="calculator-header">
+                    <span className="calculator-header-text">
+                      {" "}
+                      {tempData[lng]?.CALCULATOR_title}
+                    </span>
+                  </div>
+                  <div className="calculator-body">
+                    <div className="calculator-none-fav">
+                      {tempData[lng]?.CALCULATOR_tip}{" "}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="calculator-footer-button">
+                      <span className="calculator-footer-button-text">
+                        {tempData[lng]?.CALCULATOR_check_my_savings_btn}
+                      </span>{" "}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </section>
         </div>
       </main>
