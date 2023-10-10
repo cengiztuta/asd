@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import "./Attraction.css";
+import "./Components/AreaList.css";
 import { Input, background } from "@chakra-ui/react";
 import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
 import { LuLayoutGrid, LuList, LuMapPin } from "react-icons/lu";
@@ -23,15 +24,15 @@ import {
 
 import FreeAttractions from "./Components/FreeAttractions";
 import AreaCard from "./Components/AreaCard";
-import AreaList from "./Components/AreaList";
-import { use } from "i18next";
+
 const Attraction = ({ tempData }) => {
+  const DataURL = process.env.REACT_APP_DATA_URL;
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
   const [showCalculator, setShowCalculator] = useState(true);
   const [attractionsData, setAttractionsData] = useState([]);
   const [show, setShow] = useState(false);
-  const [favoriteCard, setFavoriteCard] = useState(null);
+  const [favoriteCard, setFavoriteCard] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState(
     tempData[lng]?.ATTRACTIONS_order_by_popularity
   );
@@ -51,17 +52,40 @@ const Attraction = ({ tempData }) => {
   const [activeIcon, setActiveIcon] = useState(1);
 
   const api = process.env.REACT_APP_IMAGE_URL;
-
-  const [filledItems, setFilledItems] = useState({});
+  const [selectedCardData, setSelectedCardData] = useState([]);
+  const [filledItems, setFilledItems] = useState([]);
   const handleCalculatorClick = () => {
     setShowCalculator(!showCalculator);
   };
   const FavoriteArea = (index) => {
-    setFilledItems((prevFilledItems) => ({
-      ...prevFilledItems,
-      [index]: !prevFilledItems[index],
-    }));
+    // Eğer kart zaten seçiliyse, seçimi kaldır ve kalbi güncelle
+    if (filledItems[index]) {
+      const updatedFilledItems = { ...filledItems };
+      delete updatedFilledItems[index];
+      setFilledItems(updatedFilledItems);
+      removeCard(index);
+    } else {
+      const selectedCard = attractionsFilteredCardData[index];
+      setSelectedCardData((prevData) => [
+        ...prevData,
+        { index, card: selectedCard },
+      ]);
+      setFilledItems({ ...filledItems, [index]: true });
+    }
   };
+
+  const removeCard = (index) => {
+    const updatedSelectedCardData = selectedCardData.filter(
+      (card) => card.index !== index
+    );
+    setSelectedCardData(updatedSelectedCardData);
+
+    // Kalp simgesini güncelle
+    const updatedFilledItems = { ...filledItems };
+    delete updatedFilledItems[index];
+    setFilledItems(updatedFilledItems);
+  };
+  console.log(selectedCardData);
   const handleButtonClick = (index) => {
     setSelectedArea(index);
     filteredDataNew(attractionsCategoryData[index]);
@@ -75,9 +99,7 @@ const Attraction = ({ tempData }) => {
 
   const getAttractionsCardData = async () => {
     try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/object/attraction/"
-      );
+      const response = await axios.get(`${DataURL}object/attraction/`);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -97,7 +119,7 @@ const Attraction = ({ tempData }) => {
   const getAttractionsData = async () => {
     try {
       const response = await axios.get(
-        "https://api2.praguecoolpass.com/pages/5fe31408c1478823bac06380"
+        ` ${DataURL}pages/5fe31408c1478823bac06380`
       );
       return response.data;
     } catch (error) {
@@ -117,9 +139,7 @@ const Attraction = ({ tempData }) => {
 
   const getAttractionsCategoryData = async () => {
     try {
-      const response = await axios.get(
-        "https://api2.praguecoolpass.com/category"
-      );
+      const response = await axios.get(`${DataURL}category`);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -137,7 +157,7 @@ const Attraction = ({ tempData }) => {
 
   const getRegionsData = async () => {
     try {
-      const response = await axios.get("https://api2.praguecoolpass.com/area");
+      const response = await axios.get(`${DataURL}area`);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -155,8 +175,7 @@ const Attraction = ({ tempData }) => {
   const selectedTitlesIndex = [
     1, 11, 12, 16, 15, 2, 3, 13, 6, 7, 14, 9, 8, 5, 10,
   ];
-  const selectedCategoryIndex = [1, 2, 3, 4, 5, 9, 10, 12, 13];
-  const selectedTourIndex = [6, 7, 8];
+
   const areaIndex = [1, 11, 12, 16, 15, 2, 3, 13];
 
   const [showMoreText, setShowMoreText] = useState(tempData?.[lng]?.SHOW_MORE);
@@ -249,8 +268,12 @@ const Attraction = ({ tempData }) => {
   const resetData = () => {
     setAttractionsFilteredData(attractionsCardData);
   };
+  const clearAll = () => {
+    // Tüm seçili kartları temizle
+    setSelectedCardData([]);
+    setFilledItems([]);
+  };
 
-  console.log();
   return (
     <div>
       <section
@@ -599,12 +622,59 @@ const Attraction = ({ tempData }) => {
                     </span>
                   </div>
                   <div className="calculator-body">
-                    <div className="calculator-none-fav">
-                      {tempData[lng]?.CALCULATOR_tip}{" "}
-                    </div>
+                    {selectedCardData.length > 0 ? (
+                      <div>
+                        <div className="liked-attractions-title">
+                          <p className="calculator-selected-card-adult">
+                            Normal Adult Price
+                          </p>
+                        </div>
+                        <div>
+                          {selectedCardData.map((item, index) => (
+                            <div className="attractions-list">
+                              <div
+                                style={{
+                                  display: "flex",
+                                  background: "white",
+                                  marginTop: "5px",
+                                  minHeight: "16px",
+                                  alignItems: "center",
+                                }}
+                                key={index}
+                              >
+                                <p className="attractions-list-title">
+                                  {item.card.content[lng]?.title}
+                                </p>
+                                <p className="attractions-list-price">
+                                  {" "}
+                                  {item.card.priceAdult} Kč
+                                </p>
+                                <div
+                                  className="attractions-list_delete"
+                                  onClick={() => removeCard(index)}
+                                ></div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="calculator-none-fav">
+                        {tempData[lng]?.CALCULATOR_tip}
+                      </div>
+                    )}
                   </div>
 
                   <div>
+                    <div className="clear-button-container">
+                      {selectedCardData.length > 0 ? (
+                        <div className="clear-button">
+                          <span className="clear" onClick={clearAll}>
+                            {tempData[lng]?.CALC_CLEAR}
+                          </span>
+                        </div>
+                      ) : null}
+                    </div>
                     <div className="calculator-footer-button">
                       <span className="calculator-footer-button-text">
                         {tempData[lng]?.CALCULATOR_check_my_savings_btn}
@@ -646,10 +716,10 @@ const Attraction = ({ tempData }) => {
                 className="area-card"
                 style={{
                   backgroundImage: `url(${api}${
-                    regionsData[index - 1]?.webimages
+                    regionsData[index - 1]?.images[0]
                   })`,
                   backgroundSize: "cover",
-                  backgroundPosition: "center",
+                  backgroundPosition: "50%",
                 }}
                 key={index}
               >

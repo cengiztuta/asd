@@ -8,8 +8,6 @@ import { setTempData, setTempDataTwo } from "../../../redux/action.js";
 import { fetchData, fetchDataTwo } from "../../../dataFetching.js";
 
 const FreeCard = ({ tempData, card }) => {
-  const [isFilled, setIsFilled] = useState(false);
-  const [filled, setFilled] = useState(false);
   const api = process.env.REACT_APP_IMAGE_URL;
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
@@ -41,7 +39,7 @@ const FreeCard = ({ tempData, card }) => {
         <Box className="free-card-footer-content">
           <p className="free-card-title">{card.content[lng]?.title}</p>
         </Box>
-       
+
         {show && (
           <Box className="free-card-footer-text-content">
             <Text className="free-card-footer-text">
