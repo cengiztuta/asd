@@ -58,7 +58,6 @@ const Attraction = ({ tempData }) => {
     setShowCalculator(!showCalculator);
   };
   const FavoriteArea = (index) => {
-    // Eğer kart zaten seçiliyse, seçimi kaldır ve kalbi güncelle
     if (filledItems[index]) {
       const updatedFilledItems = { ...filledItems };
       delete updatedFilledItems[index];
@@ -79,8 +78,6 @@ const Attraction = ({ tempData }) => {
       (card) => card.index !== index
     );
     setSelectedCardData(updatedSelectedCardData);
-
-    // Kalp simgesini güncelle
     const updatedFilledItems = { ...filledItems };
     delete updatedFilledItems[index];
     setFilledItems(updatedFilledItems);
@@ -112,6 +109,7 @@ const Attraction = ({ tempData }) => {
     setAttractionsCardData(data);
     setAttractionsFilteredData(data);
   };
+
   useEffect(() => {
     fetchAttractionsCardData();
   }, []);
@@ -129,7 +127,6 @@ const Attraction = ({ tempData }) => {
   };
   const fetchAttractionsData = async () => {
     const data = await getAttractionsData();
-
     setAttractionsData(data);
     setAttractionsContentData(data.content);
   };
@@ -245,12 +242,6 @@ const Attraction = ({ tempData }) => {
     "59f5f6a155b58747073c3e89",
   ];
   const categoryOutsideID = { _id: "62d12641116d510b0126d420" };
-  const allTours = [
-    { _id: "62d12641116d510b0126d420" },
-    { _id: "59f5f69a55b58747073c3e88" },
-    { _id: "5f5792d8418c980b69d941bc" },
-    { _id: "59f5f6a155b58747073c3e89" },
-  ];
 
   const filteredDataNew = (item) => {
     const filteredData = attractionsCardData.filter((i) => {
@@ -269,7 +260,6 @@ const Attraction = ({ tempData }) => {
     setAttractionsFilteredData(attractionsCardData);
   };
   const clearAll = () => {
-    // Tüm seçili kartları temizle
     setSelectedCardData([]);
     setFilledItems([]);
   };
