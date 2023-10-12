@@ -8,55 +8,70 @@ import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
 import { LuLayoutGrid, LuList, LuMapPin } from "react-icons/lu";
 import { GoTriangleDown } from "react-icons/go";
 import { connect } from "react-redux";
-import { setTempData, setTempDataTwo } from "../../redux/action.js";
-import { fetchData, fetchDataTwo } from "../../dataFetching";
+import {
+  setTempData,
+  setAttractionsCategoryData,
+  setAttractionsCardData,
+} from "../../redux/action.js";
+import {
+  fetchData,
+  fetchAttractionsCategoryData,
+  fetchAttractionsCardData,
+} from "../../dataFetching";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import {
-  ChakraProvider,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   Button,
   Box,
-  Text,
 } from "@chakra-ui/react";
-
 import FreeAttractions from "./Components/FreeAttractions";
 import AreaCard from "./Components/AreaCard";
-
-const Attraction = ({ tempData }) => {
+import PragueAreas from "./Components/PragueAreas";
+const Attraction = ({
+  tempData,
+  attractionsCategoryData,
+  attractionsCardData,
+}) => {
   const DataURL = process.env.REACT_APP_DATA_URL;
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const lng = i18n.language;
   const [showCalculator, setShowCalculator] = useState(true);
   const [attractionsData, setAttractionsData] = useState([]);
-  const [show, setShow] = useState(false);
-  const [favoriteCard, setFavoriteCard] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState(
     tempData[lng]?.ATTRACTIONS_order_by_popularity
   );
   const [showGrid, setShowGrid] = useState(true);
   const [showList, setShowList] = useState(false);
   const [showMap, setShowMap] = useState(false);
-  const [attractionsCategoryData, setAttractionsCategoryData] = useState([]);
   const [selectedArea, setSelectedArea] = useState(null);
   const [regionsData, setRegionsData] = useState([]);
   const [attractionsContentData, setAttractionsContentData] = useState([]);
-  const [attractionsCardData, setAttractionsCardData] = useState([]);
   const [attractionsFilteredCardData, setAttractionsFilteredData] = useState(
     []
   );
-
   const [cardLength, setCardLength] = useState(15);
   const [activeIcon, setActiveIcon] = useState(1);
-
   const api = process.env.REACT_APP_IMAGE_URL;
   const [selectedCardData, setSelectedCardData] = useState([]);
   const [filledItems, setFilledItems] = useState([]);
+  const selectedTitlesIndex = [
+    1, 11, 12, 16, 15, 2, 3, 13, 6, 7, 14, 9, 8, 5, 10,
+  ];
   const handleCalculatorClick = () => {
     setShowCalculator(!showCalculator);
   };
+  useEffect(() => {
+    fetchData();
+    fetchAttractionsCategoryData();
+    fetchAttractionsCardData();
+  }, []);
+  useEffect(() => {
+    setAttractionsFilteredData(attractionsCardData);
+    setSelectedArea("change");
+  }, [attractionsCardData]);
   const FavoriteArea = (index) => {
     if (filledItems[index]) {
       const updatedFilledItems = { ...filledItems };
@@ -82,7 +97,7 @@ const Attraction = ({ tempData }) => {
     delete updatedFilledItems[index];
     setFilledItems(updatedFilledItems);
   };
-  console.log(selectedCardData);
+
   const handleButtonClick = (index) => {
     setSelectedArea(index);
     filteredDataNew(attractionsCategoryData[index]);
@@ -90,29 +105,6 @@ const Attraction = ({ tempData }) => {
   const handleClick = (iconNumber) => {
     setActiveIcon(iconNumber);
   };
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const getAttractionsCardData = async () => {
-    try {
-      const response = await axios.get(`${DataURL}object/attraction/`);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchAttractionsCardData = async () => {
-    const data = await getAttractionsCardData();
-
-    setAttractionsCardData(data);
-    setAttractionsFilteredData(data);
-  };
-
-  useEffect(() => {
-    fetchAttractionsCardData();
-  }, []);
 
   const getAttractionsData = async () => {
     try {
@@ -134,24 +126,6 @@ const Attraction = ({ tempData }) => {
     fetchAttractionsData();
   }, []);
 
-  const getAttractionsCategoryData = async () => {
-    try {
-      const response = await axios.get(`${DataURL}category`);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchAttractionsCategoryData = async () => {
-    const data = await getAttractionsCategoryData();
-
-    setAttractionsCategoryData(data);
-  };
-  useEffect(() => {
-    fetchAttractionsCategoryData();
-  }, []);
-
   const getRegionsData = async () => {
     try {
       const response = await axios.get(`${DataURL}area`);
@@ -169,11 +143,6 @@ const Attraction = ({ tempData }) => {
   useEffect(() => {
     fetchRegionsData();
   }, []);
-  const selectedTitlesIndex = [
-    1, 11, 12, 16, 15, 2, 3, 13, 6, 7, 14, 9, 8, 5, 10,
-  ];
-
-  const areaIndex = [1, 11, 12, 16, 15, 2, 3, 13];
 
   const [showMoreText, setShowMoreText] = useState(tempData?.[lng]?.SHOW_MORE);
   const ShowMore = () => {
@@ -256,9 +225,7 @@ const Attraction = ({ tempData }) => {
     });
     setAttractionsFilteredData(filteredData);
   };
-  const resetData = () => {
-    setAttractionsFilteredData(attractionsCardData);
-  };
+
   const clearAll = () => {
     setSelectedCardData([]);
     setFilledItems([]);
@@ -412,15 +379,7 @@ const Attraction = ({ tempData }) => {
                   >
                     {tempData[lng]?.AREA_all_areas_btn}
                   </MenuButton>
-                  <MenuList
-                    maxH="200px"
-                    overflowY="scroll"
-                    overflowX={"none"}
-                    width={"198px"}
-                    borderWidth={1}
-                    borderColor={"red"}
-                    zIndex={100}
-                  >
+                  <MenuList className="region-list" zIndex={100}>
                     <MenuItem className="menu-item">
                       {tempData[lng]?.AREA_all_areas_btn}
                     </MenuItem>
@@ -459,7 +418,6 @@ const Attraction = ({ tempData }) => {
                       setSelectedRegion(
                         tempData[lng]?.ATTRACTIONS_order_by_popularity
                       );
-                      resetData();
                     }}
                   >
                     {tempData[lng]?.ATTRACTIONS_order_by_popularity}
@@ -700,41 +658,7 @@ const Attraction = ({ tempData }) => {
           <h3 className="area-title">
             {tempData[lng]?.ATTRACTIONS_prague_areas}
           </h3>
-          <div className="areas-wrapper">
-            {areaIndex.map((index) => (
-              <div
-                className="area-card"
-                style={{
-                  backgroundImage: `url(${api}${
-                    regionsData[index - 1]?.images[0]
-                  })`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "50%",
-                }}
-                key={index}
-              >
-                <Box
-                  className="free-card-footer"
-                  onMouseEnter={() => setShow(index)}
-                  onMouseLeave={() => setShow(false)}
-                >
-                  <Box className="free-card-footer-content">
-                    <p className="free-card-title">
-                      {regionsData[index - 1]?.content[lng]?.title}
-                    </p>
-                  </Box>
-                  ;
-                  {show === index && (
-                    <Box className="free-card-footer-text-content">
-                      <Text className="free-card-footer-text" key={index}>
-                        {regionsData[index - 1]?.content?.en?.subtitle}
-                      </Text>
-                    </Box>
-                  )}
-                </Box>
-              </div>
-            ))}
-          </div>
+          <PragueAreas />
           <a className="area-link">
             {" "}
             <button className="area-button">
@@ -749,6 +673,12 @@ const Attraction = ({ tempData }) => {
 
 const mapStateToProps = (state) => ({
   tempData: state.tempData,
+  attractionsCategoryData: state.attractionsCategoryData,
+  attractionsCardData: state.attractionsCardData,
 });
 
-export default connect(mapStateToProps, { setTempData })(Attraction);
+export default connect(mapStateToProps, {
+  setTempData,
+  setAttractionsCategoryData,
+  setAttractionsCardData,
+})(Attraction);

@@ -4,7 +4,9 @@ const initialState = {
   tempData: [],
   tempDataTwo: [],
   newsData: [],
-  tempDataTwoImages : [],
+  tempDataTwoImages: [],
+  attractionsCategoryData: [],
+  attractionsCardData: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -28,6 +30,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         newsData: action.payload,
+      };
+    case "SET_ATTRACTIONS_CATEGORY_DATA":
+      return {
+        ...state,
+        attractionsCategoryData: action.payload,
+      };
+    case "SET_ATTRACTIONS_CARD_DATA":
+      return {
+        ...state,
+        attractionsCardData: action.payload,
       };
     default:
       return state;

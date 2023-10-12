@@ -22,3 +22,15 @@ export const setNewsData = (data) => {
     payload: data,
   };
 };
+export const setAttractionsCategoryData = (data) => {
+  return {
+    type: "SET_ATTRACTIONS_CATEGORY_DATA",
+    payload: data,
+  };
+};
+export const setAttractionsCardData = (data) => {
+  return {
+    type: "SET_ATTRACTIONS_CARD_DATA",
+    payload: data,
+  };
+};

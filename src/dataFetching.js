@@ -4,6 +4,8 @@ import {
   setTempData,
   setTempDataTwo,
   setTempDataTwoImages,
+  setAttractionsCategoryData,
+  setAttractionsCardData,
 } from "./redux/action";
 import store from "./redux/store";
 const dataURL = process.env.REACT_APP_DATA_URL;
@@ -42,6 +44,23 @@ export const fetchNewsData = async () => {
   try {
     const response = await axios.get(`${dataURL}news`);
     store.dispatch(setNewsData(response.data.slice(0, 2)));
+  } catch (error) {
+    console.log("error");
+  }
+};
+
+export const fetchAttractionsCategoryData = async () => {
+  try {
+    const response = await axios.get(`${dataURL}category`);
+    store.dispatch(setAttractionsCategoryData(response.data));
+  } catch (error) {
+    console.log("error");
+  }
+};
+export const fetchAttractionsCardData = async () => {
+  try {
+    const response = await axios.get(`${dataURL}object/attraction/`);
+    store.dispatch(setAttractionsCardData(response.data));
   } catch (error) {
     console.log("error");
   }
