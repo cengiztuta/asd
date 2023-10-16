@@ -52,3 +52,9 @@ export const setAttractionsRegionData = (data) => {
     payload: data,
   };
 };
+export const setFreeCardImages = (data) => {
+  return {
+    type: "SET_FREE_CARD_IMAGES",
+    payload: data,
+  };
+};

@@ -1,15 +1,15 @@
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./FreeAttractions.css";
 import { useTranslation } from "react-i18next";
 import { connect } from "react-redux";
-import { setTempData, setTempDataTwo } from "../../../redux/action.js";
-import { fetchData, fetchDataTwo } from "../../../dataFetching.js";
+import { setTempData } from "../../../redux/action.js";
+import { fetchData } from "../../../dataFetching.js";
 
 const FreeCard = ({ tempData, card }) => {
   const api = process.env.REACT_APP_IMAGE_URL;
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const lng = i18n.language;
   const [show, setShow] = useState(false);
   useEffect(() => {

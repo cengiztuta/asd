@@ -7,9 +7,9 @@ const initialState = {
   tempDataTwoImages: [],
   attractionsCategoryData: [],
   attractionsCardData: [],
-  attractionsData:[],
-  attractionsContentData:[],
-  attractionsRegionData:[],
+  attractionsData: [],
+  attractionsContentData: [],
+  attractionsRegionData: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -58,6 +58,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         attractionsRegionData: action.payload,
+      };
+    case "SET_FREE_CARD_IMAGES":
+      return {
+        ...state,
+        freeCardImages: action.payload,
       };
     default:
       return state;

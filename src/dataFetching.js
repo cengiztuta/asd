@@ -9,6 +9,7 @@ import {
   setAttractionsData,
   setAttractionsContentData,
   setAttractionsRegionData,
+  setFreeCardImages,
 } from "./redux/action";
 import store from "./redux/store";
 const dataURL = process.env.REACT_APP_DATA_URL;
@@ -83,6 +84,16 @@ export const fetchAttractionsRegionData = async () => {
   try {
     const response = await axios.get(`${dataURL}area`);
     store.dispatch(setAttractionsRegionData(response.data));
+  } catch (error) {
+    console.log("error");
+  }
+};
+export const fetchFreeCardImages = async () => {
+  try {
+    const response = await axios.get(
+      `${dataURL}object/attraction/5a56f961ee67b73d3bfa5707`
+    );
+    store.dispatch(setFreeCardImages(response.data.slice(100, 107)));
   } catch (error) {
     console.log("error");
   }
