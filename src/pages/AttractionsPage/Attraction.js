@@ -12,11 +12,16 @@ import {
   setTempData,
   setAttractionsCategoryData,
   setAttractionsCardData,
+  setAttractionsData,
+  setAttractionsContentData,
+  setAttractionsRegionData,
 } from "../../redux/action.js";
 import {
   fetchData,
   fetchAttractionsCategoryData,
   fetchAttractionsCardData,
+  fetchAttractionsData,
+  fetchAttractionsRegionData,
 } from "../../dataFetching";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import {
@@ -34,12 +39,15 @@ const Attraction = ({
   tempData,
   attractionsCategoryData,
   attractionsCardData,
+  attractionsContentData,
+  attractionsData,
+  attractionsRegionData,
 }) => {
   const DataURL = process.env.REACT_APP_DATA_URL;
   const { i18n } = useTranslation();
   const lng = i18n.language;
   const [showCalculator, setShowCalculator] = useState(true);
-  const [attractionsData, setAttractionsData] = useState([]);
+
   const [selectedRegion, setSelectedRegion] = useState(
     tempData[lng]?.ATTRACTIONS_order_by_popularity
   );
@@ -47,8 +55,7 @@ const Attraction = ({
   const [showList, setShowList] = useState(false);
   const [showMap, setShowMap] = useState(false);
   const [selectedArea, setSelectedArea] = useState(null);
-  const [regionsData, setRegionsData] = useState([]);
-  const [attractionsContentData, setAttractionsContentData] = useState([]);
+
   const [attractionsFilteredCardData, setAttractionsFilteredData] = useState(
     []
   );
@@ -67,6 +74,8 @@ const Attraction = ({
     fetchData();
     fetchAttractionsCategoryData();
     fetchAttractionsCardData();
+    fetchAttractionsData();
+    fetchAttractionsRegionData();
   }, []);
   useEffect(() => {
     setAttractionsFilteredData(attractionsCardData);
@@ -105,44 +114,6 @@ const Attraction = ({
   const handleClick = (iconNumber) => {
     setActiveIcon(iconNumber);
   };
-
-  const getAttractionsData = async () => {
-    try {
-      const response = await axios.get(
-        ` ${DataURL}pages/5fe31408c1478823bac06380`
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchAttractionsData = async () => {
-    const data = await getAttractionsData();
-    setAttractionsData(data);
-    setAttractionsContentData(data.content);
-  };
-  useEffect(() => {
-    fetchAttractionsData();
-  }, []);
-
-  const getRegionsData = async () => {
-    try {
-      const response = await axios.get(`${DataURL}area`);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
-  const fetchRegionsData = async () => {
-    const data = await getRegionsData();
-
-    setRegionsData(data);
-  };
-  useEffect(() => {
-    fetchRegionsData();
-  }, []);
 
   const [showMoreText, setShowMoreText] = useState(tempData?.[lng]?.SHOW_MORE);
   const ShowMore = () => {
@@ -385,7 +356,10 @@ const Attraction = ({
                     </MenuItem>
                     {selectedTitlesIndex.map((index) => (
                       <MenuItem className="menu-item" key={index}>
-                        {regionsData[index - 1]?.content?.[lng]?.title}
+                        {
+                          attractionsRegionData[index - 1]?.content?.[lng]
+                            ?.title
+                        }
                       </MenuItem>
                     ))}
                   </MenuList>
@@ -675,10 +649,16 @@ const mapStateToProps = (state) => ({
   tempData: state.tempData,
   attractionsCategoryData: state.attractionsCategoryData,
   attractionsCardData: state.attractionsCardData,
+  attractionsData: state.attractionsData,
+  attractionsRegionData: state.attractionsRegionData,
+  attractionsContentData: state.attractionsContentData,
 });
 
 export default connect(mapStateToProps, {
   setTempData,
   setAttractionsCategoryData,
   setAttractionsCardData,
+  setAttractionsData,
+  setAttractionsContentData,
+  setAttractionsRegionData,
 })(Attraction);

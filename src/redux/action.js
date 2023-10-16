@@ -34,3 +34,21 @@ export const setAttractionsCardData = (data) => {
     payload: data,
   };
 };
+export const setAttractionsData = (data) => {
+  return {
+    type: "SET_ATTRACTIONS_DATA",
+    payload: data,
+  };
+};
+export const setAttractionsContentData = (data) => {
+  return {
+    type: "SET_ATTRACTIONS_CONTENT_DATA",
+    payload: data,
+  };
+};
+export const setAttractionsRegionData = (data) => {
+  return {
+    type: "SET_ATTRACTIONS_REGION_DATA",
+    payload: data,
+  };
+};

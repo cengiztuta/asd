@@ -148,6 +148,7 @@
   display: flex;
   cursor: pointer;
   align-items: center;
+  user-select: none;
 }
 .category:hover {
   background: white;
@@ -173,6 +174,7 @@
   display: flex;
   cursor: pointer;
   align-items: center;
+  user-select: none;
 }
 .seperator {
   width: 100%;

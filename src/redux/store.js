@@ -7,6 +7,9 @@ const initialState = {
   tempDataTwoImages: [],
   attractionsCategoryData: [],
   attractionsCardData: [],
+  attractionsData:[],
+  attractionsContentData:[],
+  attractionsRegionData:[],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -40,6 +43,21 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         attractionsCardData: action.payload,
+      };
+    case "SET_ATTRACTIONS_DATA":
+      return {
+        ...state,
+        attractionsData: action.payload,
+      };
+    case "SET_ATTRACTIONS_CONTENT_DATA":
+      return {
+        ...state,
+        attractionsContentData: action.payload,
+      };
+    case "SET_ATTRACTIONS_REGION_DATA":
+      return {
+        ...state,
+        attractionsRegionData: action.payload,
       };
     default:
       return state;
