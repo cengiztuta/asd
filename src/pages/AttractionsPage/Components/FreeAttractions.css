@@ -51,7 +51,7 @@
   background-size: cover;
   background-position: 50%;
   background-repeat: no-repeat;
-  cursor: pointer;
+  cursor: pointer;  user-select: none;
 }
 .free-card-benefit {
   position: absolute;
@@ -65,8 +65,10 @@
   border-radius: 5px 0 0 5px;
   display: flex;
   column-gap: 2px;
+  user-select: none;
 }
 .free-benefit-text {
+  user-select: none;
   font-family: Open Sans, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -80,6 +82,7 @@
   -webkit-box-align: center;
 }
 .free-card-footer {
+  user-select: none;
   height: 60px;
   position: absolute;
   display: flex;
@@ -92,9 +95,11 @@
   border-radius: 0 0 10px 10px;
 }
 .free-card-footer:hover {
+  user-select: none;
   height: 100px;
 }
 .free-card-footer-content {
+  user-select: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,6 +107,7 @@
   height: 60px;
 }
 .free-card-title {
+  user-select: none;
   font-family: Open Sans Semibold, sans-serif;
   font-weight: 600;
   font-style: normal;

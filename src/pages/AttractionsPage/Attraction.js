@@ -37,6 +37,7 @@ const Attraction = ({
 }) => {
   const { i18n } = useTranslation();
   const lng = i18n.language;
+  const [showMoreText, setShowMoreText] = useState(tempData?.[lng]?.SHOW_MORE);
   const [showCalculator, setShowCalculator] = useState(true);
   const [selectedRegion, setSelectedRegion] = useState();
   const [showGrid, setShowGrid] = useState(true);
@@ -103,7 +104,6 @@ const Attraction = ({
     setActiveIcon(iconNumber);
   };
 
-  const [showMoreText, setShowMoreText] = useState(tempData?.[lng]?.SHOW_MORE);
   const ShowMore = () => {
     setCardLength(cardLength + 30);
     if (cardLength >= 105) {
